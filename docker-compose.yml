@@ -1,0 +1,9 @@
+services:
+  quiz-app:
+    build:
+      context: ./quiz-app
+      dockerfile: Dockerfile
+    container_name: mln_quiz_app
+    ports:
+      - "8080:80"
+    restart: always
