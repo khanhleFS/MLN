@@ -34,17 +34,17 @@ const CHAPTERS = [
 ];
 
 const TOPICS = [
-  { id: 'all', title: 'Tất cả đề mục' },
-  { id: '1.1', title: '1.1. Khái lược & Vấn đề cơ bản của triết học (Trang 11-47)' },
-  { id: '1.2', title: '1.2. Triết học Mác - Lênin và vai trò (Trang 47-116)' },
-  { id: '2.1', title: '2.1. Vật chất và ý thức (Trang 117-182)' },
-  { id: '2.2', title: '2.2. Phép biện chứng duy vật (Trang 182-257)' },
-  { id: '2.3', title: '2.3. Lý luận nhận thức duy vật biện chứng (Trang 257-283)' },
-  { id: '3.1', title: '3.1. Học thuyết hình thái KT - XH (Trang 284-329)' },
-  { id: '3.2', title: '3.2. Giai cấp và dân tộc (Trang 329-384)' },
-  { id: '3.3', title: '3.3. Nhà nước và cách mạng xã hội (Trang 384-419)' },
-  { id: '3.4', title: '3.4. Ý thức xã hội (Trang 419-447)' },
-  { id: '3.5', title: '3.5. Triết học về con người (Trang 447-489)' },
+  { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
+  { id: '1.1', chapter: 1, title: '1.1. Triết học & Vấn đề cơ bản của triết học (Trang 11-47)' },
+  { id: '1.2', chapter: 1, title: '1.2. Triết học Mác - Lênin và vai trò (Trang 47-116)' },
+  { id: '2.1', chapter: 2, title: '2.1. Vật chất và ý thức (Trang 117-182)' },
+  { id: '2.2', chapter: 2, title: '2.2. Phép biện chứng duy vật (Trang 182-257)' },
+  { id: '2.3', chapter: 2, title: '2.3. Lý luận nhận thức duy vật biện chứng (Trang 257-283)' },
+  { id: '3.1', chapter: 3, title: '3.1. Học thuyết hình thái KT - XH (Trang 284-329)' },
+  { id: '3.2', chapter: 3, title: '3.2. Giai cấp và dân tộc (Trang 329-384)' },
+  { id: '3.3', chapter: 3, title: '3.3. Nhà nước và cách mạng xã hội (Trang 384-419)' },
+  { id: '3.4', chapter: 3, title: '3.4. Ý thức xã hội (Trang 419-447)' },
+  { id: '3.5', chapter: 3, title: '3.5. Triết học về con người (Trang 447-489)' },
 ];
 
 export default function App() {
@@ -135,6 +135,34 @@ export default function App() {
       return true;
     });
   }, [selectedChapter, selectedTopic, onlyBookmarked, searchQuery, bookmarks]);
+
+  // Handle Chapter filter change with bidirectional sync
+  const handleChapterChange = (chapterId) => {
+    setSelectedChapter(chapterId);
+    setCurrentIndex(0);
+    setShowExplanation(false);
+    // If the currently selected topic does not belong to the selected chapter, reset topic
+    if (selectedTopic !== 'all') {
+      const currentTopicObj = TOPICS.find((t) => t.id === selectedTopic);
+      if (chapterId !== 'all' && currentTopicObj?.chapter !== chapterId) {
+        setSelectedTopic('all');
+      }
+    }
+  };
+
+  // Handle Subtopic filter change with bidirectional sync
+  const handleTopicChange = (topicId) => {
+    setSelectedTopic(topicId);
+    setCurrentIndex(0);
+    setShowExplanation(false);
+    // If a specific topic is selected, automatically activate the corresponding Chapter tab
+    if (topicId !== 'all') {
+      const topicObj = TOPICS.find((t) => t.id === topicId);
+      if (topicObj && topicObj.chapter && topicObj.chapter !== 'all') {
+        setSelectedChapter(topicObj.chapter);
+      }
+    }
+  };
 
   // Ensure currentIndex stays in bound when filters change
   useEffect(() => {
@@ -484,10 +512,7 @@ export default function App() {
                       <button
                         key={ch.id}
                         className={`pill-btn ${selectedChapter === ch.id ? 'active' : ''}`}
-                        onClick={() => {
-                          setSelectedChapter(ch.id);
-                          setCurrentIndex(0);
-                        }}
+                        onClick={() => handleChapterChange(ch.id)}
                       >
                         {ch.short}
                         <span className="pill-count">{count}</span>
@@ -514,20 +539,61 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Subtopic Dropdown */}
+                {/* Subtopic Dropdown with Smart Filter and Grouping */}
                 <select
                   className="topic-select"
                   value={selectedTopic}
-                  onChange={(e) => {
-                    setSelectedTopic(e.target.value);
-                    setCurrentIndex(0);
-                  }}
+                  onChange={(e) => handleTopicChange(e.target.value)}
                 >
-                  {TOPICS.map((top) => (
-                    <option key={top.id} value={top.id}>
-                      {top.title}
-                    </option>
-                  ))}
+                  {selectedChapter === 'all' ? (
+                    <>
+                      <option value="all">Tất cả đề mục ({rawQuestions.length} câu)</option>
+                      <optgroup label="── Chương 1: Khái luận về triết học ──">
+                        {TOPICS.filter((t) => t.chapter === 1).map((top) => {
+                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                          return (
+                            <option key={top.id} value={top.id}>
+                              {top.title} ({cnt} câu)
+                            </option>
+                          );
+                        })}
+                      </optgroup>
+                      <optgroup label="── Chương 2: Chủ nghĩa duy vật biện chứng ──">
+                        {TOPICS.filter((t) => t.chapter === 2).map((top) => {
+                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                          return (
+                            <option key={top.id} value={top.id}>
+                              {top.title} ({cnt} câu)
+                            </option>
+                          );
+                        })}
+                      </optgroup>
+                      <optgroup label="── Chương 3: Chủ nghĩa duy vật lịch sử ──">
+                        {TOPICS.filter((t) => t.chapter === 3).map((top) => {
+                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                          return (
+                            <option key={top.id} value={top.id}>
+                              {top.title} ({cnt} câu)
+                            </option>
+                          );
+                        })}
+                      </optgroup>
+                    </>
+                  ) : (
+                    <>
+                      <option value="all">
+                        Tất cả đề mục Chương {selectedChapter} ({rawQuestions.filter((q) => q.chapter === selectedChapter).length} câu)
+                      </option>
+                      {TOPICS.filter((t) => t.chapter === selectedChapter).map((top) => {
+                        const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                        return (
+                          <option key={top.id} value={top.id}>
+                            {top.title} ({cnt} câu)
+                          </option>
+                        );
+                      })}
+                    </>
+                  )}
                 </select>
               </div>
 
@@ -572,6 +638,24 @@ export default function App() {
                 <AlertCircle size={48} style={{ margin: '0 auto 1rem', opacity: 0.5 }} />
                 <h3>Không tìm thấy câu hỏi phù hợp</h3>
                 <p>Vui lòng thử bỏ chọn các bộ lọc hoặc tìm kiếm bằng từ khóa khác.</p>
+                <button
+                  className="pill-btn"
+                  style={{
+                    margin: '1.25rem auto 0',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.6rem 1.25rem'
+                  }}
+                  onClick={() => {
+                    setSelectedChapter('all');
+                    setSelectedTopic('all');
+                    setOnlyBookmarked(false);
+                    setSearchQuery('');
+                  }}
+                >
+                  <RotateCcw size={15} /> Đặt lại tất cả bộ lọc
+                </button>
               </div>
             ) : (
               <div className="study-layout">
