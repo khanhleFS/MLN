@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import confetti from 'canvas-confetti';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   BookOpen,
   GraduationCap,
   Bookmark,
-  CheckCircle2,
-  XCircle,
   HelpCircle,
   Moon,
   Sun,
@@ -17,14 +16,30 @@ import {
   Check,
   X,
   AlertCircle,
-  BarChart2,
-  Compass,
   Keyboard,
   ExternalLink,
   Award,
-  Sparkles
+  Sparkles,
+  Trophy,
+  Flame,
+  Volume2,
+  VolumeX,
+  Zap,
+  Crown,
+  Star,
+  ShieldCheck,
+  Lock
 } from 'lucide-react';
 import rawQuestions from './data/questions.json';
+import {
+  playClickSound,
+  playCorrectSound,
+  playWrongSound,
+  playComboSound,
+  playLevelUpSound,
+  isAudioMuted,
+  setAudioMuted
+} from './utils/sound';
 
 const CHAPTERS = [
   { id: 'all', title: 'Tất cả 598 câu', short: 'Tất cả' },
@@ -47,12 +62,97 @@ const TOPICS = [
   { id: '3.5', chapter: 3, title: '3.5. Triết học về con người (Trang 447-489)' },
 ];
 
+const LEVEL_TITLES = [
+  'Tập sự Biện chứng',
+  'Người tìm Chân lý',
+  'Học giả Duy vật',
+  'Chiến sĩ Thực tiễn',
+  'Bậc thầy Nhận thức',
+  'Nhà tư tưởng Hình thái',
+  'Lý luận gia Cốt cán',
+  'Đại Triết gia Thượng thừa'
+];
+
+function getLevelTitle(level) {
+  const idx = Math.min(Math.max(0, level - 1), LEVEL_TITLES.length - 1);
+  return LEVEL_TITLES[idx];
+}
+
+const BADGES = [
+  { id: 'first_correct', title: 'Bước Chân Đầu Tiên', desc: 'Trả lời đúng câu hỏi đầu tiên trong ngân hàng', icon: 'zap' },
+  { id: 'streak_3', title: 'Khí Thế Sôi Sục', desc: 'Đạt chuỗi Combo 3 câu đúng liên tiếp', icon: 'flame' },
+  { id: 'streak_7', title: 'Bất Khả Chiến Bại', desc: 'Đạt chuỗi Combo 7 câu đúng liên tiếp', icon: 'crown' },
+  { id: 'exp_500', title: 'Tích Lũy Tri Thức', desc: 'Đạt từ 500 điểm kinh nghiệm (EXP) trở lên', icon: 'star' },
+  { id: 'century', title: 'Bách Khoa 100 Câu', desc: 'Đã hoàn thành 100 câu hỏi trắc nghiệm', icon: 'award' },
+  { id: 'bookmarker', title: 'Cẩn Tắc Vô Ưu', desc: 'Đã đánh dấu lưu trữ ít nhất 5 câu hỏi khó', icon: 'bookmark' },
+  { id: 'exam_passed', title: 'Vượt Ải Khảo Thí', desc: 'Hoàn thành bài thi thử 50 câu đạt từ 7.0 điểm', icon: 'shield' },
+  { id: 'exam_rank_s', title: 'Đại Triết Gia Rank S', desc: 'Đạt Rank S xuất sắc (từ 9.0 điểm trở lên) trong bài thi', icon: 'trophy' },
+];
+
+function getInitialStreak() {
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const lastDate = localStorage.getItem('mln_last_streak_date');
+    const savedStreak = parseInt(localStorage.getItem('mln_streak_count') || '1', 10);
+    if (!lastDate) {
+      localStorage.setItem('mln_last_streak_date', today);
+      localStorage.setItem('mln_streak_count', '1');
+      return 1;
+    }
+    if (lastDate === today) {
+      return savedStreak;
+    }
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    if (lastDate === yesterday) {
+      const nextStreak = savedStreak + 1;
+      localStorage.setItem('mln_last_streak_date', today);
+      localStorage.setItem('mln_streak_count', String(nextStreak));
+      return nextStreak;
+    } else {
+      localStorage.setItem('mln_last_streak_date', today);
+      localStorage.setItem('mln_streak_count', '1');
+      return 1;
+    }
+  } catch {
+    return 1;
+  }
+}
+
 export default function App() {
   // Theme state
   const [theme, setTheme] = useState(() => localStorage.getItem('mln_theme') || 'dark');
   
   // App Mode: 'study' | 'exam'
   const [mode, setMode] = useState('study');
+
+  // Gamification States
+  const [exp, setExp] = useState(() => {
+    try {
+      return parseInt(localStorage.getItem('mln_player_exp') || '0', 10);
+    } catch {
+      return 0;
+    }
+  });
+
+  const [streak] = useState(getInitialStreak);
+  const [combo, setCombo] = useState(0);
+  const [isMuted, setIsMuted] = useState(() => isAudioMuted());
+  const [showBadgesModal, setShowBadgesModal] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  // Unlocked Badges (Set of IDs)
+  const [unlockedBadges, setUnlockedBadges] = useState(() => {
+    try {
+      const saved = localStorage.getItem('mln_unlocked_badges');
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+
+  // Calculate Level and EXP Progress
+  const level = useMemo(() => Math.floor(exp / 100) + 1, [exp]);
+  const expInLevel = useMemo(() => exp % 100, [exp]);
 
   // Study filters
   const [selectedChapter, setSelectedChapter] = useState('all');
@@ -102,6 +202,54 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 minutes in seconds
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
+  const [examEarnedExp, setExamEarnedExp] = useState(0);
+
+  // Helper to trigger gamified toast notification
+  const triggerToast = useCallback((title, subtitle) => {
+    setToast({ title, subtitle });
+    setTimeout(() => {
+      setToast(null);
+    }, 3500);
+  }, []);
+
+  // Helper to unlock badges
+  const unlockBadge = useCallback((badgeId) => {
+    setUnlockedBadges((prev) => {
+      if (prev.has(badgeId)) return prev;
+      const next = new Set(prev);
+      next.add(badgeId);
+      localStorage.setItem('mln_unlocked_badges', JSON.stringify(Array.from(next)));
+      const badgeObj = BADGES.find(b => b.id === badgeId);
+      if (badgeObj) {
+        playLevelUpSound();
+        triggerToast('🏆 MỞ KHÓA HUY HIỆU!', badgeObj.title);
+      }
+      return next;
+    });
+  }, [triggerToast]);
+
+  // Helper to add EXP and detect Level-Up
+  const addExp = useCallback((amount) => {
+    setExp((prev) => {
+      const next = prev + amount;
+      localStorage.setItem('mln_player_exp', String(next));
+      const oldLevel = Math.floor(prev / 100) + 1;
+      const newLevel = Math.floor(next / 100) + 1;
+      if (newLevel > oldLevel) {
+        playLevelUpSound();
+        confetti({
+          particleCount: 80,
+          spread: 60,
+          origin: { y: 0.3 }
+        });
+        triggerToast(`🎉 THĂNG CẤP: LEVEL ${newLevel}!`, `Danh hiệu: ${getLevelTitle(newLevel)}`);
+      }
+      if (next >= 500) {
+        unlockBadge('exp_500');
+      }
+      return next;
+    });
+  }, [triggerToast, unlockBadge]);
 
   // Sync theme to root DOM
   useEffect(() => {
@@ -112,12 +260,19 @@ export default function App() {
   // Sync bookmarks to localStorage
   useEffect(() => {
     localStorage.setItem('mln_bookmarks', JSON.stringify(Array.from(bookmarks)));
-  }, [bookmarks]);
+    if (bookmarks.size >= 5) {
+      unlockBadge('bookmarker');
+    }
+  }, [bookmarks, unlockBadge]);
 
   // Sync study answers to localStorage
   useEffect(() => {
     localStorage.setItem('mln_study_answers', JSON.stringify(studyAnswers));
-  }, [studyAnswers]);
+    const count = Object.keys(studyAnswers).length;
+    if (count >= 100) {
+      unlockBadge('century');
+    }
+  }, [studyAnswers, unlockBadge]);
 
   // Filter questions for Study Mode
   const filteredQuestions = useMemo(() => {
@@ -136,12 +291,12 @@ export default function App() {
     });
   }, [selectedChapter, selectedTopic, onlyBookmarked, searchQuery, bookmarks]);
 
-  // Handle Chapter filter change with bidirectional sync
+  // Handle Chapter filter change
   const handleChapterChange = (chapterId) => {
     setSelectedChapter(chapterId);
     setCurrentIndex(0);
     setShowExplanation(false);
-    // If the currently selected topic does not belong to the selected chapter, reset topic
+    playClickSound();
     if (selectedTopic !== 'all') {
       const currentTopicObj = TOPICS.find((t) => t.id === selectedTopic);
       if (chapterId !== 'all' && currentTopicObj?.chapter !== chapterId) {
@@ -150,12 +305,12 @@ export default function App() {
     }
   };
 
-  // Handle Subtopic filter change with bidirectional sync
+  // Handle Subtopic filter change
   const handleTopicChange = (topicId) => {
     setSelectedTopic(topicId);
     setCurrentIndex(0);
     setShowExplanation(false);
-    // If a specific topic is selected, automatically activate the corresponding Chapter tab
+    playClickSound();
     if (topicId !== 'all') {
       const topicObj = TOPICS.find((t) => t.id === topicId);
       if (topicObj && topicObj.chapter && topicObj.chapter !== 'all') {
@@ -165,16 +320,13 @@ export default function App() {
   };
 
   // Ensure currentIndex stays in bound when filters change
-  useEffect(() => {
-    if (currentIndex >= filteredQuestions.length && filteredQuestions.length > 0) {
-      setCurrentIndex(0);
-    }
-  }, [filteredQuestions.length, currentIndex]);
-
-  const currentQ = filteredQuestions[currentIndex] || null;
+  const activeQuestionsCount = filteredQuestions.length;
+  const safeCurrentIndex = activeQuestionsCount > 0 ? Math.min(currentIndex, activeQuestionsCount - 1) : 0;
+  const currentQ = activeQuestionsCount > 0 ? filteredQuestions[safeCurrentIndex] : null;
 
   // Toggle bookmark helper
   const toggleBookmark = (id) => {
+    playClickSound();
     setBookmarks((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
@@ -182,6 +334,54 @@ export default function App() {
       return next;
     });
   };
+
+  // Submit & Calculate Exam Results
+  const finishExam = useCallback(() => {
+    setExamStatus('result');
+    setShowSubmitConfirm(false);
+    
+    // Calculate score
+    let correctCount = 0;
+    examQuestions.forEach((q) => {
+      const userSelected = examAnswers[q.id] || [];
+      const isCorrect = 
+        userSelected.length === q.correctAnswers.length &&
+        userSelected.every(ans => q.correctAnswers.includes(ans));
+      if (isCorrect) correctCount++;
+    });
+
+    const scoreNum = Number(((correctCount / examQuestions.length) * 10).toFixed(1));
+    let earned = 80;
+
+    if (scoreNum >= 9.0) {
+      earned = 350;
+      unlockBadge('exam_rank_s');
+      unlockBadge('exam_passed');
+      playLevelUpSound();
+      confetti({
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.5 }
+      });
+    } else if (scoreNum >= 8.0) {
+      earned = 250;
+      unlockBadge('exam_passed');
+      playLevelUpSound();
+      confetti({
+        particleCount: 90,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    } else if (scoreNum >= 7.0) {
+      earned = 180;
+      unlockBadge('exam_passed');
+    } else if (scoreNum >= 5.0) {
+      earned = 120;
+    }
+
+    setExamEarnedExp(earned);
+    addExp(earned);
+  }, [examQuestions, examAnswers, unlockBadge, addExp]);
 
   // Exam Timer Effect
   useEffect(() => {
@@ -199,54 +399,29 @@ export default function App() {
       }, 1000);
     }
     return () => clearInterval(timer);
-  }, [mode, examStatus]);
+  }, [mode, examStatus, finishExam]);
 
   // Start new 60min Exam with 50 random questions
   const startExam = () => {
-    // Pick 50 distinct random questions from 598
+    playClickSound();
     const shuffled = [...rawQuestions].sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 50);
     setExamQuestions(selected);
     setExamCurrentIndex(0);
     setExamAnswers({});
     setExamBookmarks(new Set());
-    setTimeLeft(60 * 60); // 60 minutes
+    setTimeLeft(60 * 60);
     setExamStatus('active');
     setReviewMode(false);
   };
 
-  // Submit & Calculate Exam Results
-  const finishExam = () => {
-    setExamStatus('result');
-    setShowSubmitConfirm(false);
-    
-    // Calculate score
-    let correctCount = 0;
-    examQuestions.forEach((q) => {
-      const userSelected = examAnswers[q.id] || [];
-      const isCorrect = 
-        userSelected.length === q.correctAnswers.length &&
-        userSelected.every(ans => q.correctAnswers.includes(ans));
-      if (isCorrect) correctCount++;
-    });
-
-    const scoreOutOf10 = ((correctCount / examQuestions.length) * 10).toFixed(1);
-    if (Number(scoreOutOf10) >= 8.0) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }
-  };
-
   // Handle study mode answer selection
-  const handleSelectOptionStudy = (optionId) => {
+  const handleSelectOptionStudy = useCallback((optionId) => {
     if (!currentQ) return;
     const isMulti = currentQ.correctAnswers.length > 1;
 
     if (isMulti) {
-      // Toggle in tempMultiSelections
+      playClickSound();
       setTempMultiSelections((prev) => {
         if (prev.includes(optionId)) return prev.filter((k) => k !== optionId);
         return [...prev, optionId].sort();
@@ -254,6 +429,19 @@ export default function App() {
     } else {
       // Single choice question: immediate commit
       const isCorrect = currentQ.correctAnswers.includes(optionId);
+      if (isCorrect) {
+        const nextCombo = combo + 1;
+        setCombo(nextCombo);
+        playComboSound(nextCombo);
+        addExp(10);
+        unlockBadge('first_correct');
+        if (nextCombo >= 3) unlockBadge('streak_3');
+        if (nextCombo >= 7) unlockBadge('streak_7');
+      } else {
+        setCombo(0);
+        playWrongSound();
+      }
+
       setStudyAnswers((prev) => ({
         ...prev,
         [currentQ.id]: {
@@ -263,14 +451,27 @@ export default function App() {
       }));
       setShowExplanation(true);
     }
-  };
+  }, [currentQ, combo, addExp, unlockBadge]);
 
   // Submit multi-choice answer in study mode
-  const handleConfirmMultiStudy = () => {
+  const handleConfirmMultiStudy = useCallback(() => {
     if (!currentQ || tempMultiSelections.length === 0) return;
     const isCorrect =
       tempMultiSelections.length === currentQ.correctAnswers.length &&
       tempMultiSelections.every(k => currentQ.correctAnswers.includes(k));
+
+    if (isCorrect) {
+      const nextCombo = combo + 1;
+      setCombo(nextCombo);
+      playComboSound(nextCombo);
+      addExp(15);
+      unlockBadge('first_correct');
+      if (nextCombo >= 3) unlockBadge('streak_3');
+      if (nextCombo >= 7) unlockBadge('streak_7');
+    } else {
+      setCombo(0);
+      playWrongSound();
+    }
 
     setStudyAnswers((prev) => ({
       ...prev,
@@ -280,12 +481,13 @@ export default function App() {
       }
     }));
     setShowExplanation(true);
-  };
+  }, [currentQ, tempMultiSelections, combo, addExp, unlockBadge]);
 
   // Handle exam option selection
-  const handleSelectOptionExam = (optionId) => {
+  const handleSelectOptionExam = useCallback((optionId) => {
     const q = examQuestions[examCurrentIndex];
     if (!q) return;
+    playClickSound();
     const isMulti = q.correctAnswers.length > 1;
 
     setExamAnswers((prev) => {
@@ -299,12 +501,21 @@ export default function App() {
         return { ...prev, [q.id]: [optionId] };
       }
     });
+  }, [examQuestions, examCurrentIndex]);
+
+  // Sound Mute Toggle
+  const toggleSound = () => {
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    setAudioMuted(nextMuted);
+    if (!nextMuted) {
+      playCorrectSound();
+    }
   };
 
   // Keyboard EventListeners
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Don't intercept when user is typing in search or jump input
       if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
         return;
       }
@@ -313,6 +524,7 @@ export default function App() {
 
       // Navigation shortcuts
       if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'j') {
+        playClickSound();
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.max(0, prev - 1));
           setShowExplanation(false);
@@ -320,6 +532,7 @@ export default function App() {
           setExamCurrentIndex((prev) => Math.max(0, prev - 1));
         }
       } else if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'k') {
+        playClickSound();
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.min(filteredQuestions.length - 1, prev + 1));
           setShowExplanation(false);
@@ -333,6 +546,7 @@ export default function App() {
           toggleBookmark(currentQ.id);
         } else if (mode === 'exam' && examQuestions[examCurrentIndex]) {
           const qid = examQuestions[examCurrentIndex].id;
+          playClickSound();
           setExamBookmarks((prev) => {
             const next = new Set(prev);
             if (next.has(qid)) next.delete(qid);
@@ -346,7 +560,7 @@ export default function App() {
         e.preventDefault();
         setShowExplanation((prev) => !prev);
       }
-      // Options shortcuts: 1, 2, 3, 4 or A, B, C, D
+      // Options shortcuts: 1-4 or A-D
       else if (['1', '2', '3', '4', 'A', 'B', 'C', 'D'].includes(key)) {
         const keyMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', 'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D' };
         const optLetter = keyMap[key];
@@ -367,12 +581,13 @@ export default function App() {
       else if (e.key === 'Escape') {
         setShowShortcutsModal(false);
         setShowSubmitConfirm(false);
+        setShowBadgesModal(false);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mode, examStatus, currentQ, filteredQuestions.length, examQuestions, examCurrentIndex, tempMultiSelections]);
+  }, [mode, examStatus, currentQ, filteredQuestions.length, examQuestions, examCurrentIndex, handleSelectOptionStudy, handleSelectOptionExam]);
 
   // Jump to specific question
   const handleJumpSubmit = (e) => {
@@ -384,6 +599,7 @@ export default function App() {
         setCurrentIndex(idx);
         setShowExplanation(false);
         setJumpInput('');
+        playClickSound();
       } else {
         alert(`Không tìm thấy Câu ${num} trong bộ lọc hiện tại!`);
       }
@@ -408,7 +624,7 @@ export default function App() {
 
   // Exam statistics
   const examStats = useMemo(() => {
-    if (examQuestions.length === 0) return { correct: 0, total: 50, score: 0 };
+    if (examQuestions.length === 0) return { correct: 0, total: 50, score: '0.0' };
     let correct = 0;
     examQuestions.forEach((q) => {
       const userSelected = examAnswers[q.id] || [];
@@ -421,6 +637,16 @@ export default function App() {
     return { correct, total: examQuestions.length, score };
   }, [examQuestions, examAnswers]);
 
+  // Exam Rank Evaluation
+  const examRankInfo = useMemo(() => {
+    const s = Number(examStats.score);
+    if (s >= 9.0) return { rank: 'S', title: 'Đại Triết Gia Xuất Chúng', class: 'rank-s' };
+    if (s >= 8.0) return { rank: 'A', title: 'Bậc Thầy Lý Luận', class: 'rank-a' };
+    if (s >= 6.5) return { rank: 'B', title: 'Nhà Duy Vật Tiềm Năng', class: 'rank-b' };
+    if (s >= 5.0) return { rank: 'C', title: 'Đạt Chuẩn Cần Cố Gắng', class: 'rank-c' };
+    return { rank: 'D', title: 'Cần Ôn Luyện Lại', class: 'rank-d' };
+  }, [examStats.score]);
+
   // Format seconds to mm:ss
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
@@ -430,7 +656,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Top Header */}
+      {/* Top Header with Gamified Player HUD */}
       <header className="app-header">
         <div className="header-inner">
           <div className="brand-wrapper">
@@ -446,6 +672,40 @@ export default function App() {
             </div>
           </div>
 
+          {/* Gamified Player HUD */}
+          <div className="player-hud">
+            {/* Level Pill */}
+            <div
+              className="hud-level-chip"
+              onClick={() => setShowBadgesModal(true)}
+              title="Nhấn để xem Thành tựu & Huy hiệu"
+            >
+              <Crown size={15} />
+              <span>{getLevelTitle(level)}</span>
+              <span className="hud-level-num">Lv.{level}</span>
+            </div>
+
+            {/* EXP Progress Box */}
+            <div className="hud-exp-box" title={`Tổng EXP: ${exp} điểm`}>
+              <div className="hud-exp-text">
+                <span>EXP</span>
+                <span>{expInLevel}/100</span>
+              </div>
+              <div className="hud-exp-bar">
+                <div
+                  className="hud-exp-fill"
+                  style={{ width: `${expInLevel}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Streak Flame */}
+            <div className="hud-streak-chip" title="Chuỗi ngày học liên tục">
+              <Flame size={15} />
+              <span>{streak} ngày</span>
+            </div>
+          </div>
+
           {/* Navigation Mode Switcher */}
           <div className="nav-modes">
             <button
@@ -453,38 +713,67 @@ export default function App() {
               onClick={() => {
                 setMode('study');
                 setShowExplanation(false);
+                playClickSound();
               }}
             >
-              <BookOpen size={17} />
+              <BookOpen size={16} />
               Học Tập (598 Câu)
             </button>
             <button
               className={`mode-btn ${mode === 'exam' ? 'active' : ''}`}
               onClick={() => {
                 setMode('exam');
-                if (examStatus === 'intro') {
-                  // Keep at intro or start
-                }
+                playClickSound();
               }}
             >
-              <Clock size={17} />
+              <Clock size={16} />
               Thi Thử 60P
             </button>
           </div>
 
           {/* Header Controls */}
           <div className="header-actions">
+            {/* Audio Toggle */}
+            <button
+              className="icon-btn"
+              title={isMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+              onClick={toggleSound}
+            >
+              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+            </button>
+
+            {/* Badges Modal Trigger */}
+            <button
+              className="icon-btn"
+              title="Huy hiệu & Thành tựu"
+              onClick={() => {
+                setShowBadgesModal(true);
+                playClickSound();
+              }}
+            >
+              <Trophy size={18} color="#f59e0b" />
+            </button>
+
+            {/* Keyboard Shortcuts */}
             <button
               className="icon-btn"
               title="Phím tắt bàn phím (?)"
-              onClick={() => setShowShortcutsModal(true)}
+              onClick={() => {
+                setShowShortcutsModal(true);
+                playClickSound();
+              }}
             >
               <Keyboard size={18} />
             </button>
+
+            {/* Theme Toggle */}
             <button
               className="icon-btn"
               title={theme === 'dark' ? 'Chuyển sang Giao diện Sáng' : 'Chuyển sang Giao diện Tối'}
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() => {
+                setTheme(theme === 'dark' ? 'light' : 'dark');
+                playClickSound();
+              }}
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -526,6 +815,7 @@ export default function App() {
                     onClick={() => {
                       setOnlyBookmarked(!onlyBookmarked);
                       setCurrentIndex(0);
+                      playClickSound();
                     }}
                     style={{
                       borderColor: onlyBookmarked ? 'var(--bookmark)' : undefined,
@@ -539,7 +829,7 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Subtopic Dropdown with Smart Filter and Grouping */}
+                {/* Subtopic Dropdown with Grouping */}
                 <select
                   className="topic-select"
                   value={selectedTopic}
@@ -659,7 +949,7 @@ export default function App() {
               </div>
             ) : (
               <div className="study-layout">
-                {/* Active Question Card */}
+                {/* Active Question Card (Mecha HUD with Spring Physics) */}
                 {currentQ && (() => {
                   const savedAnswer = studyAnswers[currentQ.id];
                   const hasAnswered = !!savedAnswer;
@@ -667,190 +957,218 @@ export default function App() {
                   const isBookmarked = bookmarks.has(currentQ.id);
 
                   return (
-                    <div className="question-card">
-                      {/* Top Meta */}
-                      <div className="card-top">
-                        <div className="meta-tags">
-                          <span className="tag-chapter">{currentQ.chapterTitle.split(':')[0]}</span>
-                          <span className="tag-topic">{currentQ.topicTitle.split('(')[0]}</span>
-                          <span className="tag-topic" style={{ opacity: 0.8 }}>{currentQ.pageReference}</span>
-                          {isMulti && (
-                            <span className="tag-chapter" style={{ background: 'var(--warning-bg)', color: '#d97706', borderColor: 'var(--warning-border)' }}>
-                              Nhiều đáp án đúng ({currentQ.correctAnswers.length})
-                            </span>
-                          )}
-                        </div>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentQ.id}
+                        initial={{ opacity: 0, y: 14, scale: 0.985 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -14, scale: 0.985 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+                        className="question-card"
+                      >
+                        {/* Sci-Fi Tech Status Line */}
+                        <div className="mecha-hud-status">// PROTOCOL_MLN111 // COMBAT_INTERFACE</div>
 
-                        {/* Bookmark Button */}
-                        <button
-                          className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
-                          onClick={() => toggleBookmark(currentQ.id)}
-                          title="Đánh dấu câu hỏi để xem lại sau (Phím M)"
-                        >
-                          <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
-                          {isBookmarked ? 'Đã ghim' : 'Đánh dấu'}
-                          <span className="kbd-badge">M</span>
-                        </button>
-                      </div>
+                        {/* Top Meta */}
+                        <div className="card-top">
+                          <div className="meta-tags">
+                            <span className="tag-chapter">{currentQ.chapterTitle.split(':')[0]}</span>
+                            <span className="tag-topic">{currentQ.topicTitle.split('(')[0]}</span>
+                            <span className="tag-topic" style={{ opacity: 0.8 }}>{currentQ.pageReference}</span>
+                            
+                            {/* Combo Badge */}
+                            {combo >= 2 && (
+                              <span className="combo-badge">
+                                <Flame size={14} />
+                                Combo x{combo}! (+{combo * 5} EXP)
+                              </span>
+                            )}
 
-                      {/* Question Text */}
-                      <div className="question-title-wrap">
-                        <div className="question-num">
-                          CÂU HỎI {currentQ.id} / 598
-                        </div>
-                        <h2 className="question-text">{currentQ.question}</h2>
-                      </div>
-
-                      {/* Extra Notes (Kiểu hỏi khác / Lưu ý) */}
-                      {currentQ.extraNotes && currentQ.extraNotes.length > 0 && (
-                        <div className="extra-notes-box">
-                          <strong>Ghi chú mở rộng:</strong>
-                          <ul style={{ paddingLeft: '1.2rem', marginTop: '0.25rem' }}>
-                            {currentQ.extraNotes.map((note, idx) => (
-                              <li key={idx}>{note}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Options Grid */}
-                      <div className="options-grid">
-                        {currentQ.options.map((opt) => {
-                          const isCorrect = currentQ.correctAnswers.includes(opt.id);
-                          const isSelected = hasAnswered && savedAnswer.selected.includes(opt.id);
-                          const isTempSelected = !hasAnswered && isMulti && tempMultiSelections.includes(opt.id);
-
-                          let stateClass = '';
-                          if (hasAnswered) {
-                            if (isCorrect && isSelected) {
-                              stateClass = 'state-correct'; // Đúng màu xanh
-                            } else if (!isCorrect && isSelected) {
-                              stateClass = 'state-wrong'; // Sai màu đỏ
-                            } else if (isCorrect && !isSelected) {
-                              stateClass = 'state-revealed-correct'; // Hiện câu đúng màu xanh khi người dùng chọn sai
-                            }
-                          } else if (isTempSelected) {
-                            stateClass = 'state-correct';
-                          }
-
-                          return (
-                            <button
-                              key={opt.id}
-                              className={`option-btn ${stateClass}`}
-                              onClick={() => handleSelectOptionStudy(opt.id)}
-                            >
-                              <div className="option-left">
-                                <div className="option-badge">
-                                  {hasAnswered && isCorrect ? (
-                                    <Check size={18} />
-                                  ) : hasAnswered && isSelected && !isCorrect ? (
-                                    <X size={18} />
-                                  ) : (
-                                    opt.id
-                                  )}
-                                </div>
-                                <span className="option-text">{opt.text}</span>
-                              </div>
-                              <span className="kbd-badge">{opt.id}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-
-                      {/* Multi-choice Confirmation Button */}
-                      {isMulti && !hasAnswered && (
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
-                          <button
-                            className="btn-nav btn-nav-primary"
-                            onClick={handleConfirmMultiStudy}
-                            disabled={tempMultiSelections.length === 0}
-                          >
-                            Xác nhận chọn ({tempMultiSelections.length} đáp án)
-                          </button>
-                        </div>
-                      )}
-
-                      {/* Explanation Section */}
-                      {hasAnswered && (
-                        <div className="explanation-card">
-                          <div
-                            className="explanation-header"
-                            onClick={() => setShowExplanation(!showExplanation)}
-                          >
-                            <div className="exp-title-row">
-                              <HelpCircle size={20} />
-                              <span>Giải Thích Chi Tiết Từ Giáo Trình</span>
-                              <span className="exp-citation-tag">{currentQ.pageReference}</span>
-                            </div>
-                            <span style={{ fontSize: '0.825rem', color: 'var(--primary)' }}>
-                              {showExplanation ? 'Thu gọn ▲' : 'Xem chi tiết ▼'}
-                            </span>
+                            {isMulti && (
+                              <span className="tag-chapter" style={{ background: 'var(--warning-bg)', color: '#d97706', borderColor: 'var(--warning-border)' }}>
+                                Nhiều đáp án đúng ({currentQ.correctAnswers.length})
+                              </span>
+                            )}
                           </div>
 
-                          {showExplanation && (
-                            <div className="explanation-body">
-                              <p>{currentQ.explanation}</p>
-                              <div className="citation-book">
-                                <ExternalLink size={14} />
-                                <span>{currentQ.textbook} ({currentQ.pageReference})</span>
+                          {/* Bookmark Button */}
+                          <button
+                            className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
+                            onClick={() => toggleBookmark(currentQ.id)}
+                            title="Đánh dấu câu hỏi để xem lại sau (Phím M)"
+                          >
+                            <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
+                            {isBookmarked ? 'Đã ghim' : 'Đánh dấu'}
+                            <span className="kbd-badge">M</span>
+                          </button>
+                        </div>
+
+                        {/* Question Text */}
+                        <div className="question-title-wrap">
+                          <div className="question-num">
+                            <Zap size={15} color="var(--primary)" />
+                            CÂU HỎI {currentQ.id} / 598
+                          </div>
+                          <h2 className="question-text">{currentQ.question}</h2>
+                        </div>
+
+                        {/* Extra Notes */}
+                        {currentQ.extraNotes && currentQ.extraNotes.length > 0 && (
+                          <div className="extra-notes-box">
+                            <strong>Ghi chú mở rộng:</strong>
+                            <ul style={{ paddingLeft: '1.2rem', marginTop: '0.25rem' }}>
+                              {currentQ.extraNotes.map((note, idx) => (
+                                <li key={idx}>{note}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Options Grid (Mecha Energy Buttons) */}
+                        <div className="options-grid">
+                          {currentQ.options.map((opt) => {
+                            const isCorrect = currentQ.correctAnswers.includes(opt.id);
+                            const isSelected = hasAnswered && savedAnswer.selected.includes(opt.id);
+                            const isTempSelected = !hasAnswered && isMulti && tempMultiSelections.includes(opt.id);
+
+                            let stateClass = '';
+                            if (hasAnswered) {
+                              if (isCorrect && isSelected) {
+                                stateClass = 'state-correct';
+                              } else if (!isCorrect && isSelected) {
+                                stateClass = 'state-wrong';
+                              } else if (isCorrect && !isSelected) {
+                                stateClass = 'state-revealed-correct';
+                              }
+                            } else if (isTempSelected) {
+                              stateClass = 'state-correct';
+                            }
+
+                            return (
+                              <button
+                                key={opt.id}
+                                className={`option-btn ${stateClass}`}
+                                onClick={() => handleSelectOptionStudy(opt.id)}
+                              >
+                                <div className="option-left">
+                                  <div className="option-badge">
+                                    {hasAnswered && isCorrect ? (
+                                      <Check size={18} />
+                                    ) : hasAnswered && isSelected && !isCorrect ? (
+                                      <X size={18} />
+                                    ) : (
+                                      opt.id
+                                    )}
+                                  </div>
+                                  <span className="option-text">{opt.text}</span>
+                                </div>
+                                <span className="kbd-badge">{opt.id}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {/* Multi-choice Confirmation Button */}
+                        {isMulti && !hasAnswered && (
+                          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
+                            <button
+                              className="btn-nav btn-nav-primary"
+                              onClick={handleConfirmMultiStudy}
+                              disabled={tempMultiSelections.length === 0}
+                            >
+                              Xác nhận chọn ({tempMultiSelections.length} đáp án)
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Explanation Section */}
+                        {hasAnswered && (
+                          <div className="explanation-card">
+                            <div
+                              className="explanation-header"
+                              onClick={() => {
+                                setShowExplanation(!showExplanation);
+                                playClickSound();
+                              }}
+                            >
+                              <div className="exp-title-row">
+                                <HelpCircle size={20} />
+                                <span>Giải Thích Chi Tiết Từ Giáo Trình</span>
+                                <span className="exp-citation-tag">{currentQ.pageReference}</span>
                               </div>
+                              <span style={{ fontSize: '0.825rem', color: 'var(--primary)', fontWeight: 700 }}>
+                                {showExplanation ? 'Thu gọn ▲' : 'Xem chi tiết (+2 EXP) ▼'}
+                              </span>
                             </div>
+
+                            {showExplanation && (
+                              <div className="explanation-body">
+                                <p>{currentQ.explanation}</p>
+                                <div className="citation-book">
+                                  <ExternalLink size={14} />
+                                  <span>{currentQ.textbook} ({currentQ.pageReference})</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Bottom Navigation Buttons */}
+                        <div className="card-bottom-actions">
+                          <div className="nav-buttons-group">
+                            <button
+                              className="btn-nav"
+                              disabled={safeCurrentIndex === 0}
+                              onClick={() => {
+                                playClickSound();
+                                setCurrentIndex(prev => Math.max(0, prev - 1));
+                                setShowExplanation(false);
+                              }}
+                            >
+                              <ChevronLeft size={16} /> Câu trước
+                              <span className="kbd-badge">←</span>
+                            </button>
+
+                            <button
+                              className="btn-nav btn-nav-primary"
+                              disabled={safeCurrentIndex === filteredQuestions.length - 1}
+                              onClick={() => {
+                                playClickSound();
+                                setCurrentIndex(prev => Math.min(filteredQuestions.length - 1, prev + 1));
+                                setShowExplanation(false);
+                              }}
+                            >
+                              Câu tiếp <ChevronRight size={16} />
+                              <span className="kbd-badge">→</span>
+                            </button>
+                          </div>
+
+                          {/* Reset Question Answer */}
+                          {hasAnswered && (
+                            <button
+                              className="btn-nav"
+                              onClick={() => {
+                                playClickSound();
+                                setStudyAnswers((prev) => {
+                                  const next = { ...prev };
+                                  delete next[currentQ.id];
+                                  return next;
+                                });
+                                setTempMultiSelections([]);
+                                setShowExplanation(false);
+                              }}
+                              title="Làm lại câu này"
+                            >
+                              <RotateCcw size={15} /> Làm lại câu này
+                            </button>
                           )}
                         </div>
-                      )}
-
-                      {/* Bottom Navigation Buttons */}
-                      <div className="card-bottom-actions">
-                        <div className="nav-buttons-group">
-                          <button
-                            className="btn-nav"
-                            disabled={currentIndex === 0}
-                            onClick={() => {
-                              setCurrentIndex(prev => Math.max(0, prev - 1));
-                              setShowExplanation(false);
-                            }}
-                          >
-                            <ChevronLeft size={16} /> Câu trước
-                            <span className="kbd-badge">←</span>
-                          </button>
-
-                          <button
-                            className="btn-nav btn-nav-primary"
-                            disabled={currentIndex === filteredQuestions.length - 1}
-                            onClick={() => {
-                              setCurrentIndex(prev => Math.min(filteredQuestions.length - 1, prev + 1));
-                              setShowExplanation(false);
-                            }}
-                          >
-                            Câu tiếp <ChevronRight size={16} />
-                            <span className="kbd-badge">→</span>
-                          </button>
-                        </div>
-
-                        {/* Reset Question Answer */}
-                        {hasAnswered && (
-                          <button
-                            className="btn-nav"
-                            onClick={() => {
-                              setStudyAnswers((prev) => {
-                                const next = { ...prev };
-                                delete next[currentQ.id];
-                                return next;
-                              });
-                              setTempMultiSelections([]);
-                              setShowExplanation(false);
-                            }}
-                            title="Làm lại câu này"
-                          >
-                            <RotateCcw size={15} /> Làm lại câu này
-                          </button>
-                        )}
-                      </div>
-                    </div>
+                      </motion.div>
+                    </AnimatePresence>
                   );
                 })()}
 
-                {/* Sidebar Stats & Question Navigator */}
+                {/* Sidebar Stats & Gem Crystal Matrix */}
                 <div className="sidebar-panel">
                   {/* Progress Stats */}
                   <div className="stats-card">
@@ -881,7 +1199,7 @@ export default function App() {
                         <span className="stat-label">Trả lời sai</span>
                       </div>
                       <div className="stat-box">
-                        <span className="stat-value" style={{ color: '#eab308' }}>
+                        <span className="stat-value" style={{ color: 'var(--bookmark)' }}>
                           {bookmarks.size}
                         </span>
                         <span className="stat-label">Đã đánh dấu</span>
@@ -896,10 +1214,10 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Question Map / Quick Jump Chips */}
+                  {/* Gem Matrix Navigator Card */}
                   <div className="navigator-card">
                     <div className="nav-grid-header">
-                      <span>Danh Sách Câu Hỏi ({filteredQuestions.length})</span>
+                      <span>Ma Trận Câu Hỏi ({filteredQuestions.length})</span>
                       <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                         Câu #{currentQ ? currentQ.id : 0}
                       </span>
@@ -908,7 +1226,7 @@ export default function App() {
                     <div className="nav-grid-scroll">
                       {filteredQuestions.map((q, idx) => {
                         const ans = studyAnswers[q.id];
-                        const isCurrent = idx === currentIndex;
+                        const isCurrent = idx === safeCurrentIndex;
                         const isBookmarked = bookmarks.has(q.id);
 
                         let chipClass = 'nav-chip';
@@ -922,6 +1240,7 @@ export default function App() {
                             key={q.id}
                             className={chipClass}
                             onClick={() => {
+                              playClickSound();
                               setCurrentIndex(idx);
                               setShowExplanation(false);
                             }}
@@ -939,22 +1258,22 @@ export default function App() {
           </>
         ) : (
           /* =========================================================================
-             EXAM MODE (MOCK EXAM 60 MINUTES - 50 QUESTIONS)
+             EXAM MODE (BOSS CHALLENGE 60 MINUTES - 50 QUESTIONS)
              ========================================================================= */
           <>
             {examStatus === 'intro' && (
               <div className="result-card">
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
-                  <div className="brand-icon" style={{ width: 64, height: 64, borderRadius: 20 }}>
-                    <GraduationCap size={36} />
+                  <div className="brand-icon" style={{ width: 68, height: 68, borderRadius: 16 }}>
+                    <GraduationCap size={38} />
                   </div>
                 </div>
                 <h2>THI THỬ TRIẾT HỌC MÁC – LÊNIN (MLN111)</h2>
                 <p style={{ color: 'var(--text-muted)' }}>
-                  Bài thi mô phỏng đề thi trắc nghiệm kết thúc học phần môn Triết học Mác – Lênin
+                  Thử thách 50 câu trắc nghiệm mô phỏng phòng thi thật • Chinh phục Rank S
                 </p>
 
-                <div className="stats-grid" style={{ maxWidth: 500, margin: '1rem auto' }}>
+                <div className="stats-grid" style={{ maxWidth: 520, margin: '1rem auto' }}>
                   <div className="stat-box">
                     <span className="stat-value">50</span>
                     <span className="stat-label">Số câu hỏi (ngẫu nhiên từ 598 câu)</span>
@@ -964,29 +1283,31 @@ export default function App() {
                     <span className="stat-label">Thời gian làm bài (Phút)</span>
                   </div>
                   <div className="stat-box">
-                    <span className="stat-value">10.0</span>
-                    <span className="stat-label">Thang điểm</span>
+                    <span className="stat-value">Rank S</span>
+                    <span className="stat-label">Cấp bậc tối đa (≥ 9.0 Điểm)</span>
                   </div>
                   <div className="stat-box">
-                    <span className="stat-value">3 Chương</span>
-                    <span className="stat-label">Phạm vi kiến thức bao quát</span>
+                    <span className="stat-value">+350</span>
+                    <span className="stat-label">EXP Thưởng tối đa</span>
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'left', backgroundColor: 'var(--bg-tertiary)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', fontSize: '0.875rem' }}>
-                  <h4 style={{ marginBottom: '0.5rem' }}>Quy chế & Hướng dẫn:</h4>
+                  <h4 style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                    <ShieldCheck size={18} color="var(--primary)" /> Quy chế & Hướng dẫn:
+                  </h4>
                   <ul style={{ paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                    <li>Hệ thống sẽ lấy ngẫu nhiên 50 câu từ ngân hàng 598 câu chuẩn.</li>
-                    <li>Trong khi làm bài, đáp án đúng sẽ <strong>không hiển thị ngay</strong> để đảm bảo tính khách quan.</li>
-                    <li>Bạn có thể đánh dấu những câu cần phân vân để kiểm tra lại trước khi nộp bài.</li>
-                    <li>Hết 60 phút hệ thống sẽ tự động thu bài và hiển thị kết quả phân tích chi tiết kèm trích dẫn giáo trình.</li>
+                    <li>Hệ thống bốc ngẫu nhiên 50 câu từ ngân hàng 598 câu chuẩn.</li>
+                    <li>Trong lúc làm bài, đáp án đúng sẽ <strong>không hiển thị</strong> để đảm bảo tính khách quan.</li>
+                    <li>Có thể đánh dấu những câu phân vân để kiểm tra lại trước khi bấm nộp bài.</li>
+                    <li>Hết 60 phút hệ thống sẽ tự động thu bài và hiển thị kết quả phân loại Rank kèm trích dẫn giáo trình.</li>
                   </ul>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
                   <button
                     className="btn-submit-exam"
-                    style={{ fontSize: '1.1rem', padding: '0.85rem 2.5rem' }}
+                    style={{ fontSize: '1.1rem', padding: '0.9rem 2.8rem' }}
                     onClick={startExam}
                   >
                     Bắt Đầu Thi Ngay
@@ -1003,7 +1324,6 @@ export default function App() {
 
               const answeredExamCount = Object.keys(examAnswers).length;
 
-              // Timer alert colors
               let timerClass = 'timer-box';
               if (timeLeft <= 300) timerClass += ' danger';
               else if (timeLeft <= 600) timerClass += ' warning';
@@ -1013,7 +1333,9 @@ export default function App() {
                   {/* Top Exam Header Banner */}
                   <div className="exam-header-banner">
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>BÀI THI THỬ TRẮC NGHIỆM MLN111</h3>
+                      <h3 style={{ fontSize: '1.3rem', fontWeight: 900, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Clock size={22} /> PHÒNG THI THỬ TRẮC NGHIỆM MLN111
+                      </h3>
                       <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>
                         Đã làm: {answeredExamCount} / 50 câu &bull; Đã đánh dấu: {examBookmarks.size} câu
                       </div>
@@ -1027,98 +1349,119 @@ export default function App() {
 
                       <button
                         className="btn-submit-exam"
-                        onClick={() => setShowSubmitConfirm(true)}
+                        onClick={() => {
+                          playClickSound();
+                          setShowSubmitConfirm(true);
+                        }}
                       >
                         Nộp Bài Thi
                       </button>
                     </div>
                   </div>
 
-                  {/* Exam Question Card & Grid */}
+                  {/* Exam Question Card & Grid with Motion */}
                   <div className="study-layout">
-                    <div className="question-card">
-                      <div className="card-top">
-                        <div className="meta-tags">
-                          <span className="tag-chapter">{currentExamQ.chapterTitle.split(':')[0]}</span>
-                          <span className="tag-topic">{currentExamQ.topicTitle.split('(')[0]}</span>
-                          {isMulti && (
-                            <span className="tag-chapter" style={{ background: 'var(--warning-bg)', color: '#d97706', borderColor: 'var(--warning-border)' }}>
-                              Chọn {currentExamQ.correctAnswers.length} đáp án đúng
-                            </span>
-                          )}
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentExamQ.id}
+                        initial={{ opacity: 0, y: 14, scale: 0.985 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -14, scale: 0.985 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+                        className="question-card"
+                      >
+                        <div className="mecha-hud-status">// TIME_TRIAL_EXAM // 50_QUESTIONS</div>
+
+                        <div className="card-top">
+                          <div className="meta-tags">
+                            <span className="tag-chapter">{currentExamQ.chapterTitle.split(':')[0]}</span>
+                            <span className="tag-topic">{currentExamQ.topicTitle.split('(')[0]}</span>
+                            {isMulti && (
+                              <span className="tag-chapter" style={{ background: 'var(--warning-bg)', color: '#d97706', borderColor: 'var(--warning-border)' }}>
+                                Chọn {currentExamQ.correctAnswers.length} đáp án đúng
+                              </span>
+                            )}
+                          </div>
+
+                          <button
+                            className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
+                            onClick={() => {
+                              playClickSound();
+                              setExamBookmarks((prev) => {
+                                const next = new Set(prev);
+                                if (next.has(currentExamQ.id)) next.delete(currentExamQ.id);
+                                else next.add(currentExamQ.id);
+                                return next;
+                              });
+                            }}
+                            title="Đánh dấu câu này để xem lại trước khi nộp bài (Phím M)"
+                          >
+                            <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
+                            {isBookmarked ? 'Đã đánh dấu xem lại' : 'Đánh dấu xem lại'}
+                          </button>
                         </div>
 
-                        <button
-                          className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
-                          onClick={() => {
-                            setExamBookmarks((prev) => {
-                              const next = new Set(prev);
-                              if (next.has(currentExamQ.id)) next.delete(currentExamQ.id);
-                              else next.add(currentExamQ.id);
-                              return next;
-                            });
-                          }}
-                          title="Đánh dấu câu này để xem lại trước khi nộp bài (Phím M)"
-                        >
-                          <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
-                          {isBookmarked ? 'Đã đánh dấu xem lại' : 'Đánh dấu xem lại'}
-                        </button>
-                      </div>
-
-                      <div className="question-title-wrap">
-                        <div className="question-num">
-                          CÂU HỎI {examCurrentIndex + 1} / 50 (GỐC: CÂU #{currentExamQ.id})
+                        <div className="question-title-wrap">
+                          <div className="question-num">
+                            CÂU HỎI {examCurrentIndex + 1} / 50 (GỐC: CÂU #{currentExamQ.id})
+                          </div>
+                          <h2 className="question-text">{currentExamQ.question}</h2>
                         </div>
-                        <h2 className="question-text">{currentExamQ.question}</h2>
-                      </div>
 
-                      {/* Options */}
-                      <div className="options-grid">
-                        {currentExamQ.options.map((opt) => {
-                          const isSelected = selectedOpts.includes(opt.id);
-                          return (
-                            <button
-                              key={opt.id}
-                              className={`option-btn ${isSelected ? 'state-correct' : ''}`}
-                              onClick={() => handleSelectOptionExam(opt.id)}
-                            >
-                              <div className="option-left">
-                                <div className="option-badge">
-                                  {isSelected ? <Check size={18} /> : opt.id}
+                        {/* Options Grid */}
+                        <div className="options-grid">
+                          {currentExamQ.options.map((opt) => {
+                            const isSelected = selectedOpts.includes(opt.id);
+                            return (
+                              <button
+                                key={opt.id}
+                                className={`option-btn ${isSelected ? 'state-correct' : ''}`}
+                                onClick={() => handleSelectOptionExam(opt.id)}
+                              >
+                                <div className="option-left">
+                                  <div className="option-badge">
+                                    {isSelected ? <Check size={18} /> : opt.id}
+                                  </div>
+                                  <span className="option-text">{opt.text}</span>
                                 </div>
-                                <span className="option-text">{opt.text}</span>
-                              </div>
-                              <span className="kbd-badge">{opt.id}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-
-                      {/* Bottom Nav */}
-                      <div className="card-bottom-actions">
-                        <div className="nav-buttons-group">
-                          <button
-                            className="btn-nav"
-                            disabled={examCurrentIndex === 0}
-                            onClick={() => setExamCurrentIndex(prev => Math.max(0, prev - 1))}
-                          >
-                            <ChevronLeft size={16} /> Câu trước
-                          </button>
-
-                          <button
-                            className="btn-nav btn-nav-primary"
-                            disabled={examCurrentIndex === examQuestions.length - 1}
-                            onClick={() => setExamCurrentIndex(prev => Math.min(examQuestions.length - 1, prev + 1))}
-                          >
-                            Câu tiếp <ChevronRight size={16} />
-                          </button>
+                                <span className="kbd-badge">{opt.id}</span>
+                              </button>
+                            );
+                          })}
                         </div>
 
-                        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                          Dùng phím số 1-4 hoặc A-D để chọn đáp án
-                        </span>
-                      </div>
-                    </div>
+                        {/* Bottom Nav */}
+                        <div className="card-bottom-actions">
+                          <div className="nav-buttons-group">
+                            <button
+                              className="btn-nav"
+                              disabled={examCurrentIndex === 0}
+                              onClick={() => {
+                                playClickSound();
+                                setExamCurrentIndex(prev => Math.max(0, prev - 1));
+                              }}
+                            >
+                              <ChevronLeft size={16} /> Câu trước
+                            </button>
+
+                            <button
+                              className="btn-nav btn-nav-primary"
+                              disabled={examCurrentIndex === examQuestions.length - 1}
+                              onClick={() => {
+                                playClickSound();
+                                setExamCurrentIndex(prev => Math.min(examQuestions.length - 1, prev + 1));
+                              }}
+                            >
+                              Câu tiếp <ChevronRight size={16} />
+                            </button>
+                          </div>
+
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                            Dùng phím số 1-4 hoặc A-D để chọn đáp án
+                          </span>
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
 
                     {/* 50 Questions Map */}
                     <div className="sidebar-panel">
@@ -1145,27 +1488,15 @@ export default function App() {
                               <button
                                 key={q.id}
                                 className={chipClass}
-                                onClick={() => setExamCurrentIndex(idx)}
+                                onClick={() => {
+                                  playClickSound();
+                                  setExamCurrentIndex(idx);
+                                }}
                               >
                                 {idx + 1}
                               </button>
                             );
                           })}
-                        </div>
-
-                        <div style={{ marginTop: '1rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ width: 12, height: 12, borderRadius: 3, backgroundColor: 'var(--success)' }} />
-                            <span>Đã chọn đáp án</span>
-                          </div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ width: 12, height: 12, borderRadius: 3, backgroundColor: 'var(--bg-tertiary)', border: '1px solid var(--border-color)' }} />
-                            <span>Chưa chọn đáp án</span>
-                          </div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--bookmark)' }} />
-                            <span>Đánh dấu cần xem lại</span>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -1174,26 +1505,29 @@ export default function App() {
               );
             })()}
 
-            {/* Exam Results Screen */}
+            {/* Exam Results / Victory Screen with Motion Rank Badge */}
             {examStatus === 'result' && (
               <div>
                 {!reviewMode ? (
                   <div className="result-card">
-                    <div className="score-circle">
-                      <span className="score-number">{examStats.score}</span>
-                      <span className="score-total">/ 10 Điểm</span>
-                    </div>
+                    {/* Rank Crest Badge with Motion Spring */}
+                    <motion.div
+                      initial={{ scale: 0.3, rotate: -15, opacity: 0 }}
+                      animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                      transition={{ type: 'spring', damping: 15, stiffness: 220 }}
+                      className={`rank-crest-wrap ${examRankInfo.class}`}
+                    >
+                      <span className="rank-letter">{examRankInfo.rank}</span>
+                      <span className="rank-title">{examRankInfo.title}</span>
+                    </motion.div>
 
-                    <h2>KẾT QUẢ THI THỬ</h2>
-                    <p style={{ color: 'var(--text-muted)' }}>
-                      {Number(examStats.score) >= 8.5
-                        ? '🎉 Xuất sắc! Bạn nắm rất vững kiến thức Triết học Mác – Lênin!'
-                        : Number(examStats.score) >= 7.0
-                        ? '👍 Rất tốt! Bạn đã đạt mức điểm Khá - Giỏi!'
-                        : Number(examStats.score) >= 5.0
-                        ? '👌 Đạt yêu cầu. Hãy ôn lại thêm các câu làm sai để đạt điểm cao hơn!'
-                        : '⚠️ Chưa đạt. Hãy dành thêm thời gian học lại các khái niệm cơ bản!'}
-                    </p>
+                    <h2>BẢNG TỔNG KẾT BÀI THI</h2>
+                    
+                    {/* EXP Reward Banner */}
+                    <div className="exp-reward-banner">
+                      <Sparkles size={18} />
+                      <span>+{examEarnedExp} EXP Kinh Nghiệm Đã Nhận!</span>
+                    </div>
 
                     <div className="stats-grid">
                       <div className="stat-box">
@@ -1216,25 +1550,28 @@ export default function App() {
                       </div>
                       <div className="stat-box">
                         <span className="stat-value" style={{ color: 'var(--primary)' }}>
-                          {Math.round((examStats.correct / 50) * 100)}%
+                          {examStats.score} / 10
                         </span>
-                        <span className="stat-label">Tỷ lệ chính xác</span>
+                        <span className="stat-label">Điểm số đạt được</span>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
                       <button
                         className="btn-nav btn-nav-primary"
-                        style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}
-                        onClick={() => setReviewMode(true)}
+                        style={{ padding: '0.8rem 2rem', fontSize: '1rem' }}
+                        onClick={() => {
+                          playClickSound();
+                          setReviewMode(true);
+                        }}
                       >
                         <HelpCircle size={18} />
-                        Xem Lại Chi Tiết & Lời Giải 50 Câu
+                        Xem Lời Giải Chi Tiết 50 Câu
                       </button>
 
                       <button
                         className="btn-nav"
-                        style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}
+                        style={{ padding: '0.8rem 2rem', fontSize: '1rem' }}
                         onClick={startExam}
                       >
                         <RotateCcw size={18} />
@@ -1252,7 +1589,13 @@ export default function App() {
                           Màu xanh: Đáp án đúng &bull; Màu đỏ: Đáp án bạn đã chọn sai &bull; Kèm giải thích giáo trình
                         </p>
                       </div>
-                      <button className="btn-nav" onClick={() => setReviewMode(false)}>
+                      <button
+                        className="btn-nav"
+                        onClick={() => {
+                          playClickSound();
+                          setReviewMode(false);
+                        }}
+                      >
                         Quay lại bảng điểm
                       </button>
                     </div>
@@ -1278,11 +1621,11 @@ export default function App() {
                                 <span className="tag-topic">{q.chapterTitle.split(':')[0]}</span>
                                 <span className="tag-topic">{q.pageReference}</span>
                                 {isCorrect ? (
-                                  <span style={{ color: 'var(--success)', fontWeight: 700, fontSize: '0.85rem' }}>
-                                    ✓ ĐÚNG
+                                  <span style={{ color: 'var(--success)', fontWeight: 800, fontSize: '0.85rem' }}>
+                                    ✓ ĐÚNG (+10 EXP)
                                   </span>
                                 ) : (
-                                  <span style={{ color: 'var(--error)', fontWeight: 700, fontSize: '0.85rem' }}>
+                                  <span style={{ color: 'var(--error)', fontWeight: 800, fontSize: '0.85rem' }}>
                                     ✕ SAI (Bạn chọn: {userSelected.join(', ') || 'Chưa chọn'})
                                   </span>
                                 )}
@@ -1347,7 +1690,13 @@ export default function App() {
       {/* Confirmation Modal to Submit Exam */}
       {showSubmitConfirm && (
         <div className="modal-overlay" onClick={() => setShowSubmitConfirm(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 15 }}
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <AlertCircle size={22} color="var(--warning)" />
               Xác nhận nộp bài thi?
@@ -1355,30 +1704,111 @@ export default function App() {
             <p>
               Bạn đã hoàn thành <strong>{Object.keys(examAnswers).length}</strong> trên tổng số <strong>50</strong> câu hỏi.
               {50 - Object.keys(examAnswers).length > 0 && (
-                <span style={{ color: 'var(--error)', display: 'block', marginTop: '0.5rem' }}>
+                <span style={{ color: 'var(--error)', display: 'block', marginTop: '0.5rem', fontWeight: 600 }}>
                   Lưu ý: Còn {50 - Object.keys(examAnswers).length} câu chưa chọn đáp án!
                 </span>
               )}
             </p>
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1rem' }}>
-              <button className="btn-nav" onClick={() => setShowSubmitConfirm(false)}>
+              <button
+                className="btn-nav"
+                onClick={() => {
+                  playClickSound();
+                  setShowSubmitConfirm(false);
+                }}
+              >
                 Tiếp tục làm bài
               </button>
-              <button className="btn-submit-exam" onClick={finishExam}>
+              <button
+                className="btn-submit-exam"
+                onClick={finishExam}
+              >
                 Đồng ý nộp bài
               </button>
             </div>
-          </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Badges / Achievements Modal with Motion */}
+      {showBadgesModal && (
+        <div className="modal-overlay" onClick={() => setShowBadgesModal(false)}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Trophy size={22} color="#f59e0b" /> Bộ Huy Hiệu Triết Học ({unlockedBadges.size}/{BADGES.length})
+              </h3>
+              <button
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
+                onClick={() => setShowBadgesModal(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="badges-grid">
+              {BADGES.map((b) => {
+                const isUnlocked = unlockedBadges.has(b.id);
+                return (
+                  <div key={b.id} className={`badge-card ${isUnlocked ? 'unlocked' : 'locked'}`}>
+                    <div className="badge-icon-box">
+                      {isUnlocked ? (
+                        b.icon === 'zap' ? <Zap size={22} /> :
+                        b.icon === 'flame' ? <Flame size={22} /> :
+                        b.icon === 'crown' ? <Crown size={22} /> :
+                        b.icon === 'star' ? <Star size={22} /> :
+                        b.icon === 'award' ? <Award size={22} /> :
+                        b.icon === 'shield' ? <ShieldCheck size={22} /> :
+                        b.icon === 'bookmark' ? <Bookmark size={22} /> :
+                        <Trophy size={22} />
+                      ) : (
+                        <Lock size={20} />
+                      )}
+                    </div>
+                    <div className="badge-info">
+                      <h4>{b.title}</h4>
+                      <p>{b.desc}</p>
+                      <span className="badge-status-tag">
+                        {isUnlocked ? '✓ ĐÃ ĐẠT' : 'CHƯA MỞ KHÓA'}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
+              <button
+                className="btn-nav btn-nav-primary"
+                onClick={() => setShowBadgesModal(false)}
+              >
+                Đóng
+              </button>
+            </div>
+          </motion.div>
         </div>
       )}
 
       {/* Keyboard Shortcuts Modal */}
       {showShortcutsModal && (
         <div className="modal-overlay" onClick={() => setShowShortcutsModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Keyboard size={20} /> Phím Tắt Hỗ Trợ (Event Listeners)
+                <Keyboard size={20} /> Phím Tắt Hỗ Trợ
               </h3>
               <button
                 style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
@@ -1420,13 +1850,35 @@ export default function App() {
             </div>
 
             <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
-              <button className="btn-nav btn-nav-primary" onClick={() => setShowShortcutsModal(false)}>
+              <button
+                className="btn-nav btn-nav-primary"
+                onClick={() => setShowShortcutsModal(false)}
+              >
                 Đã hiểu
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
+
+      {/* Floating Gamified Toast Notification with Motion */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 35, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            className="gamify-toast"
+          >
+            <Sparkles size={24} color="#facc15" />
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '0.9rem' }}>{toast.title}</div>
+              <div style={{ fontSize: '0.8rem', opacity: 0.9 }}>{toast.subtitle}</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
