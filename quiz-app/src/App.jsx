@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -190,8 +190,58 @@ export default function App() {
   // Modal for shortcuts help
   const [showShortcutsModal, setShowShortcutsModal] = useState(false);
 
+  // Mobile question matrix modal
+  const [showMobileMatrixModal, setShowMobileMatrixModal] = useState(false);
+
   // Jump to question input
   const [jumpInput, setJumpInput] = useState('');
+
+  // Touch swipe gesture handlers for mobile devices
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+    // Minimum swipe distance 45px and predominantly horizontal
+    if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+      if (deltaX < 0) {
+        // Swiped left -> Next question
+        if (mode === 'study') {
+          if (safeCurrentIndex < filteredQuestions.length - 1) {
+            playClickSound();
+            setCurrentIndex((prev) => prev + 1);
+            setShowExplanation(false);
+          }
+        } else if (mode === 'exam' && examStatus === 'active') {
+          if (examCurrentIndex < examQuestions.length - 1) {
+            playClickSound();
+            setExamCurrentIndex((prev) => prev + 1);
+          }
+        }
+      } else {
+        // Swiped right -> Previous question
+        if (mode === 'study') {
+          if (safeCurrentIndex > 0) {
+            playClickSound();
+            setCurrentIndex((prev) => prev - 1);
+            setShowExplanation(false);
+          }
+        } else if (mode === 'exam' && examStatus === 'active') {
+          if (examCurrentIndex > 0) {
+            playClickSound();
+            setExamCurrentIndex((prev) => prev - 1);
+          }
+        }
+      }
+    }
+  };
 
   // ---------------- EXAM STATE ----------------
   const [examStatus, setExamStatus] = useState('intro'); // 'intro' | 'active' | 'result'
@@ -756,8 +806,8 @@ export default function App() {
 
             {/* Keyboard Shortcuts */}
             <button
-              className="icon-btn"
-              title="Phím tắt bàn phím (?)"
+              className="icon-btn btn-keyboard-shortcut"
+              title="Phím tắt & Hướng dẫn (?)"
               onClick={() => {
                 setShowShortcutsModal(true);
                 playClickSound();
@@ -918,6 +968,18 @@ export default function App() {
                   <button type="submit" className="pill-btn" style={{ padding: '0.5rem 0.8rem' }}>
                     Nhảy
                   </button>
+                  <button
+                    type="button"
+                    className="pill-btn mobile-matrix-trigger-btn"
+                    onClick={() => {
+                      playClickSound();
+                      setShowMobileMatrixModal(true);
+                    }}
+                    title="Mở ma trận 598 câu hỏi"
+                  >
+                    <BookOpen size={14} />
+                    Ma trận ({filteredQuestions.length})
+                  </button>
                 </form>
               </div>
             </div>
@@ -965,7 +1027,12 @@ export default function App() {
                         exit={{ opacity: 0, y: -14, scale: 0.985 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 350 }}
                         className="question-card"
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                       >
+                        {/* Mobile Swipe Hint */}
+                        <div className="mobile-swipe-hint">👈 Vuốt ngang màn hình để chuyển câu 👉</div>
+
                         {/* Sci-Fi Tech Status Line */}
                         <div className="mecha-hud-status">// PROTOCOL_MLN111 // COMBAT_INTERFACE</div>
 
@@ -1369,7 +1436,12 @@ export default function App() {
                         exit={{ opacity: 0, y: -14, scale: 0.985 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 350 }}
                         className="question-card"
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                       >
+                        {/* Mobile Swipe Hint */}
+                        <div className="mobile-swipe-hint">👈 Vuốt ngang màn hình để chuyển câu 👉</div>
+
                         <div className="mecha-hud-status">// TIME_TRIAL_EXAM // 50_QUESTIONS</div>
 
                         <div className="card-top">
@@ -1473,7 +1545,7 @@ export default function App() {
                           </span>
                         </div>
 
-                        <div className="nav-grid-scroll" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
+                        <div className="nav-grid-scroll exam-nav-grid">
                           {examQuestions.map((q, idx) => {
                             const isAnswered = !!examAnswers[q.id];
                             const isCurrent = idx === examCurrentIndex;
@@ -1818,7 +1890,30 @@ export default function App() {
               </button>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.35rem' }}>
+                📱 Thao Tác Cảm Ứng (Điện Thoại)
+              </div>
+              <div className="shortcut-row">
+                <span>Vuốt sang trái (←)</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-sub)' }}>Chuyển câu tiếp</span>
+              </div>
+              <div className="shortcut-row">
+                <span>Vuốt sang phải (→)</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-sub)' }}>Quay lại câu trước</span>
+              </div>
+              <div className="shortcut-row">
+                <span>Chạm vào đáp án A, B, C, D</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-sub)' }}>Chọn & xem giải thích</span>
+              </div>
+              <div className="shortcut-row">
+                <span>Nút "Ma trận câu" hoặc Nút Nổi</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-sub)' }}>Mở bảng nhảy nhanh câu hỏi</span>
+              </div>
+
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.35rem', marginTop: '0.5rem' }}>
+                ⌨️ Phím Tắt Bàn Phím (Máy Tính)
+              </div>
               <div className="shortcut-row">
                 <span>Chọn đáp án A, B, C, D</span>
                 <div>
@@ -1879,6 +1974,108 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating Matrix Trigger for Mobile Learners */}
+      {mode === 'study' && currentQ && (
+        <button
+          className="mobile-floating-matrix-btn"
+          onClick={() => {
+            playClickSound();
+            setShowMobileMatrixModal(true);
+          }}
+          title="Mở ma trận câu hỏi"
+        >
+          <BookOpen size={16} />
+          <span>Câu #{currentQ.id} / 598 📑</span>
+        </button>
+      )}
+
+      {/* Mobile Matrix Navigator Bottom Sheet Modal */}
+      {showMobileMatrixModal && (
+        <div className="modal-overlay" onClick={() => setShowMobileMatrixModal(false)}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+            className="modal-content mobile-matrix-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.05rem' }}>
+                <BookOpen size={20} color="var(--primary)" />
+                Bảng Câu Hỏi ({filteredQuestions.length} câu)
+              </h3>
+              <button
+                style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
+                onClick={() => setShowMobileMatrixModal(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Quick Stats in Mobile Modal */}
+            <div className="stats-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.4rem' }}>
+              <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
+                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--primary)' }}>{studyStats.answeredCount}</span>
+                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Đã làm</span>
+              </div>
+              <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
+                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--success)' }}>{studyStats.correctCount}</span>
+                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Đúng</span>
+              </div>
+              <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
+                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--error)' }}>{studyStats.wrongCount}</span>
+                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Sai</span>
+              </div>
+              <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
+                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--bookmark)' }}>{bookmarks.size}</span>
+                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Ghim</span>
+              </div>
+            </div>
+
+            {/* Question Chips Grid in Mobile Modal */}
+            <div className="nav-grid-scroll mobile-nav-grid">
+              {filteredQuestions.map((q, idx) => {
+                const ans = studyAnswers[q.id];
+                const isCurrent = idx === safeCurrentIndex;
+                const isBookmarked = bookmarks.has(q.id);
+
+                let chipClass = 'nav-chip';
+                if (isCurrent) chipClass += ' chip-current';
+                else if (ans && ans.isCorrect) chipClass += ' chip-correct';
+                else if (ans && !ans.isCorrect) chipClass += ' chip-wrong';
+                if (isBookmarked) chipClass += ' chip-bookmarked';
+
+                return (
+                  <button
+                    key={q.id}
+                    className={chipClass}
+                    onClick={() => {
+                      playClickSound();
+                      setCurrentIndex(idx);
+                      setShowExplanation(false);
+                      setShowMobileMatrixModal(false);
+                    }}
+                  >
+                    {q.id}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div style={{ textAlign: 'right', marginTop: '0.25rem' }}>
+              <button
+                className="btn-nav btn-nav-primary"
+                style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => setShowMobileMatrixModal(false)}
+              >
+                Đóng
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }

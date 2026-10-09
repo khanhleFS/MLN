@@ -1560,32 +1560,677 @@ body::before {
   border-bottom: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .app-header {
-    padding: 0.6rem 1rem;
+/* ---------------- MOBILE & RESPONSIVE DESIGN SYSTEM ---------------- */
+
+/* Mobile helper elements (hidden on desktop) */
+.mobile-matrix-trigger-btn {
+  display: none;
+}
+
+.mobile-floating-matrix-btn {
+  display: none;
+}
+
+.mobile-swipe-hint {
+  display: none;
+}
+
+.mobile-matrix-modal {
+  max-width: 560px;
+  width: 100%;
+}
+
+.mobile-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4rem;
+  max-height: 48vh;
+  overflow-y: auto;
+}
+
+.exam-nav-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Base mobile tap improvements */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Tablet screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .study-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-  .header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
-  }
-  .player-hud {
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .header-actions {
-    justify-content: flex-end;
-  }
-  .question-card {
-    padding: 1.5rem 1.25rem;
-  }
-  .option-btn {
-    padding: 0.85rem 1rem;
-  }
-  .exam-header-banner {
-    padding: 1rem;
-    flex-direction: column;
-    text-align: center;
+
+  .topic-select {
+    max-width: 100%;
+    flex: 1;
   }
 }
+
+/* Mobile & Small Tablets (<= 768px) */
+@media (max-width: 768px) {
+  /* Compact Sticky Header with 3-Row Grid */
+  .app-header {
+    padding: 0.45rem 0.75rem;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand actions"
+      "hud   hud"
+      "modes modes";
+    gap: 0.45rem;
+    align-items: center;
+  }
+
+  .brand-wrapper {
+    grid-area: brand;
+    min-width: 0;
+    gap: 0.5rem;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .brand-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .brand-title {
+    font-size: 0.92rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    gap: 0.35rem;
+  }
+
+  .brand-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.35rem;
+  }
+
+  .brand-subtitle {
+    display: none; /* Hidden on mobile to keep header height compact */
+  }
+
+  .header-actions {
+    grid-area: actions;
+    justify-content: flex-end;
+    gap: 0.35rem;
+  }
+
+  .icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .icon-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn-keyboard-shortcut {
+    display: none; /* Hide keyboard shortcut trigger on mobile touch screens */
+  }
+
+  /* Compact 1-Row Player HUD */
+  .player-hud {
+    grid-area: hud;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.45rem;
+  }
+
+  .hud-level-chip {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.725rem;
+    gap: 0.3rem;
+  }
+
+  .hud-level-chip svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .hud-level-num {
+    padding: 0.05rem 0.35rem;
+    font-size: 0.68rem;
+  }
+
+  .hud-exp-box {
+    flex: 1;
+    min-width: 70px;
+    gap: 0.15rem;
+  }
+
+  .hud-exp-text {
+    font-size: 0.62rem;
+  }
+
+  .hud-streak-chip {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.725rem;
+    gap: 0.25rem;
+  }
+
+  .hud-streak-chip svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Full-width 2-tab Mode Switcher */
+  .nav-modes {
+    grid-area: modes;
+    width: 100%;
+    display: flex;
+    padding: 0.2rem;
+    border-radius: 8px;
+  }
+
+  .mode-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
+    gap: 0.35rem;
+  }
+
+  .mode-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Main wrapper padding */
+  .main-wrapper {
+    padding: 0.75rem 0.65rem 4.5rem 0.65rem;
+  }
+
+  /* Filter Bar on Mobile */
+  .filter-bar {
+    padding: 0.75rem;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+    border-radius: 10px;
+  }
+
+  .filter-row-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  /* Smooth horizontal scrolling pills (native app feeling) */
+  .chapter-pills {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    gap: 0.4rem;
+  }
+
+  .chapter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-btn {
+    flex-shrink: 0;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .topic-select {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .filter-row-search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .search-box {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .search-input {
+    font-size: 0.825rem;
+    padding: 0.5rem 0.75rem 0.5rem 2.2rem;
+  }
+
+  .jump-box {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .jump-input {
+    width: 65px;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.825rem;
+  }
+
+  .mobile-matrix-trigger-btn {
+    display: inline-flex !important;
+    margin-left: auto;
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.4);
+    color: var(--primary);
+  }
+
+  /* Question Card & Interactive Elements */
+  .question-card {
+    padding: 1.15rem 1rem 1rem;
+    gap: 0.9rem;
+    border-radius: 12px;
+    touch-action: pan-y;
+  }
+
+  .question-card::before,
+  .question-card::after {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mecha-hud-status {
+    display: none; /* Hide to prevent collision with meta tags on mobile */
+  }
+
+  .mobile-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: -0.35rem;
+    opacity: 0.85;
+    user-select: none;
+  }
+
+  .card-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .meta-tags {
+    gap: 0.35rem;
+  }
+
+  .tag-chapter,
+  .tag-topic {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .combo-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .btn-bookmark {
+    align-self: flex-start;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .btn-bookmark .kbd-badge {
+    display: none;
+  }
+
+  .question-title-wrap {
+    gap: 0.3rem;
+  }
+
+  .question-num {
+    font-size: 0.725rem;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .extra-notes-box {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Touch-optimized Option Buttons */
+  .options-grid {
+    gap: 0.6rem;
+  }
+
+  .option-btn {
+    padding: 0.85rem 0.95rem;
+    min-height: 48px;
+    border-radius: 8px;
+  }
+
+  .option-left {
+    gap: 0.7rem;
+  }
+
+  .option-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+  }
+
+  .option-text {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  /* Hide keyboard badges (A, B, C, D, arrows) on touch devices */
+  .option-btn .kbd-badge,
+  .btn-nav .kbd-badge {
+    display: none;
+  }
+
+  /* Explanation section */
+  .explanation-card {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    gap: 0.5rem;
+  }
+
+  .explanation-header {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .exp-title-row {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .exp-citation-tag {
+    font-size: 0.68rem;
+  }
+
+  .explanation-body {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* Touch-accessible Action Buttons */
+  .card-bottom-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding-top: 1rem;
+  }
+
+  .nav-buttons-group {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-nav {
+    flex: 1;
+    justify-content: center;
+    padding: 0.75rem 0.65rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+    border-radius: 8px;
+  }
+
+  /* Sidebar Stats & Matrix */
+  .stats-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .stats-grid {
+    gap: 0.5rem;
+  }
+
+  .stat-box {
+    padding: 0.55rem 0.65rem;
+    border-radius: 6px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .navigator-card {
+    padding: 1rem;
+    border-radius: 10px;
+    max-height: 420px;
+  }
+
+  .navigator-card .nav-grid-scroll {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.35rem;
+  }
+
+  .nav-chip {
+    font-size: 0.75rem;
+  }
+
+  /* Mobile Floating Question Matrix Button */
+  .mobile-floating-matrix-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    position: fixed;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+    z-index: 45;
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.6rem 1.15rem;
+    border-radius: 9999px;
+    font-size: 0.825rem;
+    font-weight: 800;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.55), 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-floating-matrix-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Exam Mode Banner & 50-Questions Compact Grid */
+  .exam-header-banner {
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .exam-header-banner h3 {
+    font-size: 1.1rem !important;
+    justify-content: center;
+  }
+
+  .timer-box {
+    font-size: 1.35rem;
+    padding: 0.45rem 1rem;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .btn-submit-exam {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .exam-nav-grid {
+    grid-template-columns: repeat(10, 1fr) !important;
+    gap: 0.35rem;
+  }
+
+  /* Exam Victory / Results Screen */
+  .result-card {
+    padding: 1.5rem 1rem;
+    gap: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .rank-crest-wrap {
+    width: 95px;
+    height: 95px;
+  }
+
+  .rank-letter {
+    font-size: 2.5rem;
+  }
+
+  .rank-title {
+    font-size: 0.65rem;
+  }
+
+  .result-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .exp-reward-banner {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  /* Modals & Dialogs */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem 1rem;
+    max-height: 88vh;
+    border-radius: 12px;
+  }
+
+  .modal-content h3 {
+    font-size: 1.05rem;
+  }
+
+  .badges-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .badge-card {
+    padding: 0.75rem;
+    gap: 0.7rem;
+  }
+
+  .badge-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .badge-info h4 {
+    font-size: 0.85rem;
+  }
+
+  .badge-info p {
+    font-size: 0.75rem;
+  }
+
+  /* Floating Gamified Toast */
+  .gamify-toast {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    left: 1rem;
+    right: 1rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.75rem 1rem;
+    justify-content: flex-start;
+  }
+}
+
+/* Small Smartphone Screens (<= 480px) */
+@media (max-width: 480px) {
+  .navigator-card .nav-grid-scroll {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.3rem;
+  }
+
+  .mobile-nav-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 0.35rem;
+  }
+
+  .exam-nav-grid {
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 0.3rem;
+  }
+
+  .question-text {
+    font-size: 0.98rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Touch active micro-interactions */
+@media (hover: none) {
+  .option-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .option-btn:active {
+    transform: scale(0.985) !important;
+  }
+
+  .btn-nav:hover {
+    transform: none;
+  }
+
+  .btn-nav:active {
+    transform: scale(0.97) !important;
+  }
+
+  .pill-btn:hover {
+    transform: none;
+  }
+
+  .pill-btn:active {
+    transform: scale(0.96) !important;
+  }
+}
+
