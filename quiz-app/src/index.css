@@ -346,6 +346,96 @@ body::before {
   50% { transform: scale(1.04); box-shadow: 0 0 10px var(--streak-glow); }
 }
 
+/* Subject Switcher in Header */
+.subject-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(25, 35, 56, 0.6);
+  padding: 0.25rem;
+  border-radius: 9px;
+  gap: 0.25rem;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .subject-switcher {
+  background: rgba(238, 242, 249, 0.9);
+  border-color: #cbd5e1;
+}
+
+.subject-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.825rem;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.subject-pill-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .subject-pill-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.subject-pill-btn.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
+  color: #a5b4fc;
+  border: 1px solid rgba(129, 140, 248, 0.5);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.35);
+}
+
+[data-theme="light"] .subject-pill-btn.active {
+  background: #ffffff;
+  color: #4338ca;
+  border-color: #a5b4fc;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+}
+
+.subject-pill-code {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.12rem 0.4rem;
+  background: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.subject-pill-btn.active .subject-pill-code {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+}
+
+.subject-pill-badge {
+  font-size: 0.7rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.subject-pill-btn.active .subject-pill-badge {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+[data-theme="light"] .subject-pill-btn.active .subject-pill-badge {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
 /* Navigation Modes */
 .nav-modes {
   display: flex;
@@ -1235,6 +1325,274 @@ body::before {
   box-shadow: 0 0 6px var(--bookmark);
 }
 
+.nav-chip.chip-has-wrong::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  background-color: var(--error);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--error);
+}
+
+/* ---------------- WRONG QUESTIONS BANK STYLES ---------------- */
+.wrong-questions-banner {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(185, 28, 28, 0.08) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .wrong-questions-banner {
+  background: linear-gradient(135deg, rgba(254, 242, 242, 0.95) 0%, rgba(254, 226, 226, 0.8) 100%);
+  border-color: rgba(248, 113, 113, 0.5);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.08);
+}
+
+.wrong-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.wrong-banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+.wrong-banner-title {
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: var(--error-text);
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .wrong-banner-title {
+  color: #fca5a5;
+}
+
+.wrong-banner-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
+.wrong-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-wrong-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btn-wrong-tool:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: translateY(-1px);
+}
+
+.btn-wrong-danger {
+  color: var(--error);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-wrong-danger:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: var(--error);
+}
+
+/* Tag for wrong question in Card Top */
+.tag-wrong-warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+[data-theme="dark"] .tag-wrong-warning {
+  color: #fca5a5;
+}
+
+.btn-wrong-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  background-color: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-wrong-remove:hover {
+  background-color: rgba(16, 185, 129, 0.22);
+  border-color: var(--success);
+  transform: translateY(-1px);
+}
+
+/* Post-answer resolution box */
+.wrong-question-help-box {
+  margin-top: 0.75rem;
+}
+
+.wrong-resolved-box {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  animation: fadeIn 0.3s ease;
+}
+
+.btn-remove-from-wrong {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.825rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-remove-from-wrong:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+}
+
+.wrong-reminder-box {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px dashed rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-remove-from-wrong-ghost {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.btn-remove-from-wrong-ghost:hover {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+/* Empty wrong state card */
+.empty-wrong-card {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  max-width: 540px;
+  margin: 2rem auto;
+}
+
+.empty-wrong-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.empty-wrong-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* Interactive Stat Box */
+.stat-box-interactive {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.stat-box-interactive:hover {
+  border-color: var(--error) !important;
+  background-color: rgba(239, 68, 68, 0.08) !important;
+  transform: translateY(-2px);
+}
+
+.stat-action-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--error);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.12);
+}
+
 /* ---------------- EXAM MODE / BOSS RAID 60 MINS ---------------- */
 .exam-header-banner {
   background: linear-gradient(135deg, rgba(49, 46, 129, 0.85) 0%, rgba(67, 56, 202, 0.85) 50%, rgba(99, 102, 241, 0.85) 100%);
@@ -1623,10 +1981,24 @@ html, body {
     grid-template-columns: 1fr auto;
     grid-template-areas:
       "brand actions"
+      "subjects subjects"
       "hud   hud"
       "modes modes";
     gap: 0.45rem;
     align-items: center;
+  }
+
+  .subject-switcher {
+    grid-area: subjects;
+    width: 100%;
+    display: flex;
+  }
+
+  .subject-pill-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.78rem;
   }
 
   .brand-wrapper {

@@ -16,6 +16,7 @@ import {
   Check,
   X,
   AlertCircle,
+  AlertTriangle,
   Keyboard,
   ExternalLink,
   Award,
@@ -28,9 +29,11 @@ import {
   Crown,
   Star,
   ShieldCheck,
+  CheckCircle2,
+  Trash2,
   Lock
 } from 'lucide-react';
-import rawQuestions from './data/questions.json';
+import { SUBJECTS, DEFAULT_SUBJECT_ID } from './data/subjects';
 import {
   playClickSound,
   playCorrectSound,
@@ -41,41 +44,19 @@ import {
   setAudioMuted
 } from './utils/sound';
 
-const CHAPTERS = [
-  { id: 'all', title: 'Tất cả 598 câu', short: 'Tất cả' },
-  { id: 1, title: 'Chương 1: Khái luận về triết học và TH Mác - Lênin', short: 'Chương 1' },
-  { id: 2, title: 'Chương 2: Chủ nghĩa duy vật biện chứng', short: 'Chương 2' },
-  { id: 3, title: 'Chương 3: Chủ nghĩa duy vật lịch sử', short: 'Chương 3' },
-];
-
-const TOPICS = [
-  { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
-  { id: '1.1', chapter: 1, title: '1.1. Triết học & Vấn đề cơ bản của triết học (Trang 11-47)' },
-  { id: '1.2', chapter: 1, title: '1.2. Triết học Mác - Lênin và vai trò (Trang 47-116)' },
-  { id: '2.1', chapter: 2, title: '2.1. Vật chất và ý thức (Trang 117-182)' },
-  { id: '2.2', chapter: 2, title: '2.2. Phép biện chứng duy vật (Trang 182-257)' },
-  { id: '2.3', chapter: 2, title: '2.3. Lý luận nhận thức duy vật biện chứng (Trang 257-283)' },
-  { id: '3.1', chapter: 3, title: '3.1. Học thuyết hình thái KT - XH (Trang 284-329)' },
-  { id: '3.2', chapter: 3, title: '3.2. Giai cấp và dân tộc (Trang 329-384)' },
-  { id: '3.3', chapter: 3, title: '3.3. Nhà nước và cách mạng xã hội (Trang 384-419)' },
-  { id: '3.4', chapter: 3, title: '3.4. Ý thức xã hội (Trang 419-447)' },
-  { id: '3.5', chapter: 3, title: '3.5. Triết học về con người (Trang 447-489)' },
-];
-
-const LEVEL_TITLES = [
-  'Tập sự Biện chứng',
-  'Người tìm Chân lý',
-  'Học giả Duy vật',
-  'Chiến sĩ Thực tiễn',
-  'Bậc thầy Nhận thức',
-  'Nhà tư tưởng Hình thái',
-  'Lý luận gia Cốt cán',
-  'Đại Triết gia Thượng thừa'
-];
-
-function getLevelTitle(level) {
-  const idx = Math.min(Math.max(0, level - 1), LEVEL_TITLES.length - 1);
-  return LEVEL_TITLES[idx];
+function getLevelTitle(level, titles) {
+  const list = titles || [
+    'Tập sự',
+    'Người tìm Chân lý',
+    'Học giả',
+    'Chiến sĩ Thực tiễn',
+    'Bậc thầy Nhận thức',
+    'Nhà tư tưởng',
+    'Lý luận gia Cốt cán',
+    'Đại Học giả Thượng thừa'
+  ];
+  const idx = Math.min(Math.max(0, level - 1), list.length - 1);
+  return list[idx];
 }
 
 const BADGES = [
@@ -85,6 +66,7 @@ const BADGES = [
   { id: 'exp_500', title: 'Tích Lũy Tri Thức', desc: 'Đạt từ 500 điểm kinh nghiệm (EXP) trở lên', icon: 'star' },
   { id: 'century', title: 'Bách Khoa 100 Câu', desc: 'Đã hoàn thành 100 câu hỏi trắc nghiệm', icon: 'award' },
   { id: 'bookmarker', title: 'Cẩn Tắc Vô Ưu', desc: 'Đã đánh dấu lưu trữ ít nhất 5 câu hỏi khó', icon: 'bookmark' },
+  { id: 'fix_5_wrongs', title: 'Khắc Kỷ Cầu Tiến', desc: 'Đã ôn luyện và sửa đúng ít nhất 5 câu hỏi từng làm sai', icon: 'shield' },
   { id: 'exam_passed', title: 'Vượt Ải Khảo Thí', desc: 'Hoàn thành bài thi thử 50 câu đạt từ 7.0 điểm', icon: 'shield' },
   { id: 'exam_rank_s', title: 'Đại Triết Gia Rank S', desc: 'Đạt Rank S xuất sắc (từ 9.0 điểm trở lên) trong bài thi', icon: 'trophy' },
 ];
@@ -122,6 +104,16 @@ export default function App() {
   // Theme state
   const [theme, setTheme] = useState(() => localStorage.getItem('mln_theme') || 'dark');
   
+  // Subject State: 'mln111' | 'mln122'
+  const [subjectId, setSubjectId] = useState(() => {
+    return localStorage.getItem('mln_current_subject') || DEFAULT_SUBJECT_ID;
+  });
+
+  const currentSubject = SUBJECTS[subjectId] || SUBJECTS[DEFAULT_SUBJECT_ID];
+  const rawQuestions = currentSubject.questions;
+  const CHAPTERS = currentSubject.chapters;
+  const TOPICS = currentSubject.topics;
+
   // App Mode: 'study' | 'exam'
   const [mode, setMode] = useState('study');
 
@@ -158,23 +150,57 @@ export default function App() {
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedTopic, setSelectedTopic] = useState('all');
   const [onlyBookmarked, setOnlyBookmarked] = useState(false);
+  const [onlyWrong, setOnlyWrong] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Bookmarks (Set of question ids)
   const [bookmarks, setBookmarks] = useState(() => {
     try {
-      const saved = localStorage.getItem('mln_bookmarks');
+      const bKey = `mln_bookmarks_${subjectId}`;
+      const saved = localStorage.getItem(bKey) || (subjectId === 'mln111' ? localStorage.getItem('mln_bookmarks') : null);
       return saved ? new Set(JSON.parse(saved)) : new Set();
     } catch {
       return new Set();
     }
   });
 
+  // Wrong questions bank (Set of question ids)
+  const [wrongQuestions, setWrongQuestions] = useState(() => {
+    try {
+      const wKey = `mln_wrong_questions_${subjectId}`;
+      const saved = localStorage.getItem(wKey) || (subjectId === 'mln111' ? localStorage.getItem('mln_wrong_questions') : null);
+      if (saved) return new Set(JSON.parse(saved));
+      if (subjectId === 'mln111') {
+        const savedAnswers = localStorage.getItem('mln_study_answers');
+        if (savedAnswers) {
+          const parsed = JSON.parse(savedAnswers);
+          const wrongs = Object.keys(parsed)
+            .filter((id) => parsed[id]?.isCorrect === false)
+            .map(Number);
+          return new Set(wrongs);
+        }
+      }
+      return new Set();
+    } catch {
+      return new Set();
+    }
+  });
+
+  // Fixed wrong questions counter for achievements
+  const [fixedWrongCount, setFixedWrongCount] = useState(() => {
+    try {
+      return parseInt(localStorage.getItem('mln_fixed_wrong_count') || '0', 10);
+    } catch {
+      return 0;
+    }
+  });
+
   // Study answers record: { [questionId]: { selected: ['A'], isCorrect: true } }
   const [studyAnswers, setStudyAnswers] = useState(() => {
     try {
-      const saved = localStorage.getItem('mln_study_answers');
+      const aKey = `mln_study_answers_${subjectId}`;
+      const saved = localStorage.getItem(aKey) || (subjectId === 'mln111' ? localStorage.getItem('mln_study_answers') : null);
       return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
@@ -307,22 +333,94 @@ export default function App() {
     localStorage.setItem('mln_theme', theme);
   }, [theme]);
 
-  // Sync bookmarks to localStorage
+  // Sync bookmarks to localStorage (namespaced per subject)
   useEffect(() => {
-    localStorage.setItem('mln_bookmarks', JSON.stringify(Array.from(bookmarks)));
+    localStorage.setItem(`mln_bookmarks_${subjectId}`, JSON.stringify(Array.from(bookmarks)));
+    if (subjectId === 'mln111') {
+      localStorage.setItem('mln_bookmarks', JSON.stringify(Array.from(bookmarks)));
+    }
     if (bookmarks.size >= 5) {
       unlockBadge('bookmarker');
     }
-  }, [bookmarks, unlockBadge]);
+  }, [bookmarks, subjectId, unlockBadge]);
 
-  // Sync study answers to localStorage
+  // Sync wrong questions to localStorage (namespaced per subject)
   useEffect(() => {
-    localStorage.setItem('mln_study_answers', JSON.stringify(studyAnswers));
+    localStorage.setItem(`mln_wrong_questions_${subjectId}`, JSON.stringify(Array.from(wrongQuestions)));
+    if (subjectId === 'mln111') {
+      localStorage.setItem('mln_wrong_questions', JSON.stringify(Array.from(wrongQuestions)));
+    }
+  }, [wrongQuestions, subjectId]);
+
+  // Sync fixed wrong questions counter and check badge
+  useEffect(() => {
+    localStorage.setItem('mln_fixed_wrong_count', String(fixedWrongCount));
+    if (fixedWrongCount >= 5) {
+      unlockBadge('fix_5_wrongs');
+    }
+  }, [fixedWrongCount, unlockBadge]);
+
+  // Sync study answers to localStorage (namespaced per subject)
+  useEffect(() => {
+    localStorage.setItem(`mln_study_answers_${subjectId}`, JSON.stringify(studyAnswers));
+    if (subjectId === 'mln111') {
+      localStorage.setItem('mln_study_answers', JSON.stringify(studyAnswers));
+    }
     const count = Object.keys(studyAnswers).length;
     if (count >= 100) {
       unlockBadge('century');
     }
-  }, [studyAnswers, unlockBadge]);
+  }, [studyAnswers, subjectId, unlockBadge]);
+
+  // Handle switching subjects seamlessly
+  const handleSubjectChange = (newSubId) => {
+    if (newSubId === subjectId) return;
+    playClickSound();
+
+    if (mode === 'exam' && examStatus === 'active') {
+      if (!window.confirm('Bạn đang trong bài thi. Chuyển môn học sẽ kết thúc bài thi hiện tại. Bạn có chắc muốn chuyển?')) {
+        return;
+      }
+      setExamStatus('idle');
+      setExamQuestions([]);
+      setExamAnswers({});
+    }
+
+    setSubjectId(newSubId);
+    localStorage.setItem('mln_current_subject', newSubId);
+
+    // Reset navigation & filter state
+    setSelectedChapter('all');
+    setSelectedTopic('all');
+    setOnlyBookmarked(false);
+    setOnlyWrong(false);
+    setSearchQuery('');
+    setCurrentIndex(0);
+    setShowExplanation(false);
+    setTempMultiSelections([]);
+
+    // Load subject data from localStorage
+    try {
+      const bKey = `mln_bookmarks_${newSubId}`;
+      const savedB = localStorage.getItem(bKey) || (newSubId === 'mln111' ? localStorage.getItem('mln_bookmarks') : null);
+      setBookmarks(savedB ? new Set(JSON.parse(savedB)) : new Set());
+
+      const wKey = `mln_wrong_questions_${newSubId}`;
+      const savedW = localStorage.getItem(wKey) || (newSubId === 'mln111' ? localStorage.getItem('mln_wrong_questions') : null);
+      setWrongQuestions(savedW ? new Set(JSON.parse(savedW)) : new Set());
+
+      const aKey = `mln_study_answers_${newSubId}`;
+      const savedA = localStorage.getItem(aKey) || (newSubId === 'mln111' ? localStorage.getItem('mln_study_answers') : null);
+      setStudyAnswers(savedA ? JSON.parse(savedA) : {});
+    } catch {
+      setBookmarks(new Set());
+      setWrongQuestions(new Set());
+      setStudyAnswers({});
+    }
+
+    const targetSub = SUBJECTS[newSubId] || SUBJECTS[DEFAULT_SUBJECT_ID];
+    triggerToast(`📚 ĐÃ CHUYỂN MÔN: ${targetSub.code}`, targetSub.name);
+  };
 
   // Filter questions for Study Mode
   const filteredQuestions = useMemo(() => {
@@ -330,6 +428,7 @@ export default function App() {
       if (selectedChapter !== 'all' && q.chapter !== Number(selectedChapter)) return false;
       if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
       if (onlyBookmarked && !bookmarks.has(q.id)) return false;
+      if (onlyWrong && !wrongQuestions.has(q.id)) return false;
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
         const inQuestion = q.question.toLowerCase().includes(query);
@@ -339,7 +438,7 @@ export default function App() {
       }
       return true;
     });
-  }, [selectedChapter, selectedTopic, onlyBookmarked, searchQuery, bookmarks]);
+  }, [selectedChapter, selectedTopic, onlyBookmarked, onlyWrong, wrongQuestions, searchQuery, bookmarks]);
 
   // Handle Chapter filter change
   const handleChapterChange = (chapterId) => {
@@ -385,20 +484,72 @@ export default function App() {
     });
   };
 
+  // Reset answers for all wrong questions so user can re-attempt them cleanly
+  const handleResetWrongAnswers = useCallback(() => {
+    playClickSound();
+    setStudyAnswers((prev) => {
+      const next = { ...prev };
+      wrongQuestions.forEach((qid) => {
+        delete next[qid];
+      });
+      return next;
+    });
+    setTempMultiSelections([]);
+    setShowExplanation(false);
+    triggerToast('🔄 ĐÃ ĐẶT LẠI ĐÁP ÁN', 'Sẵn sàng làm lại toàn bộ câu sai từ đầu!');
+  }, [wrongQuestions, triggerToast]);
+
+  // Remove a specific question from wrong question bank (mastered)
+  const handleRemoveFromWrong = useCallback((qid) => {
+    playClickSound();
+    setWrongQuestions((prev) => {
+      const next = new Set(prev);
+      next.delete(qid);
+      return next;
+    });
+    setFixedWrongCount((prev) => prev + 1);
+    addExp(15);
+    triggerToast('⭐ ĐÃ KHẮC PHỤC CÂU SAI!', 'Đã gỡ câu hỏi khỏi danh sách làm sai (+15 EXP)');
+  }, [addExp, triggerToast]);
+
+  // Clear all wrong questions
+  const handleClearAllWrong = useCallback(() => {
+    if (window.confirm('Bạn có chắc muốn xóa toàn bộ câu hỏi khỏi danh sách câu sai không?')) {
+      playClickSound();
+      setWrongQuestions(new Set());
+      setOnlyWrong(false);
+      setCurrentIndex(0);
+      triggerToast('🗑️ ĐÃ XÓA DANH SÁCH SAI', 'Danh sách câu hỏi làm sai đã được làm trống.');
+    }
+  }, [triggerToast]);
+
   // Submit & Calculate Exam Results
   const finishExam = useCallback(() => {
     setExamStatus('result');
     setShowSubmitConfirm(false);
     
-    // Calculate score
+    // Calculate score & record wrong questions
     let correctCount = 0;
+    const newWrongs = [];
     examQuestions.forEach((q) => {
       const userSelected = examAnswers[q.id] || [];
       const isCorrect = 
         userSelected.length === q.correctAnswers.length &&
         userSelected.every(ans => q.correctAnswers.includes(ans));
-      if (isCorrect) correctCount++;
+      if (isCorrect) {
+        correctCount++;
+      } else {
+        newWrongs.push(q.id);
+      }
     });
+
+    if (newWrongs.length > 0) {
+      setWrongQuestions((prev) => {
+        const next = new Set(prev);
+        newWrongs.forEach((id) => next.add(id));
+        return next;
+      });
+    }
 
     const scoreNum = Number(((correctCount / examQuestions.length) * 10).toFixed(1));
     let earned = 80;
@@ -490,6 +641,7 @@ export default function App() {
       } else {
         setCombo(0);
         playWrongSound();
+        setWrongQuestions((prev) => new Set(prev).add(currentQ.id));
       }
 
       setStudyAnswers((prev) => ({
@@ -521,6 +673,7 @@ export default function App() {
     } else {
       setCombo(0);
       playWrongSound();
+      setWrongQuestions((prev) => new Set(prev).add(currentQ.id));
     }
 
     setStudyAnswers((prev) => ({
@@ -690,12 +843,13 @@ export default function App() {
   // Exam Rank Evaluation
   const examRankInfo = useMemo(() => {
     const s = Number(examStats.score);
-    if (s >= 9.0) return { rank: 'S', title: 'Đại Triết Gia Xuất Chúng', class: 'rank-s' };
-    if (s >= 8.0) return { rank: 'A', title: 'Bậc Thầy Lý Luận', class: 'rank-a' };
-    if (s >= 6.5) return { rank: 'B', title: 'Nhà Duy Vật Tiềm Năng', class: 'rank-b' };
+    const isMln122 = currentSubject.id === 'mln122';
+    if (s >= 9.0) return { rank: 'S', title: isMln122 ? 'Đại Kinh Tế Gia Xuất Chúng' : 'Đại Triết Gia Xuất Chúng', class: 'rank-s' };
+    if (s >= 8.0) return { rank: 'A', title: isMln122 ? 'Bậc Thầy Lý Luận Kinh Tế' : 'Bậc Thầy Lý Luận', class: 'rank-a' };
+    if (s >= 6.5) return { rank: 'B', title: isMln122 ? 'Nhà Phân Tích Tiềm Năng' : 'Nhà Duy Vật Tiềm Năng', class: 'rank-b' };
     if (s >= 5.0) return { rank: 'C', title: 'Đạt Chuẩn Cần Cố Gắng', class: 'rank-c' };
     return { rank: 'D', title: 'Cần Ôn Luyện Lại', class: 'rank-d' };
-  }, [examStats.score]);
+  }, [examStats.score, currentSubject.id]);
 
   // Format seconds to mm:ss
   const formatTime = (seconds) => {
@@ -715,11 +869,32 @@ export default function App() {
             </div>
             <div>
               <div className="brand-title">
-                TRIẾT HỌC MÁC – LÊNIN
-                <span className="brand-badge">MLN111</span>
+                {currentSubject.name.toUpperCase()}
+                <span className="brand-badge">{currentSubject.code}</span>
               </div>
-              <div className="brand-subtitle">598 Câu Trắc Nghiệm Chuẩn & Giáo Trình 2021</div>
+              <div className="brand-subtitle">{currentSubject.questions.length} Câu Trắc Nghiệm Chuẩn & Giáo Trình 2021</div>
             </div>
+          </div>
+
+          {/* Subject Switcher */}
+          <div className="subject-switcher" role="tablist" aria-label="Chọn môn học">
+            {Object.values(SUBJECTS).map((sub) => {
+              const isActive = subjectId === sub.id;
+              return (
+                <button
+                  key={sub.id}
+                  className={`subject-pill-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => handleSubjectChange(sub.id)}
+                  title={`Chuyển sang môn ${sub.name}`}
+                  role="tab"
+                  aria-selected={isActive}
+                >
+                  <span className="subject-pill-code">{sub.code}</span>
+                  <span className="subject-pill-name">{sub.shortName}</span>
+                  <span className="subject-pill-badge">{sub.questions.length}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Gamified Player HUD */}
@@ -731,7 +906,7 @@ export default function App() {
               title="Nhấn để xem Thành tựu & Huy hiệu"
             >
               <Crown size={15} />
-              <span>{getLevelTitle(level)}</span>
+              <span>{getLevelTitle(level, currentSubject.levelTitles)}</span>
               <span className="hud-level-num">Lv.{level}</span>
             </div>
 
@@ -767,7 +942,7 @@ export default function App() {
               }}
             >
               <BookOpen size={16} />
-              Học Tập (598 Câu)
+              Học Tập ({rawQuestions.length} Câu)
             </button>
             <button
               className={`mode-btn ${mode === 'exam' ? 'active' : ''}`}
@@ -864,6 +1039,7 @@ export default function App() {
                     className={`pill-btn ${onlyBookmarked ? 'active' : ''}`}
                     onClick={() => {
                       setOnlyBookmarked(!onlyBookmarked);
+                      if (!onlyBookmarked) setOnlyWrong(false);
                       setCurrentIndex(0);
                       playClickSound();
                     }}
@@ -877,6 +1053,35 @@ export default function App() {
                     Đã đánh dấu
                     <span className="pill-count">{bookmarks.size}</span>
                   </button>
+
+                  {/* Wrong Questions Filter Pill */}
+                  <button
+                    className={`pill-btn ${onlyWrong ? 'active' : ''}`}
+                    onClick={() => {
+                      setOnlyWrong(!onlyWrong);
+                      if (!onlyWrong) setOnlyBookmarked(false);
+                      setCurrentIndex(0);
+                      playClickSound();
+                    }}
+                    style={{
+                      borderColor: onlyWrong ? 'var(--error)' : undefined,
+                      backgroundColor: onlyWrong ? 'var(--error)' : undefined,
+                      color: onlyWrong ? '#ffffff' : undefined
+                    }}
+                    title="Lọc các câu hỏi đã trả lời sai để luyện tập lại"
+                  >
+                    <AlertCircle size={14} />
+                    Câu làm sai
+                    <span
+                      className="pill-count"
+                      style={{
+                        backgroundColor: onlyWrong ? 'rgba(0,0,0,0.25)' : undefined,
+                        color: onlyWrong ? '#ffffff' : undefined
+                      }}
+                    >
+                      {wrongQuestions.size}
+                    </span>
+                  </button>
                 </div>
 
                 {/* Subtopic Dropdown with Grouping */}
@@ -888,41 +1093,23 @@ export default function App() {
                   {selectedChapter === 'all' ? (
                     <>
                       <option value="all">Tất cả đề mục ({rawQuestions.length} câu)</option>
-                      <optgroup label="── Chương 1: Khái luận về triết học ──">
-                        {TOPICS.filter((t) => t.chapter === 1).map((top) => {
-                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
-                          return (
-                            <option key={top.id} value={top.id}>
-                              {top.title} ({cnt} câu)
-                            </option>
-                          );
-                        })}
-                      </optgroup>
-                      <optgroup label="── Chương 2: Chủ nghĩa duy vật biện chứng ──">
-                        {TOPICS.filter((t) => t.chapter === 2).map((top) => {
-                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
-                          return (
-                            <option key={top.id} value={top.id}>
-                              {top.title} ({cnt} câu)
-                            </option>
-                          );
-                        })}
-                      </optgroup>
-                      <optgroup label="── Chương 3: Chủ nghĩa duy vật lịch sử ──">
-                        {TOPICS.filter((t) => t.chapter === 3).map((top) => {
-                          const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
-                          return (
-                            <option key={top.id} value={top.id}>
-                              {top.title} ({cnt} câu)
-                            </option>
-                          );
-                        })}
-                      </optgroup>
+                      {CHAPTERS.filter((ch) => ch.id !== 'all').map((ch) => (
+                        <optgroup key={ch.id} label={`── ${ch.title} ──`}>
+                          {TOPICS.filter((t) => t.chapter === ch.id).map((top) => {
+                            const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                            return (
+                              <option key={top.id} value={top.id}>
+                                {top.title} ({cnt} câu)
+                              </option>
+                            );
+                          })}
+                        </optgroup>
+                      ))}
                     </>
                   ) : (
                     <>
                       <option value="all">
-                        Tất cả đề mục Chương {selectedChapter} ({rawQuestions.filter((q) => q.chapter === selectedChapter).length} câu)
+                        Tất cả đề mục {CHAPTERS.find(c => c.id === selectedChapter)?.short || `Chương ${selectedChapter}`} ({rawQuestions.filter((q) => q.chapter === selectedChapter).length} câu)
                       </option>
                       {TOPICS.filter((t) => t.chapter === selectedChapter).map((top) => {
                         const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
@@ -944,7 +1131,7 @@ export default function App() {
                   <input
                     type="text"
                     className="search-input"
-                    placeholder="Tìm kiếm nội dung câu hỏi, từ khóa triết học..."
+                    placeholder={currentSubject.searchPlaceholder}
                     value={searchQuery}
                     onChange={(e) => {
                       setSearchQuery(e.target.value);
@@ -959,9 +1146,9 @@ export default function App() {
                   <input
                     type="number"
                     min="1"
-                    max="598"
+                    max={rawQuestions.length}
                     className="jump-input"
-                    placeholder="1-598"
+                    placeholder={`1-${rawQuestions.length}`}
                     value={jumpInput}
                     onChange={(e) => setJumpInput(e.target.value)}
                   />
@@ -975,7 +1162,7 @@ export default function App() {
                       playClickSound();
                       setShowMobileMatrixModal(true);
                     }}
-                    title="Mở ma trận 598 câu hỏi"
+                    title={`Mở ma trận ${rawQuestions.length} câu hỏi`}
                   >
                     <BookOpen size={14} />
                     Ma trận ({filteredQuestions.length})
@@ -986,31 +1173,96 @@ export default function App() {
 
             {/* Study Layout: Question Card (Left) & Sidebar (Right) */}
             {filteredQuestions.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '4rem 1rem', color: 'var(--text-muted)' }}>
-                <AlertCircle size={48} style={{ margin: '0 auto 1rem', opacity: 0.5 }} />
-                <h3>Không tìm thấy câu hỏi phù hợp</h3>
-                <p>Vui lòng thử bỏ chọn các bộ lọc hoặc tìm kiếm bằng từ khóa khác.</p>
-                <button
-                  className="pill-btn"
-                  style={{
-                    margin: '1.25rem auto 0',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.6rem 1.25rem'
-                  }}
-                  onClick={() => {
-                    setSelectedChapter('all');
-                    setSelectedTopic('all');
-                    setOnlyBookmarked(false);
-                    setSearchQuery('');
-                  }}
-                >
-                  <RotateCcw size={15} /> Đặt lại tất cả bộ lọc
-                </button>
-              </div>
+              onlyWrong ? (
+                <div className="empty-wrong-card">
+                  <ShieldCheck size={56} color="var(--success)" style={{ margin: '0 auto 1rem' }} />
+                  <h3>Tuyệt Vời! Không Có Câu Hỏi Làm Sai Nào</h3>
+                  <p>
+                    Bạn chưa có câu hỏi nào bị làm sai hoặc đã khắc phục thành công tất cả các câu sai trước đó.
+                  </p>
+                  <button
+                    className="pill-btn"
+                    style={{
+                      margin: '1.25rem auto 0',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.65rem 1.4rem'
+                    }}
+                    onClick={() => {
+                      setOnlyWrong(false);
+                      setCurrentIndex(0);
+                      playClickSound();
+                    }}
+                  >
+                    <RotateCcw size={15} /> Quay lại ngân hàng {rawQuestions.length} câu
+                  </button>
+                </div>
+              ) : (
+                <div style={{ textAlign: 'center', padding: '4rem 1rem', color: 'var(--text-muted)' }}>
+                  <AlertCircle size={48} style={{ margin: '0 auto 1rem', opacity: 0.5 }} />
+                  <h3>Không tìm thấy câu hỏi phù hợp</h3>
+                  <p>Vui lòng thử bỏ chọn các bộ lọc hoặc tìm kiếm bằng từ khóa khác.</p>
+                  <button
+                    className="pill-btn"
+                    style={{
+                      margin: '1.25rem auto 0',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.6rem 1.25rem'
+                    }}
+                    onClick={() => {
+                      setSelectedChapter('all');
+                      setSelectedTopic('all');
+                      setOnlyBookmarked(false);
+                      setOnlyWrong(false);
+                      setSearchQuery('');
+                    }}
+                  >
+                    <RotateCcw size={15} /> Đặt lại tất cả bộ lọc
+                  </button>
+                </div>
+              )
             ) : (
-              <div className="study-layout">
+              <>
+                {/* Banner when in Wrong Questions Review Mode */}
+                {onlyWrong && (
+                  <div className="wrong-questions-banner">
+                    <div className="wrong-banner-content">
+                      <div className="wrong-banner-icon">
+                        <AlertTriangle size={20} color="#ef4444" />
+                      </div>
+                      <div>
+                        <div className="wrong-banner-title">
+                          BỘ ÔN TẬP CÂU HỎI LÀM SAI ({filteredQuestions.length} CÂU)
+                        </div>
+                        <div className="wrong-banner-desc">
+                          Luyện tập lại các câu hỏi bạn từng trả lời sai để củng cố kiến thức và khắc phục lỗ hổng.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="wrong-banner-actions">
+                      <button
+                        className="btn-wrong-tool"
+                        onClick={handleResetWrongAnswers}
+                        title="Xóa lựa chọn cũ để làm lại như mới"
+                      >
+                        <RotateCcw size={14} /> Làm lại từ đầu
+                      </button>
+                      <button
+                        className="btn-wrong-tool btn-wrong-danger"
+                        onClick={handleClearAllWrong}
+                        title="Xóa danh sách các câu hỏi làm sai"
+                      >
+                        <Trash2 size={14} /> Xóa danh sách
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <div className="study-layout">
                 {/* Active Question Card (Mecha HUD with Spring Physics) */}
                 {currentQ && (() => {
                   const savedAnswer = studyAnswers[currentQ.id];
@@ -1034,7 +1286,7 @@ export default function App() {
                         <div className="mobile-swipe-hint">👈 Vuốt ngang màn hình để chuyển câu 👉</div>
 
                         {/* Sci-Fi Tech Status Line */}
-                        <div className="mecha-hud-status">// PROTOCOL_MLN111 // COMBAT_INTERFACE</div>
+                        <div className="mecha-hud-status">{currentSubject.protocol}</div>
 
                         {/* Top Meta */}
                         <div className="card-top">
@@ -1043,6 +1295,14 @@ export default function App() {
                             <span className="tag-topic">{currentQ.topicTitle.split('(')[0]}</span>
                             <span className="tag-topic" style={{ opacity: 0.8 }}>{currentQ.pageReference}</span>
                             
+                            {/* Wrong Question Tag */}
+                            {wrongQuestions.has(currentQ.id) && (
+                              <span className="tag-wrong-warning" title="Câu hỏi này nằm trong bộ câu hỏi làm sai">
+                                <AlertCircle size={12} />
+                                Câu làm sai
+                              </span>
+                            )}
+
                             {/* Combo Badge */}
                             {combo >= 2 && (
                               <span className="combo-badge">
@@ -1058,23 +1318,37 @@ export default function App() {
                             )}
                           </div>
 
-                          {/* Bookmark Button */}
-                          <button
-                            className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
-                            onClick={() => toggleBookmark(currentQ.id)}
-                            title="Đánh dấu câu hỏi để xem lại sau (Phím M)"
-                          >
-                            <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
-                            {isBookmarked ? 'Đã ghim' : 'Đánh dấu'}
-                            <span className="kbd-badge">M</span>
-                          </button>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+                            {/* Remove from wrong questions button */}
+                            {wrongQuestions.has(currentQ.id) && (
+                              <button
+                                className="btn-wrong-remove"
+                                onClick={() => handleRemoveFromWrong(currentQ.id)}
+                                title="Đánh dấu đã hiểu câu này và xóa khỏi danh sách làm sai"
+                              >
+                                <Check size={14} />
+                                Đã sửa đúng
+                              </button>
+                            )}
+
+                            {/* Bookmark Button */}
+                            <button
+                              className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
+                              onClick={() => toggleBookmark(currentQ.id)}
+                              title="Đánh dấu câu hỏi để xem lại sau (Phím M)"
+                            >
+                              <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
+                              {isBookmarked ? 'Đã ghim' : 'Đánh dấu'}
+                              <span className="kbd-badge">M</span>
+                            </button>
+                          </div>
                         </div>
 
                         {/* Question Text */}
                         <div className="question-title-wrap">
                           <div className="question-num">
                             <Zap size={15} color="var(--primary)" />
-                            CÂU HỎI {currentQ.id} / 598
+                            CÂU HỎI {currentQ.id} / {rawQuestions.length}
                           </div>
                           <h2 className="question-text">{currentQ.question}</h2>
                         </div>
@@ -1180,6 +1454,41 @@ export default function App() {
                           </div>
                         )}
 
+                        {/* Wrong question resolution feedback */}
+                        {wrongQuestions.has(currentQ.id) && hasAnswered && (
+                          <div className="wrong-question-help-box">
+                            {savedAnswer.isCorrect ? (
+                              <div className="wrong-resolved-box">
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                  <CheckCircle2 size={20} color="var(--success)" />
+                                  <div>
+                                    <div style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--success)' }}>
+                                      🎉 Xuất sắc! Bạn đã trả lời đúng câu hỏi này!
+                                    </div>
+                                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                                      Xóa câu này khỏi danh sách câu sai nếu bạn đã nắm vững kiến thức.
+                                    </div>
+                                  </div>
+                                </div>
+                                <button
+                                  type="button"
+                                  className="btn-remove-from-wrong"
+                                  onClick={() => handleRemoveFromWrong(currentQ.id)}
+                                >
+                                  <Check size={14} /> Bỏ khỏi bộ câu sai (+15 EXP)
+                                </button>
+                              </div>
+                            ) : (
+                              <div className="wrong-reminder-box">
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.85rem' }}>
+                                  <AlertTriangle size={16} color="var(--error)" />
+                                  <span>Câu này vẫn chưa chọn đúng. Hãy xem kỹ giải thích từ giáo trình phía trên!</span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
                         {/* Bottom Navigation Buttons */}
                         <div className="card-bottom-actions">
                           <div className="nav-buttons-group">
@@ -1251,7 +1560,7 @@ export default function App() {
                         <span className="stat-value" style={{ color: 'var(--primary)' }}>
                           {studyStats.answeredCount}
                         </span>
-                        <span className="stat-label">Đã trả lời / 598</span>
+                        <span className="stat-label">Đã trả lời / {rawQuestions.length}</span>
                       </div>
                       <div className="stat-box">
                         <span className="stat-value" style={{ color: 'var(--success)' }}>
@@ -1259,11 +1568,23 @@ export default function App() {
                         </span>
                         <span className="stat-label">Trả lời đúng</span>
                       </div>
-                      <div className="stat-box">
-                        <span className="stat-value" style={{ color: 'var(--error)' }}>
-                          {studyStats.wrongCount}
-                        </span>
-                        <span className="stat-label">Trả lời sai</span>
+                      <div
+                        className="stat-box stat-box-interactive"
+                        onClick={() => {
+                          setOnlyWrong(!onlyWrong);
+                          if (!onlyWrong) setOnlyBookmarked(false);
+                          setCurrentIndex(0);
+                          playClickSound();
+                        }}
+                        title="Nhấn để luyện tập bộ câu hỏi làm sai"
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span className="stat-value" style={{ color: 'var(--error)' }}>
+                            {wrongQuestions.size}
+                          </span>
+                          <span className="stat-action-tag">Luyện tập →</span>
+                        </div>
+                        <span className="stat-label">Câu làm sai (Click để ôn)</span>
                       </div>
                       <div className="stat-box">
                         <span className="stat-value" style={{ color: 'var(--bookmark)' }}>
@@ -1276,7 +1597,7 @@ export default function App() {
                     <div className="progress-bar-wrap">
                       <div
                         className="progress-bar-fill"
-                        style={{ width: `${(studyStats.answeredCount / 598) * 100}%` }}
+                        style={{ width: `${(studyStats.answeredCount / rawQuestions.length) * 100}%` }}
                       />
                     </div>
                   </div>
@@ -1295,12 +1616,14 @@ export default function App() {
                         const ans = studyAnswers[q.id];
                         const isCurrent = idx === safeCurrentIndex;
                         const isBookmarked = bookmarks.has(q.id);
+                        const hasWrong = wrongQuestions.has(q.id);
 
                         let chipClass = 'nav-chip';
                         if (isCurrent) chipClass += ' chip-current';
                         else if (ans && ans.isCorrect) chipClass += ' chip-correct';
                         else if (ans && !ans.isCorrect) chipClass += ' chip-wrong';
                         if (isBookmarked) chipClass += ' chip-bookmarked';
+                        if (hasWrong) chipClass += ' chip-has-wrong';
 
                         return (
                           <button
@@ -1321,8 +1644,9 @@ export default function App() {
                   </div>
                 </div>
               </div>
-            )}
-          </>
+            </>
+          )}
+        </>
         ) : (
           /* =========================================================================
              EXAM MODE (BOSS CHALLENGE 60 MINUTES - 50 QUESTIONS)
@@ -1335,7 +1659,7 @@ export default function App() {
                     <GraduationCap size={38} />
                   </div>
                 </div>
-                <h2>THI THỬ TRIẾT HỌC MÁC – LÊNIN (MLN111)</h2>
+                <h2>{currentSubject.examTitle}</h2>
                 <p style={{ color: 'var(--text-muted)' }}>
                   Thử thách 50 câu trắc nghiệm mô phỏng phòng thi thật • Chinh phục Rank S
                 </p>
@@ -1343,7 +1667,7 @@ export default function App() {
                 <div className="stats-grid" style={{ maxWidth: 520, margin: '1rem auto' }}>
                   <div className="stat-box">
                     <span className="stat-value">50</span>
-                    <span className="stat-label">Số câu hỏi (ngẫu nhiên từ 598 câu)</span>
+                    <span className="stat-label">Số câu hỏi (ngẫu nhiên từ {rawQuestions.length} câu)</span>
                   </div>
                   <div className="stat-box">
                     <span className="stat-value">60:00</span>
@@ -1364,7 +1688,7 @@ export default function App() {
                     <ShieldCheck size={18} color="var(--primary)" /> Quy chế & Hướng dẫn:
                   </h4>
                   <ul style={{ paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                    <li>Hệ thống bốc ngẫu nhiên 50 câu từ ngân hàng 598 câu chuẩn.</li>
+                    <li>Hệ thống bốc ngẫu nhiên 50 câu từ ngân hàng {rawQuestions.length} câu chuẩn.</li>
                     <li>Trong lúc làm bài, đáp án đúng sẽ <strong>không hiển thị</strong> để đảm bảo tính khách quan.</li>
                     <li>Có thể đánh dấu những câu phân vân để kiểm tra lại trước khi bấm nộp bài.</li>
                     <li>Hết 60 phút hệ thống sẽ tự động thu bài và hiển thị kết quả phân loại Rank kèm trích dẫn giáo trình.</li>
@@ -1401,7 +1725,7 @@ export default function App() {
                   <div className="exam-header-banner">
                     <div>
                       <h3 style={{ fontSize: '1.3rem', fontWeight: 900, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Clock size={22} /> PHÒNG THI THỬ TRẮC NGHIỆM MLN111
+                        <Clock size={22} /> {currentSubject.examSubtitle}
                       </h3>
                       <div style={{ fontSize: '0.875rem', opacity: 0.9 }}>
                         Đã làm: {answeredExamCount} / 50 câu &bull; Đã đánh dấu: {examBookmarks.size} câu
@@ -1641,6 +1965,32 @@ export default function App() {
                         Xem Lời Giải Chi Tiết 50 Câu
                       </button>
 
+                      {50 - examStats.correct > 0 && (
+                        <button
+                          className="btn-nav"
+                          style={{
+                            padding: '0.8rem 2rem',
+                            fontSize: '1rem',
+                            backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                            borderColor: 'var(--error)',
+                            color: 'var(--error)'
+                          }}
+                          onClick={() => {
+                            playClickSound();
+                            setMode('study');
+                            setOnlyWrong(true);
+                            setOnlyBookmarked(false);
+                            setSelectedChapter('all');
+                            setSelectedTopic('all');
+                            setCurrentIndex(0);
+                            setShowExplanation(false);
+                          }}
+                        >
+                          <RotateCcw size={18} />
+                          Luyện Tập Lại {50 - examStats.correct} Câu Sai Này
+                        </button>
+                      )}
+
                       <button
                         className="btn-nav"
                         style={{ padding: '0.8rem 2rem', fontSize: '1rem' }}
@@ -1741,7 +2091,7 @@ export default function App() {
                             <div className="explanation-card">
                               <div className="exp-title-row">
                                 <HelpCircle size={18} />
-                                <span>Trích dẫn Giáo trình Triết học Mác – Lênin (2021) - {q.pageReference}</span>
+                                <span>Trích dẫn {q.textbook || currentSubject.textbook} - {q.pageReference}</span>
                               </div>
                               <p className="explanation-body" style={{ marginTop: '0.5rem' }}>
                                 {q.explanation}
@@ -1815,7 +2165,7 @@ export default function App() {
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Trophy size={22} color="#f59e0b" /> Bộ Huy Hiệu Triết Học ({unlockedBadges.size}/{BADGES.length})
+                <Trophy size={22} color="#f59e0b" /> {currentSubject.badgeTitle} ({unlockedBadges.size}/{BADGES.length})
               </h3>
               <button
                 style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
@@ -1986,7 +2336,7 @@ export default function App() {
           title="Mở ma trận câu hỏi"
         >
           <BookOpen size={16} />
-          <span>Câu #{currentQ.id} / 598 📑</span>
+          <span>Câu #{currentQ.id} / {rawQuestions.length} 📑</span>
         </button>
       )}
 
@@ -2024,9 +2374,20 @@ export default function App() {
                 <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--success)' }}>{studyStats.correctCount}</span>
                 <span className="stat-label" style={{ fontSize: '0.65rem' }}>Đúng</span>
               </div>
-              <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
-                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--error)' }}>{studyStats.wrongCount}</span>
-                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Sai</span>
+              <div
+                className="stat-box"
+                style={{ padding: '0.4rem', textAlign: 'center', cursor: 'pointer' }}
+                onClick={() => {
+                  setOnlyWrong(true);
+                  setOnlyBookmarked(false);
+                  setCurrentIndex(0);
+                  setShowMobileMatrixModal(false);
+                  playClickSound();
+                }}
+                title="Bấm để lọc ôn tập câu sai"
+              >
+                <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--error)' }}>{wrongQuestions.size}</span>
+                <span className="stat-label" style={{ fontSize: '0.65rem' }}>Sai (Ôn)</span>
               </div>
               <div className="stat-box" style={{ padding: '0.4rem', textAlign: 'center' }}>
                 <span className="stat-value" style={{ fontSize: '1.05rem', color: 'var(--bookmark)' }}>{bookmarks.size}</span>
@@ -2040,12 +2401,14 @@ export default function App() {
                 const ans = studyAnswers[q.id];
                 const isCurrent = idx === safeCurrentIndex;
                 const isBookmarked = bookmarks.has(q.id);
+                const hasWrong = wrongQuestions.has(q.id);
 
                 let chipClass = 'nav-chip';
                 if (isCurrent) chipClass += ' chip-current';
                 else if (ans && ans.isCorrect) chipClass += ' chip-correct';
                 else if (ans && !ans.isCorrect) chipClass += ' chip-wrong';
                 if (isBookmarked) chipClass += ' chip-bookmarked';
+                if (hasWrong) chipClass += ' chip-has-wrong';
 
                 return (
                   <button
