@@ -1,4 +1,4 @@
-import mln111Questions from './mln111_questions.json';
+import mln111Questions from './questions.json';
 import mln122Questions from './mln122_questions.json';
 
 export const SUBJECTS = {
