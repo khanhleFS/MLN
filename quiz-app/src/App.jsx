@@ -31,7 +31,11 @@ import {
   ShieldCheck,
   CheckCircle2,
   Trash2,
-  Lock
+  Lock,
+  Layers,
+  Shuffle,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 import { SUBJECTS, DEFAULT_SUBJECT_ID } from './data/subjects';
 import {
@@ -67,6 +71,7 @@ const BADGES = [
   { id: 'century', title: 'Bách Khoa 100 Câu', desc: 'Đã hoàn thành 100 câu hỏi trắc nghiệm', icon: 'award' },
   { id: 'bookmarker', title: 'Cẩn Tắc Vô Ưu', desc: 'Đã đánh dấu lưu trữ ít nhất 5 câu hỏi khó', icon: 'bookmark' },
   { id: 'fix_5_wrongs', title: 'Khắc Kỷ Cầu Tiến', desc: 'Đã ôn luyện và sửa đúng ít nhất 5 câu hỏi từng làm sai', icon: 'shield' },
+  { id: 'quizlet_study', title: 'Tốc Ký Flashcard', desc: 'Đã ôn tập và lật xem các thẻ ghi nhớ Quizlet', icon: 'zap' },
   { id: 'exam_passed', title: 'Vượt Ải Khảo Thí', desc: 'Hoàn thành bài thi thử 50 câu đạt từ 7.0 điểm', icon: 'shield' },
   { id: 'exam_rank_s', title: 'Đại Triết Gia Rank S', desc: 'Đạt Rank S xuất sắc (từ 9.0 điểm trở lên) trong bài thi', icon: 'trophy' },
 ];
@@ -114,8 +119,17 @@ export default function App() {
   const CHAPTERS = currentSubject.chapters;
   const TOPICS = currentSubject.topics;
 
-  // App Mode: 'study' | 'exam'
+  // App Mode: 'study' | 'quizlet' | 'exam'
   const [mode, setMode] = useState('study');
+
+  // Quizlet Mode States
+  const [quizletIndex, setQuizletIndex] = useState(0);
+  const [quizletFlipped, setQuizletFlipped] = useState(false);
+  const [quizletAutoReveal, setQuizletAutoReveal] = useState(false);
+  const [quizletShuffled, setQuizletShuffled] = useState(false);
+  const [quizletShuffleSeed, setQuizletShuffleSeed] = useState(0);
+  const [quizletViewMode, setQuizletViewMode] = useState('card'); // 'card' | 'list'
+  const [expandedListIds, setExpandedListIds] = useState(new Set());
 
   // Gamification States
   const [exp, setExp] = useState(() => {
@@ -245,6 +259,12 @@ export default function App() {
             setCurrentIndex((prev) => prev + 1);
             setShowExplanation(false);
           }
+        } else if (mode === 'quizlet') {
+          if (safeQuizletIndex < quizletQuestions.length - 1) {
+            playClickSound();
+            setQuizletIndex((prev) => prev + 1);
+            if (!quizletAutoReveal) setQuizletFlipped(false);
+          }
         } else if (mode === 'exam' && examStatus === 'active') {
           if (examCurrentIndex < examQuestions.length - 1) {
             playClickSound();
@@ -258,6 +278,12 @@ export default function App() {
             playClickSound();
             setCurrentIndex((prev) => prev - 1);
             setShowExplanation(false);
+          }
+        } else if (mode === 'quizlet') {
+          if (safeQuizletIndex > 0) {
+            playClickSound();
+            setQuizletIndex((prev) => prev - 1);
+            if (!quizletAutoReveal) setQuizletFlipped(false);
           }
         } else if (mode === 'exam' && examStatus === 'active') {
           if (examCurrentIndex > 0) {
@@ -398,6 +424,10 @@ export default function App() {
     setCurrentIndex(0);
     setShowExplanation(false);
     setTempMultiSelections([]);
+    setQuizletIndex(0);
+    setQuizletFlipped(false);
+    setQuizletShuffled(false);
+    setExpandedListIds(new Set());
 
     // Load subject data from localStorage
     try {
@@ -445,6 +475,8 @@ export default function App() {
     setSelectedChapter(chapterId);
     setCurrentIndex(0);
     setShowExplanation(false);
+    setQuizletIndex(0);
+    if (!quizletAutoReveal) setQuizletFlipped(false);
     playClickSound();
     if (selectedTopic !== 'all') {
       const currentTopicObj = TOPICS.find((t) => t.id === selectedTopic);
@@ -459,6 +491,8 @@ export default function App() {
     setSelectedTopic(topicId);
     setCurrentIndex(0);
     setShowExplanation(false);
+    setQuizletIndex(0);
+    if (!quizletAutoReveal) setQuizletFlipped(false);
     playClickSound();
     if (topicId !== 'all') {
       const topicObj = TOPICS.find((t) => t.id === topicId);
@@ -473,6 +507,46 @@ export default function App() {
   const safeCurrentIndex = activeQuestionsCount > 0 ? Math.min(currentIndex, activeQuestionsCount - 1) : 0;
   const currentQ = activeQuestionsCount > 0 ? filteredQuestions[safeCurrentIndex] : null;
 
+  // Quizlet questions (supports shuffle and filtering)
+  const quizletQuestions = useMemo(() => {
+    if (!quizletShuffled) {
+      return filteredQuestions;
+    }
+    void quizletShuffleSeed;
+    const list = [...filteredQuestions];
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
+  }, [filteredQuestions, quizletShuffled, quizletShuffleSeed]);
+
+  const safeQuizletIndex = quizletQuestions.length > 0 ? Math.min(quizletIndex, quizletQuestions.length - 1) : 0;
+  const currentQuizletQ = quizletQuestions.length > 0 ? quizletQuestions[safeQuizletIndex] : null;
+
+  const handleToggleShuffle = useCallback(() => {
+    playClickSound();
+    setQuizletShuffled((prev) => {
+      const next = !prev;
+      if (next) setQuizletShuffleSeed(Date.now());
+      return next;
+    });
+    setQuizletIndex(0);
+    if (!quizletAutoReveal) setQuizletFlipped(false);
+  }, [quizletAutoReveal]);
+
+  const handleCardClick = useCallback(() => {
+    playClickSound();
+    setQuizletFlipped((prev) => {
+      const next = !prev;
+      if (next) {
+        addExp(3);
+        unlockBadge('quizlet_study');
+      }
+      return next;
+    });
+  }, [addExp, unlockBadge]);
+
   // Toggle bookmark helper
   const toggleBookmark = (id) => {
     playClickSound();
@@ -483,6 +557,19 @@ export default function App() {
       return next;
     });
   };
+
+  // Reset current question so user can re-attempt it (Keymap 'R')
+  const handleResetCurrentQuestion = useCallback(() => {
+    if (!currentQ) return;
+    playClickSound();
+    setStudyAnswers((prev) => {
+      const next = { ...prev };
+      delete next[currentQ.id];
+      return next;
+    });
+    setTempMultiSelections([]);
+    setShowExplanation(false);
+  }, [currentQ]);
 
   // Reset answers for all wrong questions so user can re-attempt them cleanly
   const handleResetWrongAnswers = useCallback(() => {
@@ -731,6 +818,9 @@ export default function App() {
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.max(0, prev - 1));
           setShowExplanation(false);
+        } else if (mode === 'quizlet') {
+          setQuizletIndex((prev) => Math.max(0, prev - 1));
+          if (!quizletAutoReveal) setQuizletFlipped(false);
         } else if (mode === 'exam' && examStatus === 'active') {
           setExamCurrentIndex((prev) => Math.max(0, prev - 1));
         }
@@ -739,6 +829,9 @@ export default function App() {
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.min(filteredQuestions.length - 1, prev + 1));
           setShowExplanation(false);
+        } else if (mode === 'quizlet') {
+          setQuizletIndex((prev) => Math.min(quizletQuestions.length - 1, prev + 1));
+          if (!quizletAutoReveal) setQuizletFlipped(false);
         } else if (mode === 'exam' && examStatus === 'active') {
           setExamCurrentIndex((prev) => Math.min(examQuestions.length - 1, prev + 1));
         }
@@ -747,6 +840,8 @@ export default function App() {
       else if (key === 'M') {
         if (mode === 'study' && currentQ) {
           toggleBookmark(currentQ.id);
+        } else if (mode === 'quizlet' && currentQuizletQ) {
+          toggleBookmark(currentQuizletQ.id);
         } else if (mode === 'exam' && examQuestions[examCurrentIndex]) {
           const qid = examQuestions[examCurrentIndex].id;
           playClickSound();
@@ -758,10 +853,18 @@ export default function App() {
           });
         }
       }
-      // Toggle Explanation: Space
-      else if (e.key === ' ') {
+      // Toggle Explanation / Flip Flashcard: Space or Enter
+      else if (e.key === ' ' || (mode === 'quizlet' && e.key === 'Enter')) {
         e.preventDefault();
-        setShowExplanation((prev) => !prev);
+        if (mode === 'quizlet') {
+          handleCardClick();
+        } else if (mode === 'study') {
+          setShowExplanation((prev) => !prev);
+        }
+      }
+      // Shuffle Quizlet cards: 'S'
+      else if (key === 'S' && mode === 'quizlet') {
+        handleToggleShuffle();
       }
       // Options shortcuts: 1-4 or A-D
       else if (['1', '2', '3', '4', 'A', 'B', 'C', 'D'].includes(key)) {
@@ -774,6 +877,12 @@ export default function App() {
           const q = examQuestions[examCurrentIndex];
           const exists = q.options.some(o => o.id === optLetter);
           if (exists) handleSelectOptionExam(optLetter);
+        }
+      }
+      // Reset current question: 'R' (in study mode)
+      else if (key === 'R') {
+        if (mode === 'study' && currentQ) {
+          handleResetCurrentQuestion();
         }
       }
       // Help Modal: '?'
@@ -790,21 +899,33 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mode, examStatus, currentQ, filteredQuestions.length, examQuestions, examCurrentIndex, handleSelectOptionStudy, handleSelectOptionExam]);
+  }, [mode, examStatus, currentQ, currentQuizletQ, filteredQuestions.length, quizletQuestions.length, examQuestions, examCurrentIndex, handleSelectOptionStudy, handleSelectOptionExam, handleCardClick, handleToggleShuffle, handleResetCurrentQuestion, quizletAutoReveal]);
 
   // Jump to specific question
   const handleJumpSubmit = (e) => {
     e.preventDefault();
     const num = parseInt(jumpInput, 10);
     if (!isNaN(num)) {
-      const idx = filteredQuestions.findIndex(q => q.id === num);
-      if (idx !== -1) {
-        setCurrentIndex(idx);
-        setShowExplanation(false);
-        setJumpInput('');
-        playClickSound();
+      if (mode === 'quizlet') {
+        const idx = quizletQuestions.findIndex(q => q.id === num);
+        if (idx !== -1) {
+          setQuizletIndex(idx);
+          if (!quizletAutoReveal) setQuizletFlipped(false);
+          setJumpInput('');
+          playClickSound();
+        } else {
+          alert(`Không tìm thấy Câu ${num} trong bộ lọc hiện tại!`);
+        }
       } else {
-        alert(`Không tìm thấy Câu ${num} trong bộ lọc hiện tại!`);
+        const idx = filteredQuestions.findIndex(q => q.id === num);
+        if (idx !== -1) {
+          setCurrentIndex(idx);
+          setShowExplanation(false);
+          setJumpInput('');
+          playClickSound();
+        } else {
+          alert(`Không tìm thấy Câu ${num} trong bộ lọc hiện tại!`);
+        }
       }
     }
   };
@@ -945,6 +1066,17 @@ export default function App() {
               Học Tập ({rawQuestions.length} Câu)
             </button>
             <button
+              className={`mode-btn ${mode === 'quizlet' ? 'active' : ''}`}
+              onClick={() => {
+                setMode('quizlet');
+                if (!quizletAutoReveal) setQuizletFlipped(false);
+                playClickSound();
+              }}
+            >
+              <Layers size={16} />
+              Quizlet ({rawQuestions.length} Thẻ)
+            </button>
+            <button
               className={`mode-btn ${mode === 'exam' ? 'active' : ''}`}
               onClick={() => {
                 setMode('exam');
@@ -1008,7 +1140,7 @@ export default function App() {
 
       {/* Main Body Content */}
       <main className="main-wrapper">
-        {mode === 'study' ? (
+        {mode !== 'exam' ? (
           /* =========================================================================
              STUDY MODE (598 QUESTIONS)
              ========================================================================= */
@@ -1224,6 +1356,393 @@ export default function App() {
                   </button>
                 </div>
               )
+            ) : mode === 'quizlet' ? (
+              /* =========================================================================
+                 QUIZLET FLASHCARD / LIST VIEW MODE
+                 ========================================================================= */
+              <div className="quizlet-view-container">
+                {/* Quizlet Toolbar */}
+                <div className="quizlet-toolbar">
+                  <div className="quizlet-toolbar-left">
+                    <div className="quizlet-counter-badge">
+                      <Layers size={15} color="var(--primary)" />
+                      <span>Thẻ <strong>{safeQuizletIndex + 1}</strong> / {quizletQuestions.length}</span>
+                    </div>
+
+                    <div className="quizlet-view-pills">
+                      <button
+                        type="button"
+                        className={`pill-view-btn ${quizletViewMode === 'card' ? 'active' : ''}`}
+                        onClick={() => {
+                          setQuizletViewMode('card');
+                          playClickSound();
+                        }}
+                        title="Chế độ lật thẻ từng câu (Quizlet Flashcard)"
+                      >
+                        <Layers size={14} /> Thẻ Lật
+                      </button>
+                      <button
+                        type="button"
+                        className={`pill-view-btn ${quizletViewMode === 'list' ? 'active' : ''}`}
+                        onClick={() => {
+                          setQuizletViewMode('list');
+                          playClickSound();
+                        }}
+                        title="Chế độ xem toàn bộ danh sách câu hỏi"
+                      >
+                        <BookOpen size={14} /> Danh Sách
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="quizlet-toolbar-right">
+                    <button
+                      type="button"
+                      className={`quizlet-tool-btn ${quizletShuffled ? 'active' : ''}`}
+                      onClick={handleToggleShuffle}
+                      title="Trộn ngẫu nhiên thứ tự thẻ (Phím S)"
+                    >
+                      <Shuffle size={14} />
+                      <span>Trộn thẻ {quizletShuffled ? '• Bật' : ''}</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className={`quizlet-tool-btn ${quizletAutoReveal ? 'active' : ''}`}
+                      onClick={() => {
+                        setQuizletAutoReveal(prev => !prev);
+                        if (!quizletAutoReveal) {
+                          setQuizletFlipped(true);
+                        }
+                        playClickSound();
+                      }}
+                      title="Khi bật: Luôn hiện đáp án ngay mà không cần bấm lật thẻ"
+                    >
+                      {quizletAutoReveal ? <Eye size={14} /> : <EyeOff size={14} />}
+                      <span>{quizletAutoReveal ? 'Luôn hiện đáp án: BẬT' : 'Bấm để hiện đáp án'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* View Mode 1: Flashcard Card Mode */}
+                {quizletViewMode === 'card' ? (
+                  currentQuizletQ && (() => {
+                    const isCardRevealed = quizletAutoReveal || quizletFlipped;
+                    const isBookmarked = bookmarks.has(currentQuizletQ.id);
+
+                    return (
+                      <div className="quizlet-card-container">
+                        {/* Progress bar */}
+                        <div className="quizlet-progress-track">
+                          <div
+                            className="quizlet-progress-fill"
+                            style={{ width: `${((safeQuizletIndex + 1) / quizletQuestions.length) * 100}%` }}
+                          />
+                        </div>
+
+                        {/* Flashcard with click to reveal */}
+                        <div
+                          className={`quizlet-flashcard ${isCardRevealed ? 'is-revealed' : ''}`}
+                          onClick={handleCardClick}
+                          onTouchStart={handleTouchStart}
+                          onTouchEnd={handleTouchEnd}
+                        >
+                          {/* Top Meta info */}
+                          <div className="card-top">
+                            <div className="meta-tags">
+                              <span className="tag-chapter">{currentQuizletQ.chapterTitle.split(':')[0]}</span>
+                              <span className="tag-topic">{currentQuizletQ.topicTitle.split('(')[0]}</span>
+                              <span className="tag-topic" style={{ opacity: 0.8 }}>{currentQuizletQ.pageReference}</span>
+                              
+                              {isCardRevealed ? (
+                                <span className="quizlet-state-tag revealed">
+                                  <CheckCircle2 size={12} /> Đã hiện đáp án
+                                </span>
+                              ) : (
+                                <span className="quizlet-state-tag question">
+                                  <HelpCircle size={12} /> Mặt trước: Câu hỏi
+                                </span>
+                              )}
+                            </div>
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                              <button
+                                type="button"
+                                className={`btn-bookmark ${isBookmarked ? 'bookmarked' : ''}`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleBookmark(currentQuizletQ.id);
+                                }}
+                                title="Đánh dấu thẻ này (Phím M)"
+                              >
+                                <Bookmark size={16} fill={isBookmarked ? 'currentColor' : 'none'} />
+                                {isBookmarked ? 'Đã ghim' : 'Đánh dấu'}
+                                <span className="kbd-badge">M</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Question Text */}
+                          <div className="quizlet-question-header">
+                            <div className="question-num">
+                              <Zap size={15} color="var(--primary)" />
+                              CÂU HỎI {currentQuizletQ.id} / {rawQuestions.length}
+                            </div>
+                            <h2 className="quizlet-question-title">{currentQuizletQ.question}</h2>
+                          </div>
+
+                          {/* Extra Notes if any */}
+                          {currentQuizletQ.extraNotes && currentQuizletQ.extraNotes.length > 0 && (
+                            <div className="extra-notes-box" style={{ marginBottom: '1rem' }}>
+                              <strong>Ghi chú:</strong>
+                              <ul style={{ paddingLeft: '1.2rem', marginTop: '0.25rem' }}>
+                                {currentQuizletQ.extraNotes.map((note, idx) => (
+                                  <li key={idx}>{note}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Question State: Options preview + Prominent prompt */}
+                          {!isCardRevealed ? (
+                            <>
+                              <div className="quizlet-options-preview">
+                                {currentQuizletQ.options.map((opt) => (
+                                  <div key={opt.id} className="quizlet-option-item">
+                                    <span className="quizlet-option-key">{opt.id}</span>
+                                    <span className="quizlet-option-val">{opt.text}</span>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="quizlet-reveal-prompt">
+                                <div className="quizlet-reveal-btn-fake">
+                                  <Eye size={18} />
+                                  <span>BẤM VÀO THẺ ĐỂ XEM ĐÁP ÁN NGAY (PHÍM SPACE)</span>
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            /* Revealed State: Correct Answer Highlight + Explanation */
+                            <div className="quizlet-answer-section">
+                              {/* Banner Đáp án đúng */}
+                              <div className="quizlet-correct-banner">
+                                <div className="quizlet-correct-icon">
+                                  <CheckCircle2 size={30} />
+                                </div>
+                                <div>
+                                  <div className="quizlet-correct-heading">ĐÁP ÁN CHÍNH XÁC</div>
+                                  <div className="quizlet-correct-answer-text">
+                                    {currentQuizletQ.correctAnswers.map((ansKey) => {
+                                      const opt = currentQuizletQ.options.find(o => o.id === ansKey);
+                                      return (
+                                        <div key={ansKey} className="quizlet-correct-pill">
+                                          <strong>{ansKey}.</strong> {opt ? opt.text : ansKey}
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Options Highlight */}
+                              <div className="quizlet-options-revealed">
+                                {currentQuizletQ.options.map((opt) => {
+                                  const isCorrect = currentQuizletQ.correctAnswers.includes(opt.id);
+                                  return (
+                                    <div
+                                      key={opt.id}
+                                      className={`quizlet-option-item ${isCorrect ? 'is-correct' : 'is-dimmed'}`}
+                                    >
+                                      <span className="quizlet-option-key">
+                                        {isCorrect ? <Check size={16} /> : opt.id}
+                                      </span>
+                                      <span className="quizlet-option-val">{opt.text}</span>
+                                      {isCorrect && <span className="quizlet-correct-badge">ĐÁP ÁN ĐÚNG</span>}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Explanation */}
+                              <div className="quizlet-explanation-box">
+                                <div className="quizlet-exp-title">
+                                  <HelpCircle size={16} />
+                                  <span>Căn Cứ Lý Luận & Giải Thích Chi Tiết</span>
+                                </div>
+                                <p className="quizlet-exp-text">{currentQuizletQ.explanation}</p>
+                                <div className="citation-book">
+                                  <ExternalLink size={14} />
+                                  <span>{currentQuizletQ.textbook} ({currentQuizletQ.pageReference})</span>
+                                </div>
+                              </div>
+
+                              <div className="quizlet-flipback-prompt">
+                                <RotateCcw size={15} />
+                                <span>Bấm lại vào thẻ để ẩn đáp án / xem lại câu hỏi</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Navigation Controls */}
+                        <div className="quizlet-nav-controls">
+                          <button
+                            type="button"
+                            className="btn-nav"
+                            disabled={safeQuizletIndex === 0}
+                            onClick={() => {
+                              playClickSound();
+                              setQuizletIndex(prev => Math.max(0, prev - 1));
+                              if (!quizletAutoReveal) setQuizletFlipped(false);
+                            }}
+                            title="Câu trước (Phím ← hoặc J)"
+                          >
+                            <ChevronLeft size={16} /> Câu Trước
+                            <span className="kbd-badge">←</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            className="btn-nav btn-nav-primary quizlet-action-center-btn"
+                            onClick={handleCardClick}
+                            title="Lật thẻ / Xem đáp án (Phím Space)"
+                          >
+                            {isCardRevealed ? <EyeOff size={16} /> : <Eye size={16} />}
+                            <span>{isCardRevealed ? 'Ẩn Đáp Án' : 'Xem Đáp Án Luôn'}</span>
+                            <span className="kbd-badge">Space</span>
+                          </button>
+
+                          <button
+                            type="button"
+                            className="btn-nav btn-nav-primary"
+                            disabled={safeQuizletIndex === quizletQuestions.length - 1}
+                            onClick={() => {
+                              playClickSound();
+                              setQuizletIndex(prev => Math.min(quizletQuestions.length - 1, prev + 1));
+                              if (!quizletAutoReveal) setQuizletFlipped(false);
+                            }}
+                            title="Câu tiếp theo (Phím → hoặc K)"
+                          >
+                            Câu Tiếp <ChevronRight size={16} />
+                            <span className="kbd-badge">→</span>
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })()
+                ) : (
+                  /* View Mode 2: List View */
+                  <div className="quizlet-list-container">
+                    <div className="quizlet-list-header">
+                      <span>Hiển thị <strong>{quizletQuestions.length}</strong> câu hỏi</span>
+                      <button
+                        type="button"
+                        className="pill-btn"
+                        onClick={() => {
+                          playClickSound();
+                          if (expandedListIds.size === quizletQuestions.length) {
+                            setExpandedListIds(new Set());
+                          } else {
+                            setExpandedListIds(new Set(quizletQuestions.map(q => q.id)));
+                          }
+                        }}
+                      >
+                        {expandedListIds.size === quizletQuestions.length ? <EyeOff size={14} /> : <Eye size={14} />}
+                        {expandedListIds.size === quizletQuestions.length ? 'Thu gọn tất cả' : 'Mở tất cả đáp án'}
+                      </button>
+                    </div>
+
+                    <div className="quizlet-list-items">
+                      {quizletQuestions.map((q) => {
+                        const isExpanded = expandedListIds.has(q.id);
+                        const isBookmarked = bookmarks.has(q.id);
+                        return (
+                          <div
+                            key={q.id}
+                            className={`quizlet-list-item ${isExpanded ? 'is-expanded' : ''}`}
+                            onClick={() => {
+                              playClickSound();
+                              setExpandedListIds(prev => {
+                                const next = new Set(prev);
+                                if (next.has(q.id)) next.delete(q.id);
+                                else next.add(q.id);
+                                return next;
+                              });
+                            }}
+                          >
+                            <div className="quizlet-list-item-header">
+                              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                                <span className="quizlet-list-num">#{q.id}</span>
+                                <span className="quizlet-list-qtext">{q.question}</span>
+                              </div>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                                <button
+                                  type="button"
+                                  className={`btn-bookmark-mini ${isBookmarked ? 'bookmarked' : ''}`}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleBookmark(q.id);
+                                  }}
+                                  title="Đánh dấu câu này"
+                                >
+                                  <Bookmark size={15} fill={isBookmarked ? 'currentColor' : 'none'} />
+                                </button>
+                                <span className="quizlet-list-expand-btn">
+                                  {isExpanded ? 'Ẩn đáp án ▲' : 'Bấm xem đáp án ▼'}
+                                </span>
+                              </div>
+                            </div>
+
+                            {isExpanded && (
+                              <div className="quizlet-list-item-body" onClick={(e) => e.stopPropagation()}>
+                                <div className="quizlet-correct-banner" style={{ padding: '0.75rem 1rem', marginTop: '0.75rem', marginBottom: '0.6rem' }}>
+                                  <CheckCircle2 size={22} color="var(--success)" />
+                                  <div>
+                                    <div style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--success)' }}>ĐÁP ÁN CHÍNH XÁC:</div>
+                                    <div style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-main)' }}>
+                                      {q.correctAnswers.map(ansKey => {
+                                        const opt = q.options.find(o => o.id === ansKey);
+                                        return `${ansKey}. ${opt ? opt.text : ansKey}`;
+                                      }).join(' | ')}
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className="quizlet-options-revealed" style={{ margin: '0.5rem 0' }}>
+                                  {q.options.map((opt) => {
+                                    const isCorrect = q.correctAnswers.includes(opt.id);
+                                    return (
+                                      <div
+                                        key={opt.id}
+                                        className={`quizlet-option-item ${isCorrect ? 'is-correct' : 'is-dimmed'}`}
+                                        style={{ padding: '0.5rem 0.85rem' }}
+                                      >
+                                        <span className="quizlet-option-key" style={{ width: 24, height: 24, fontSize: '0.75rem' }}>
+                                          {isCorrect ? <Check size={14} /> : opt.id}
+                                        </span>
+                                        <span className="quizlet-option-val" style={{ fontSize: '0.88rem' }}>{opt.text}</span>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+
+                                <div className="quizlet-explanation-box" style={{ marginTop: '0.6rem', padding: '0.75rem 1rem' }}>
+                                  <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>{q.explanation}</p>
+                                  <div className="citation-book" style={{ marginTop: '0.4rem', fontSize: '0.75rem' }}>
+                                    <ExternalLink size={12} />
+                                    <span>{q.textbook} ({q.pageReference})</span>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
             ) : (
               <>
                 {/* Banner when in Wrong Questions Review Mode */}
@@ -1519,23 +2038,16 @@ export default function App() {
                             </button>
                           </div>
 
-                          {/* Reset Question Answer */}
+                          {/* Reset Question Answer (Phím R) */}
                           {hasAnswered && (
                             <button
+                              type="button"
                               className="btn-nav"
-                              onClick={() => {
-                                playClickSound();
-                                setStudyAnswers((prev) => {
-                                  const next = { ...prev };
-                                  delete next[currentQ.id];
-                                  return next;
-                                });
-                                setTempMultiSelections([]);
-                                setShowExplanation(false);
-                              }}
-                              title="Làm lại câu này"
+                              onClick={handleResetCurrentQuestion}
+                              title="Làm lại câu này (Phím R)"
                             >
                               <RotateCcw size={15} /> Làm lại câu này
+                              <span className="kbd-badge">R</span>
                             </button>
                           )}
                         </div>
@@ -2285,12 +2797,36 @@ export default function App() {
                 <span className="kbd-badge">Space</span>
               </div>
               <div className="shortcut-row">
+                <span>Làm lại (reset) câu hỏi hiện tại</span>
+                <span className="kbd-badge">R</span>
+              </div>
+              <div className="shortcut-row">
                 <span>Mở hộp phím tắt trợ giúp</span>
                 <span className="kbd-badge">?</span>
               </div>
               <div className="shortcut-row">
                 <span>Đóng cửa sổ modal / hủy</span>
                 <span className="kbd-badge">Esc</span>
+              </div>
+
+              <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.35rem', marginTop: '0.5rem' }}>
+                🗂️ Phím Tắt Quizlet (Thẻ Ghi Nhớ)
+              </div>
+              <div className="shortcut-row">
+                <span>Lật thẻ xem đáp án ngay</span>
+                <div>
+                  <span className="kbd-badge">Space</span> hoặc <span className="kbd-badge">Enter</span>
+                </div>
+              </div>
+              <div className="shortcut-row">
+                <span>Chuyển thẻ trước / sau</span>
+                <div>
+                  <span className="kbd-badge">←</span> <span className="kbd-badge">→</span> hoặc <span className="kbd-badge">J</span> / <span className="kbd-badge">K</span>
+                </div>
+              </div>
+              <div className="shortcut-row">
+                <span>Trộn thẻ ngẫu nhiên</span>
+                <span className="kbd-badge">S</span>
               </div>
             </div>
 
@@ -2326,7 +2862,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Floating Matrix Trigger for Mobile Learners */}
-      {mode === 'study' && currentQ && (
+      {(mode === 'study' || mode === 'quizlet') && (mode === 'quizlet' ? currentQuizletQ : currentQ) && (
         <button
           className="mobile-floating-matrix-btn"
           onClick={() => {
@@ -2336,7 +2872,7 @@ export default function App() {
           title="Mở ma trận câu hỏi"
         >
           <BookOpen size={16} />
-          <span>Câu #{currentQ.id} / {rawQuestions.length} 📑</span>
+          <span>Câu #{(mode === 'quizlet' ? currentQuizletQ : currentQ)?.id} / {rawQuestions.length} 📑</span>
         </button>
       )}
 
@@ -2416,8 +2952,14 @@ export default function App() {
                     className={chipClass}
                     onClick={() => {
                       playClickSound();
-                      setCurrentIndex(idx);
-                      setShowExplanation(false);
+                      if (mode === 'quizlet') {
+                        const qIdx = quizletQuestions.findIndex(item => item.id === q.id);
+                        if (qIdx !== -1) setQuizletIndex(qIdx);
+                        if (!quizletAutoReveal) setQuizletFlipped(false);
+                      } else {
+                        setCurrentIndex(idx);
+                        setShowExplanation(false);
+                      }
                       setShowMobileMatrixModal(false);
                     }}
                   >

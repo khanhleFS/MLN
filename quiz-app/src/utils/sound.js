@@ -52,6 +52,30 @@ export function playClickSound() {
   } catch {}
 }
 
+// Subtle card flip sound
+export function playFlipSound() {
+  if (isAudioMuted()) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(420, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(750, ctx.currentTime + 0.04);
+    osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.08);
+
+    gain.gain.setValueAtTime(0.07, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.08);
+  } catch {}
+}
+
 // Correct answer chime (bright harmonious chord arpeggio)
 export function playCorrectSound() {
   if (isAudioMuted()) return;
