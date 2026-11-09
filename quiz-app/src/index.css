@@ -2782,6 +2782,7 @@ html, body {
   margin-top: 0.4rem;
 }
 
+.quizlet-options-list,
 .quizlet-options-preview,
 .quizlet-options-revealed {
   display: flex;
@@ -2798,19 +2799,19 @@ html, body {
   border-radius: 10px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
-  transition: all 0.2s ease;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .quizlet-option-item.is-correct {
   background: rgba(16, 185, 129, 0.15) !important;
-  border: 2px solid var(--success) !important;
+  border: 1px solid var(--success) !important;
   color: var(--text-main) !important;
-  font-weight: 700;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
 }
 
-.quizlet-option-item.is-dimmed {
-  opacity: 0.6;
+[data-theme="light"] .quizlet-option-item.is-correct {
+  background: var(--success-bg) !important;
+  border: 1px solid var(--success-border) !important;
 }
 
 .quizlet-option-key {
@@ -3106,3 +3107,338 @@ html, body {
 }
 
 
+
+.quizlet-multi-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--warning-bg);
+  color: #d97706;
+  border: 1px solid var(--warning-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+}
+
+[data-theme="dark"] .quizlet-multi-note {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* Subtopic and Logic Mode Styles */
+.tag-subtopic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(168, 85, 247, 0.12);
+  color: #9333ea;
+  border: 1px solid rgba(168, 85, 247, 0.28);
+}
+
+[data-theme="dark"] .tag-subtopic-badge {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.quizlet-logic-step-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(59, 130, 246, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  margin-left: 0.45rem;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.quizlet-tool-btn.logic-active {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: #a855f7;
+  color: #9333ea;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .quizlet-tool-btn.logic-active {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #c084fc;
+  color: #e9d5ff;
+}
+
+.order-mode-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+}
+
+.order-mode-toggle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.order-mode-toggle-btn.is-logic {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #9333ea;
+}
+
+[data-theme="dark"] .order-mode-toggle-btn.is-logic {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #d8b4fe;
+}
+
+/* Quizlet List Section Header Divider */
+.quizlet-list-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.12), rgba(59, 130, 246, 0.06));
+  border-left: 4px solid #a855f7;
+  border-radius: 8px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-left-width: 4px;
+}
+
+[data-theme="dark"] .quizlet-list-section-header {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.1));
+  border-color: rgba(168, 85, 247, 0.35);
+  border-left-color: #c084fc;
+}
+
+.quizlet-section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.quizlet-section-title-wrap svg {
+  color: #a855f7;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .quizlet-section-title-wrap svg {
+  color: #c084fc;
+}
+
+.quizlet-section-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color);
+}
+
+.quizlet-list-subtopic-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(168, 85, 247, 0.1);
+  color: #9333ea;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .quizlet-list-subtopic-badge {
+  background: rgba(168, 85, 247, 0.2);
+  color: #d8b4fe;
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+/* Dai Hoi Dang Filter & Badge Styles */
+.pill-btn-daihoi {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  transition: all 0.2s ease;
+}
+
+.pill-btn-daihoi:hover {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+}
+
+.tag-daihoi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .tag-daihoi-badge {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.quizlet-list-daihoi-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+[data-theme="dark"] .quizlet-list-daihoi-badge {
+  background: rgba(239, 68, 68, 0.22);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.daihoi-note-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-left: 3px solid #dc2626;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin-top: 0.6rem;
+}
+
+[data-theme="dark"] .daihoi-note-box {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.35);
+  border-left-color: #ef4444;
+}
+
+/* Dai Hoi Timeline Cheat-Sheet Banner */
+.daihoi-guide-banner {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(245, 158, 11, 0.06));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 5px solid #dc2626;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.06);
+}
+
+[data-theme="dark"] .daihoi-guide-banner {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.16), rgba(245, 158, 11, 0.1));
+  border-color: rgba(239, 68, 68, 0.4);
+  border-left-color: #ef4444;
+}
+
+.daihoi-guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.daihoi-guide-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #dc2626;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .daihoi-guide-title {
+  color: #fca5a5;
+}
+
+.daihoi-guide-count {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+[data-theme="dark"] .daihoi-guide-count {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+.daihoi-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.daihoi-timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.daihoi-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #dc2626;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+[data-theme="dark"] .daihoi-tag {
+  color: #f87171;
+}
+
+.daihoi-tag.highlight {
+  color: #d97706;
+}
+
+[data-theme="dark"] .daihoi-tag.highlight {
+  color: #fbbf24;
+}
+
+.daihoi-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-main);
+}

@@ -35,7 +35,8 @@ import {
   Layers,
   Shuffle,
   Eye,
-  EyeOff
+  EyeOff,
+  Landmark
 } from 'lucide-react';
 import { SUBJECTS, DEFAULT_SUBJECT_ID } from './data/subjects';
 import {
@@ -131,6 +132,21 @@ export default function App() {
   const [quizletViewMode, setQuizletViewMode] = useState('card'); // 'card' | 'list'
   const [expandedListIds, setExpandedListIds] = useState(new Set());
 
+  // Order Mode: 'logic' (Mạch kiến thức chuẩn) | 'src' (Thứ tự câu gốc)
+  const [orderMode, setOrderMode] = useState(() => {
+    try {
+      return localStorage.getItem('mln_order_mode') || 'logic';
+    } catch {
+      return 'logic';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('mln_order_mode', orderMode);
+    } catch {}
+  }, [orderMode]);
+
   // Gamification States
   const [exp, setExp] = useState(() => {
     try {
@@ -165,8 +181,14 @@ export default function App() {
   const [selectedTopic, setSelectedTopic] = useState('all');
   const [onlyBookmarked, setOnlyBookmarked] = useState(false);
   const [onlyWrong, setOnlyWrong] = useState(false);
+  const [onlyDaiHoi, setOnlyDaiHoi] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Dai Hoi Dang questions count
+  const daiHoiCount = useMemo(() => {
+    return rawQuestions.filter(q => q.isDaiHoi || /(đại hội|đại hôi|đai hội)/i.test(q.question + ' ' + (q.explanation || ''))).length;
+  }, [rawQuestions]);
 
   // Bookmarks (Set of question ids)
   const [bookmarks, setBookmarks] = useState(() => {
@@ -420,6 +442,7 @@ export default function App() {
     setSelectedTopic('all');
     setOnlyBookmarked(false);
     setOnlyWrong(false);
+    setOnlyDaiHoi(false);
     setSearchQuery('');
     setCurrentIndex(0);
     setShowExplanation(false);
@@ -452,11 +475,12 @@ export default function App() {
     triggerToast(`📚 ĐÃ CHUYỂN MÔN: ${targetSub.code}`, targetSub.name);
   };
 
-  // Filter questions for Study Mode
+  // Filter and sort questions for Study Mode & Quizlet
   const filteredQuestions = useMemo(() => {
-    return rawQuestions.filter((q) => {
+    let result = rawQuestions.filter((q) => {
+      if (onlyDaiHoi && !(q.isDaiHoi || /(đại hội|đại hôi|đai hội)/i.test(q.question + ' ' + (q.explanation || '')))) return false;
       if (selectedChapter !== 'all' && q.chapter !== Number(selectedChapter)) return false;
-      if (selectedTopic !== 'all' && q.topicId !== selectedTopic) return false;
+      if (selectedTopic !== 'all' && q.topicId !== selectedTopic && q.subtopicId !== selectedTopic) return false;
       if (onlyBookmarked && !bookmarks.has(q.id)) return false;
       if (onlyWrong && !wrongQuestions.has(q.id)) return false;
       if (searchQuery.trim()) {
@@ -468,11 +492,25 @@ export default function App() {
       }
       return true;
     });
-  }, [selectedChapter, selectedTopic, onlyBookmarked, onlyWrong, wrongQuestions, searchQuery, bookmarks]);
+
+    if (orderMode === 'logic') {
+      result = [...result].sort((a, b) => {
+        const ordA = a.logicalOrder !== undefined ? a.logicalOrder : a.id;
+        const ordB = b.logicalOrder !== undefined ? b.logicalOrder : b.id;
+        if (ordA !== ordB) return ordA - ordB;
+        return a.id - b.id;
+      });
+    } else {
+      result = [...result].sort((a, b) => a.id - b.id);
+    }
+
+    return result;
+  }, [rawQuestions, selectedChapter, selectedTopic, onlyBookmarked, onlyWrong, onlyDaiHoi, wrongQuestions, searchQuery, bookmarks, orderMode]);
 
   // Handle Chapter filter change
   const handleChapterChange = (chapterId) => {
     setSelectedChapter(chapterId);
+    setOnlyDaiHoi(false);
     setCurrentIndex(0);
     setShowExplanation(false);
     setQuizletIndex(0);
@@ -489,6 +527,7 @@ export default function App() {
   // Handle Subtopic filter change
   const handleTopicChange = (topicId) => {
     setSelectedTopic(topicId);
+    setOnlyDaiHoi(false);
     setCurrentIndex(0);
     setShowExplanation(false);
     setQuizletIndex(0);
@@ -813,7 +852,7 @@ export default function App() {
       const key = e.key.toUpperCase();
 
       // Navigation shortcuts
-      if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'j') {
+      if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'j' || e.key === ',' || e.key === '<') {
         playClickSound();
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.max(0, prev - 1));
@@ -824,7 +863,7 @@ export default function App() {
         } else if (mode === 'exam' && examStatus === 'active') {
           setExamCurrentIndex((prev) => Math.max(0, prev - 1));
         }
-      } else if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'k') {
+      } else if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'k' || e.key === '.' || e.key === '>') {
         playClickSound();
         if (mode === 'study') {
           setCurrentIndex((prev) => Math.min(filteredQuestions.length - 1, prev + 1));
@@ -866,6 +905,14 @@ export default function App() {
       else if (key === 'S' && mode === 'quizlet') {
         handleToggleShuffle();
       }
+      // Toggle Order Mode (Logic vs Src): 'O'
+      else if (key === 'O') {
+        playClickSound();
+        setOrderMode((prev) => (prev === 'logic' ? 'src' : 'logic'));
+        setCurrentIndex(0);
+        setQuizletIndex(0);
+        if (!quizletAutoReveal) setQuizletFlipped(false);
+      }
       // Options shortcuts: 1-4 or A-D
       else if (['1', '2', '3', '4', 'A', 'B', 'C', 'D'].includes(key)) {
         const keyMap = { '1': 'A', '2': 'B', '3': 'C', '4': 'D', 'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D' };
@@ -899,7 +946,7 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mode, examStatus, currentQ, currentQuizletQ, filteredQuestions.length, quizletQuestions.length, examQuestions, examCurrentIndex, handleSelectOptionStudy, handleSelectOptionExam, handleCardClick, handleToggleShuffle, handleResetCurrentQuestion, quizletAutoReveal]);
+  }, [mode, examStatus, currentQ, currentQuizletQ, filteredQuestions.length, quizletQuestions.length, examQuestions, examCurrentIndex, handleSelectOptionStudy, handleSelectOptionExam, handleCardClick, handleToggleShuffle, handleResetCurrentQuestion, quizletAutoReveal, orderMode]);
 
   // Jump to specific question
   const handleJumpSubmit = (e) => {
@@ -1170,8 +1217,12 @@ export default function App() {
                   <button
                     className={`pill-btn ${onlyBookmarked ? 'active' : ''}`}
                     onClick={() => {
-                      setOnlyBookmarked(!onlyBookmarked);
-                      if (!onlyBookmarked) setOnlyWrong(false);
+                      const next = !onlyBookmarked;
+                      setOnlyBookmarked(next);
+                      if (next) {
+                        setOnlyWrong(false);
+                        setOnlyDaiHoi(false);
+                      }
                       setCurrentIndex(0);
                       playClickSound();
                     }}
@@ -1190,8 +1241,12 @@ export default function App() {
                   <button
                     className={`pill-btn ${onlyWrong ? 'active' : ''}`}
                     onClick={() => {
-                      setOnlyWrong(!onlyWrong);
-                      if (!onlyWrong) setOnlyBookmarked(false);
+                      const next = !onlyWrong;
+                      setOnlyWrong(next);
+                      if (next) {
+                        setOnlyBookmarked(false);
+                        setOnlyDaiHoi(false);
+                      }
                       setCurrentIndex(0);
                       playClickSound();
                     }}
@@ -1214,6 +1269,71 @@ export default function App() {
                       {wrongQuestions.size}
                     </span>
                   </button>
+
+                  {/* Dai Hoi Dang Filter Pill */}
+                  {daiHoiCount > 0 && (
+                    <button
+                      type="button"
+                      className={`pill-btn pill-btn-daihoi ${onlyDaiHoi ? 'active' : ''}`}
+                      onClick={() => {
+                        const next = !onlyDaiHoi;
+                        setOnlyDaiHoi(next);
+                        if (next) {
+                          setOnlyBookmarked(false);
+                          setOnlyWrong(false);
+                          setSelectedChapter('all');
+                          setSelectedTopic('all');
+                        }
+                        setCurrentIndex(0);
+                        setQuizletIndex(0);
+                        if (!quizletAutoReveal) setQuizletFlipped(false);
+                        playClickSound();
+                      }}
+                      style={{
+                        borderColor: onlyDaiHoi ? '#ef4444' : undefined,
+                        backgroundColor: onlyDaiHoi ? '#ef4444' : undefined,
+                        color: onlyDaiHoi ? '#ffffff' : undefined,
+                        fontWeight: 700
+                      }}
+                      title="Lọc chuyên đề trọng tâm: Các câu hỏi về các kỳ Đại Hội Đảng (Đại hội VI, IX, X, XII...)"
+                    >
+                      <Landmark size={14} />
+                      Đại Hội Đảng
+                      <span
+                        className="pill-count"
+                        style={{
+                          backgroundColor: onlyDaiHoi ? 'rgba(0,0,0,0.25)' : undefined,
+                          color: onlyDaiHoi ? '#ffffff' : undefined
+                        }}
+                      >
+                        {daiHoiCount}
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Order Mode Toggle Button */}
+                  <button
+                    type="button"
+                    className={`pill-btn ${orderMode === 'logic' ? 'active' : ''}`}
+                    onClick={() => {
+                      playClickSound();
+                      setOrderMode((prev) => (prev === 'logic' ? 'src' : 'logic'));
+                      setCurrentIndex(0);
+                      setQuizletIndex(0);
+                      if (!quizletAutoReveal) setQuizletFlipped(false);
+                    }}
+                    title="Chuyển đổi thứ tự: Mạch Logic kiến thức (khuyên dùng) vs Thứ tự gốc file src (Phím O)"
+                    style={{
+                      borderColor: orderMode === 'logic' ? '#a855f7' : undefined,
+                      backgroundColor: orderMode === 'logic' ? 'rgba(168, 85, 247, 0.15)' : undefined,
+                      color: orderMode === 'logic' ? (theme === 'dark' ? '#e9d5ff' : '#7e22ce') : undefined,
+                      fontWeight: 700
+                    }}
+                  >
+                    <Sparkles size={14} />
+                    {orderMode === 'logic' ? 'Mạch Logic 🧠' : 'Thứ tự Gốc (src)'}
+                    <span className="kbd-badge" style={{ marginLeft: '0.2rem' }}>O</span>
+                  </button>
                 </div>
 
                 {/* Subtopic Dropdown with Grouping */}
@@ -1228,7 +1348,7 @@ export default function App() {
                       {CHAPTERS.filter((ch) => ch.id !== 'all').map((ch) => (
                         <optgroup key={ch.id} label={`── ${ch.title} ──`}>
                           {TOPICS.filter((t) => t.chapter === ch.id).map((top) => {
-                            const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                            const cnt = rawQuestions.filter((q) => q.topicId === top.id || q.subtopicId === top.id).length;
                             return (
                               <option key={top.id} value={top.id}>
                                 {top.title} ({cnt} câu)
@@ -1244,7 +1364,7 @@ export default function App() {
                         Tất cả đề mục {CHAPTERS.find(c => c.id === selectedChapter)?.short || `Chương ${selectedChapter}`} ({rawQuestions.filter((q) => q.chapter === selectedChapter).length} câu)
                       </option>
                       {TOPICS.filter((t) => t.chapter === selectedChapter).map((top) => {
-                        const cnt = rawQuestions.filter((q) => q.topicId === top.id).length;
+                        const cnt = rawQuestions.filter((q) => q.topicId === top.id || q.subtopicId === top.id).length;
                         return (
                           <option key={top.id} value={top.id}>
                             {top.title} ({cnt} câu)
@@ -1349,6 +1469,7 @@ export default function App() {
                       setSelectedTopic('all');
                       setOnlyBookmarked(false);
                       setOnlyWrong(false);
+                      setOnlyDaiHoi(false);
                       setSearchQuery('');
                     }}
                   >
@@ -1396,6 +1517,23 @@ export default function App() {
                   </div>
 
                   <div className="quizlet-toolbar-right">
+                    {/* Order Mode Toggle in Quizlet */}
+                    <button
+                      type="button"
+                      className={`quizlet-tool-btn ${orderMode === 'logic' ? 'active logic-active' : ''}`}
+                      onClick={() => {
+                        playClickSound();
+                        setOrderMode((prev) => (prev === 'logic' ? 'src' : 'logic'));
+                        setQuizletIndex(0);
+                        if (!quizletAutoReveal) setQuizletFlipped(false);
+                      }}
+                      title="Chuyển đổi thứ tự: Mạch Logic kiến thức sư phạm (khuyên dùng) vs Thứ tự gốc file src (Phím O)"
+                    >
+                      <Sparkles size={14} />
+                      <span>{orderMode === 'logic' ? 'Mạch Logic: BẬT 🧠' : 'Thứ tự: Gốc (src) 📄'}</span>
+                      <span className="kbd-badge">O</span>
+                    </button>
+
                     <button
                       type="button"
                       className={`quizlet-tool-btn ${quizletShuffled ? 'active' : ''}`}
@@ -1424,11 +1562,43 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* Dai Hoi Dang Cheat-Sheet Guide Banner in Quizlet */}
+                {onlyDaiHoi && (
+                  <div className="daihoi-guide-banner">
+                    <div className="daihoi-guide-header">
+                      <div className="daihoi-guide-title">
+                        <Landmark size={20} color="#dc2626" />
+                        <span>SỔ TAY GHI NHỚ MỐC ĐẠI HỘI ĐẢNG (TRỌNG TÂM ÔN THI)</span>
+                      </div>
+                      <span className="daihoi-guide-count">{filteredQuestions.length} câu hỏi Đại hội</span>
+                    </div>
+                    <div className="daihoi-timeline-grid">
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI VI (12/1986)</div>
+                        <div className="daihoi-desc">Khởi xướng đường lối <strong>Đổi mới toàn diện</strong>; đổi mới cơ chế quản lý kinh tế, xóa bao cấp, phát triển kinh tế nhiều thành phần.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag highlight">ĐẠI HỘI IX (4/2001) ★</div>
+                        <div className="daihoi-desc">Lần đầu tiên <strong>chính thức xác định KTTT định hướng XHCN là mô hình kinh tế tổng quát</strong>; KH&CN và kinh tế tri thức có bước tiến nhảy vọt.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI X (4/2006)</div>
+                        <div className="daihoi-desc">Mục tiêu đẩy mạnh <strong>CNH, HĐH gắn với kinh tế tri thức</strong>; hoàn thiện thể chế KTTT định hướng XHCN.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI XII (1/2016)</div>
+                        <div className="daihoi-desc">Bài học cốt lõi <strong>"Dân là gốc"</strong>; kinh tế tư nhân là một động lực quan trọng của nền kinh tế.</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* View Mode 1: Flashcard Card Mode */}
                 {quizletViewMode === 'card' ? (
                   currentQuizletQ && (() => {
                     const isCardRevealed = quizletAutoReveal || quizletFlipped;
                     const isBookmarked = bookmarks.has(currentQuizletQ.id);
+                    const isMulti = currentQuizletQ.correctAnswers.length > 1;
 
                     return (
                       <div className="quizlet-card-container">
@@ -1463,6 +1633,38 @@ export default function App() {
                                   <HelpCircle size={12} /> Mặt trước: Câu hỏi
                                 </span>
                               )}
+
+                              {currentQuizletQ.subtopicBadge && (
+                                <span
+                                  className="tag-subtopic-badge"
+                                  title={currentQuizletQ.subtopicTitle}
+                                >
+                                  <Sparkles size={11} /> {currentQuizletQ.subtopicBadge}
+                                </span>
+                              )}
+
+                              {(currentQuizletQ.isDaiHoi || currentQuizletQ.daiHoiTag) && (
+                                <span
+                                  className="tag-daihoi-badge"
+                                  title={currentQuizletQ.daiHoiNote || 'Câu hỏi chuyên đề Đại Hội Đảng'}
+                                >
+                                  <Landmark size={12} /> {currentQuizletQ.daiHoiTag || 'Đại Hội Đảng'}
+                                </span>
+                              )}
+
+                              {isMulti && (
+                                <span
+                                  className="tag-chapter"
+                                  style={{
+                                    background: 'var(--warning-bg)',
+                                    color: '#d97706',
+                                    borderColor: 'var(--warning-border)',
+                                    fontWeight: 700
+                                  }}
+                                >
+                                  Chọn nhiều đáp án ({currentQuizletQ.correctAnswers.length})
+                                </span>
+                              )}
                             </div>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
@@ -1486,9 +1688,19 @@ export default function App() {
                           <div className="quizlet-question-header">
                             <div className="question-num">
                               <Zap size={15} color="var(--primary)" />
-                              CÂU HỎI {currentQuizletQ.id} / {rawQuestions.length}
+                              <span>CÂU HỎI #{currentQuizletQ.id} / {rawQuestions.length}</span>
+                              {orderMode === 'logic' && currentQuizletQ.logicalOrder && (
+                                <span className="quizlet-logic-step-pill">
+                                  <Sparkles size={12} /> Bước {currentQuizletQ.logicalOrder}
+                                </span>
+                              )}
                             </div>
                             <h2 className="quizlet-question-title">{currentQuizletQ.question}</h2>
+                            {isMulti && (
+                              <div className="quizlet-multi-note">
+                                📝 <strong>Lưu ý:</strong> Câu hỏi này <strong>chọn nhiều đáp án đúng</strong> ({currentQuizletQ.correctAnswers.length} đáp án)
+                              </div>
+                            )}
                           </div>
 
                           {/* Extra Notes if any */}
@@ -1503,131 +1715,36 @@ export default function App() {
                             </div>
                           )}
 
-                          {/* Question State: Options preview + Prominent prompt */}
-                          {!isCardRevealed ? (
-                            <>
-                              <div className="quizlet-options-preview">
-                                {currentQuizletQ.options.map((opt) => (
-                                  <div key={opt.id} className="quizlet-option-item">
-                                    <span className="quizlet-option-key">{opt.id}</span>
-                                    <span className="quizlet-option-val">{opt.text}</span>
-                                  </div>
-                                ))}
-                              </div>
+                          {/* Options List */}
+                          <div className="quizlet-options-list">
+                            {currentQuizletQ.options.map((opt) => {
+                              const isCorrect = isCardRevealed && currentQuizletQ.correctAnswers.includes(opt.id);
+                              return (
+                                <div
+                                  key={opt.id}
+                                  className={`quizlet-option-item ${isCorrect ? 'is-correct' : ''}`}
+                                >
+                                  <span className="quizlet-option-key">
+                                    {isCorrect ? <Check size={16} /> : opt.id}
+                                  </span>
+                                  <span className="quizlet-option-val">{opt.text}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
 
-                              <div className="quizlet-reveal-prompt">
-                                <div className="quizlet-reveal-btn-fake">
-                                  <Eye size={18} />
-                                  <span>BẤM VÀO THẺ ĐỂ XEM ĐÁP ÁN NGAY (PHÍM SPACE)</span>
-                                </div>
-                              </div>
-                            </>
-                          ) : (
-                            /* Revealed State: Correct Answer Highlight + Explanation */
-                            <div className="quizlet-answer-section">
-                              {/* Banner Đáp án đúng */}
-                              <div className="quizlet-correct-banner">
-                                <div className="quizlet-correct-icon">
-                                  <CheckCircle2 size={30} />
-                                </div>
-                                <div>
-                                  <div className="quizlet-correct-heading">ĐÁP ÁN CHÍNH XÁC</div>
-                                  <div className="quizlet-correct-answer-text">
-                                    {currentQuizletQ.correctAnswers.map((ansKey) => {
-                                      const opt = currentQuizletQ.options.find(o => o.id === ansKey);
-                                      return (
-                                        <div key={ansKey} className="quizlet-correct-pill">
-                                          <strong>{ansKey}.</strong> {opt ? opt.text : ansKey}
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Options Highlight */}
-                              <div className="quizlet-options-revealed">
-                                {currentQuizletQ.options.map((opt) => {
-                                  const isCorrect = currentQuizletQ.correctAnswers.includes(opt.id);
-                                  return (
-                                    <div
-                                      key={opt.id}
-                                      className={`quizlet-option-item ${isCorrect ? 'is-correct' : 'is-dimmed'}`}
-                                    >
-                                      <span className="quizlet-option-key">
-                                        {isCorrect ? <Check size={16} /> : opt.id}
-                                      </span>
-                                      <span className="quizlet-option-val">{opt.text}</span>
-                                      {isCorrect && <span className="quizlet-correct-badge">ĐÁP ÁN ĐÚNG</span>}
-                                    </div>
-                                  );
-                                })}
-                              </div>
-
-                              {/* Explanation */}
-                              <div className="quizlet-explanation-box">
-                                <div className="quizlet-exp-title">
-                                  <HelpCircle size={16} />
-                                  <span>Căn Cứ Lý Luận & Giải Thích Chi Tiết</span>
-                                </div>
-                                <p className="quizlet-exp-text">{currentQuizletQ.explanation}</p>
-                                <div className="citation-book">
-                                  <ExternalLink size={14} />
-                                  <span>{currentQuizletQ.textbook} ({currentQuizletQ.pageReference})</span>
-                                </div>
-                              </div>
-
-                              <div className="quizlet-flipback-prompt">
-                                <RotateCcw size={15} />
-                                <span>Bấm lại vào thẻ để ẩn đáp án / xem lại câu hỏi</span>
+                          {/* Dai Hoi Note on Reveal */}
+                          {isCardRevealed && currentQuizletQ.daiHoiNote && (
+                            <div className="daihoi-note-box">
+                              <Landmark size={16} color="#dc2626" style={{ flexShrink: 0, marginTop: 2 }} />
+                              <div>
+                                <strong>Ghi nhớ mốc Đại hội:</strong> {currentQuizletQ.daiHoiNote}
                               </div>
                             </div>
                           )}
                         </div>
 
-                        {/* Navigation Controls */}
-                        <div className="quizlet-nav-controls">
-                          <button
-                            type="button"
-                            className="btn-nav"
-                            disabled={safeQuizletIndex === 0}
-                            onClick={() => {
-                              playClickSound();
-                              setQuizletIndex(prev => Math.max(0, prev - 1));
-                              if (!quizletAutoReveal) setQuizletFlipped(false);
-                            }}
-                            title="Câu trước (Phím ← hoặc J)"
-                          >
-                            <ChevronLeft size={16} /> Câu Trước
-                            <span className="kbd-badge">←</span>
-                          </button>
 
-                          <button
-                            type="button"
-                            className="btn-nav btn-nav-primary quizlet-action-center-btn"
-                            onClick={handleCardClick}
-                            title="Lật thẻ / Xem đáp án (Phím Space)"
-                          >
-                            {isCardRevealed ? <EyeOff size={16} /> : <Eye size={16} />}
-                            <span>{isCardRevealed ? 'Ẩn Đáp Án' : 'Xem Đáp Án Luôn'}</span>
-                            <span className="kbd-badge">Space</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            className="btn-nav btn-nav-primary"
-                            disabled={safeQuizletIndex === quizletQuestions.length - 1}
-                            onClick={() => {
-                              playClickSound();
-                              setQuizletIndex(prev => Math.min(quizletQuestions.length - 1, prev + 1));
-                              if (!quizletAutoReveal) setQuizletFlipped(false);
-                            }}
-                            title="Câu tiếp theo (Phím → hoặc K)"
-                          >
-                            Câu Tiếp <ChevronRight size={16} />
-                            <span className="kbd-badge">→</span>
-                          </button>
-                        </div>
                       </div>
                     );
                   })()
@@ -1654,89 +1771,126 @@ export default function App() {
                     </div>
 
                     <div className="quizlet-list-items">
-                      {quizletQuestions.map((q) => {
+                      {quizletQuestions.map((q, idx) => {
                         const isExpanded = expandedListIds.has(q.id);
                         const isBookmarked = bookmarks.has(q.id);
+
+                        const showSectionHeader =
+                          orderMode === 'logic' &&
+                          !quizletShuffled &&
+                          q.subtopicTitle &&
+                          (idx === 0 || quizletQuestions[idx - 1].subtopicTitle !== q.subtopicTitle);
+
                         return (
-                          <div
-                            key={q.id}
-                            className={`quizlet-list-item ${isExpanded ? 'is-expanded' : ''}`}
-                            onClick={() => {
-                              playClickSound();
-                              setExpandedListIds(prev => {
-                                const next = new Set(prev);
-                                if (next.has(q.id)) next.delete(q.id);
-                                else next.add(q.id);
-                                return next;
-                              });
-                            }}
-                          >
-                            <div className="quizlet-list-item-header">
-                              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-                                <span className="quizlet-list-num">#{q.id}</span>
-                                <span className="quizlet-list-qtext">{q.question}</span>
-                              </div>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
-                                <button
-                                  type="button"
-                                  className={`btn-bookmark-mini ${isBookmarked ? 'bookmarked' : ''}`}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleBookmark(q.id);
-                                  }}
-                                  title="Đánh dấu câu này"
-                                >
-                                  <Bookmark size={15} fill={isBookmarked ? 'currentColor' : 'none'} />
-                                </button>
-                                <span className="quizlet-list-expand-btn">
-                                  {isExpanded ? 'Ẩn đáp án ▲' : 'Bấm xem đáp án ▼'}
+                          <React.Fragment key={q.id}>
+                            {showSectionHeader && (
+                              <div className="quizlet-list-section-header">
+                                <div className="quizlet-section-title-wrap">
+                                  <Sparkles size={16} />
+                                  <span>{q.subtopicTitle}</span>
+                                </div>
+                                <span className="quizlet-section-count">
+                                  {quizletQuestions.filter(item => item.subtopicId === q.subtopicId).length} câu
                                 </span>
                               </div>
-                            </div>
+                            )}
 
-                            {isExpanded && (
-                              <div className="quizlet-list-item-body" onClick={(e) => e.stopPropagation()}>
-                                <div className="quizlet-correct-banner" style={{ padding: '0.75rem 1rem', marginTop: '0.75rem', marginBottom: '0.6rem' }}>
-                                  <CheckCircle2 size={22} color="var(--success)" />
+                            <div
+                              className={`quizlet-list-item ${isExpanded ? 'is-expanded' : ''}`}
+                              onClick={() => {
+                                playClickSound();
+                                setExpandedListIds(prev => {
+                                  const next = new Set(prev);
+                                  if (next.has(q.id)) next.delete(q.id);
+                                  else next.add(q.id);
+                                  return next;
+                                });
+                              }}
+                            >
+                              <div className="quizlet-list-item-header">
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
+                                  <span className="quizlet-list-num">#{q.id}</span>
                                   <div>
-                                    <div style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--success)' }}>ĐÁP ÁN CHÍNH XÁC:</div>
-                                    <div style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-main)' }}>
-                                      {q.correctAnswers.map(ansKey => {
-                                        const opt = q.options.find(o => o.id === ansKey);
-                                        return `${ansKey}. ${opt ? opt.text : ansKey}`;
-                                      }).join(' | ')}
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="quizlet-options-revealed" style={{ margin: '0.5rem 0' }}>
-                                  {q.options.map((opt) => {
-                                    const isCorrect = q.correctAnswers.includes(opt.id);
-                                    return (
-                                      <div
-                                        key={opt.id}
-                                        className={`quizlet-option-item ${isCorrect ? 'is-correct' : 'is-dimmed'}`}
-                                        style={{ padding: '0.5rem 0.85rem' }}
-                                      >
-                                        <span className="quizlet-option-key" style={{ width: 24, height: 24, fontSize: '0.75rem' }}>
-                                          {isCorrect ? <Check size={14} /> : opt.id}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                                      <span className="quizlet-list-qtext">{q.question}</span>
+                                      {q.subtopicBadge && (
+                                        <span className="quizlet-list-subtopic-badge">
+                                          {q.subtopicBadge}
                                         </span>
-                                        <span className="quizlet-option-val" style={{ fontSize: '0.88rem' }}>{opt.text}</span>
+                                      )}
+                                      {(q.isDaiHoi || q.daiHoiTag) && (
+                                        <span className="quizlet-list-daihoi-badge">
+                                          🏛️ {q.daiHoiTag || 'Đại Hội Đảng'}
+                                        </span>
+                                      )}
+                                    </div>
+                                    {q.correctAnswers.length > 1 && (
+                                      <div style={{ marginTop: '0.25rem' }}>
+                                        <span className="quizlet-multi-note" style={{ fontSize: '0.72rem', padding: '0.15rem 0.45rem', marginTop: 0 }}>
+                                          📝 Chọn nhiều đáp án ({q.correctAnswers.length} đáp án)
+                                        </span>
                                       </div>
-                                    );
-                                  })}
-                                </div>
-
-                                <div className="quizlet-explanation-box" style={{ marginTop: '0.6rem', padding: '0.75rem 1rem' }}>
-                                  <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>{q.explanation}</p>
-                                  <div className="citation-book" style={{ marginTop: '0.4rem', fontSize: '0.75rem' }}>
-                                    <ExternalLink size={12} />
-                                    <span>{q.textbook} ({q.pageReference})</span>
+                                    )}
                                   </div>
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                                  <button
+                                    type="button"
+                                    className={`btn-bookmark-mini ${isBookmarked ? 'bookmarked' : ''}`}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      toggleBookmark(q.id);
+                                    }}
+                                    title="Đánh dấu câu này"
+                                  >
+                                    <Bookmark size={15} fill={isBookmarked ? 'currentColor' : 'none'} />
+                                  </button>
+                                  <span className="quizlet-list-expand-btn">
+                                    {isExpanded ? 'Ẩn đáp án ▲' : 'Bấm xem đáp án ▼'}
+                                  </span>
                                 </div>
                               </div>
-                            )}
-                          </div>
+
+                              {isExpanded && (
+                                <div className="quizlet-list-item-body" onClick={(e) => e.stopPropagation()}>
+                                  <div className="quizlet-options-revealed" style={{ margin: '0.5rem 0' }}>
+                                    {q.options.map((opt) => {
+                                      const isCorrect = q.correctAnswers.includes(opt.id);
+                                      return (
+                                        <div
+                                          key={opt.id}
+                                          className={`quizlet-option-item ${isCorrect ? 'is-correct' : ''}`}
+                                          style={{ padding: '0.5rem 0.85rem' }}
+                                        >
+                                          <span className="quizlet-option-key" style={{ width: 24, height: 24, fontSize: '0.75rem' }}>
+                                            {isCorrect ? <Check size={14} /> : opt.id}
+                                          </span>
+                                          <span className="quizlet-option-val" style={{ fontSize: '0.88rem' }}>{opt.text}</span>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+
+                                  <div className="quizlet-explanation-box" style={{ marginTop: '0.6rem', padding: '0.75rem 1rem' }}>
+                                    <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>{q.explanation}</p>
+                                    <div className="citation-book" style={{ marginTop: '0.4rem', fontSize: '0.75rem' }}>
+                                      <ExternalLink size={12} />
+                                      <span>{q.textbook} ({q.pageReference})</span>
+                                    </div>
+                                  </div>
+
+                                  {q.daiHoiNote && (
+                                    <div className="daihoi-note-box" style={{ marginTop: '0.5rem', marginBottom: '0.5rem' }}>
+                                      <Landmark size={15} color="#dc2626" style={{ flexShrink: 0, marginTop: 2 }} />
+                                      <div>
+                                        <strong>Ghi nhớ mốc Đại hội:</strong> {q.daiHoiNote}
+                                      </div>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          </React.Fragment>
                         );
                       })}
                     </div>
@@ -1781,6 +1935,37 @@ export default function App() {
                   </div>
                 )}
 
+                {/* Dai Hoi Dang Cheat-Sheet Guide Banner */}
+                {onlyDaiHoi && (
+                  <div className="daihoi-guide-banner">
+                    <div className="daihoi-guide-header">
+                      <div className="daihoi-guide-title">
+                        <Landmark size={20} color="#dc2626" />
+                        <span>SỔ TAY GHI NHỚ MỐC ĐẠI HỘI ĐẢNG (TRỌNG TÂM ÔN THI)</span>
+                      </div>
+                      <span className="daihoi-guide-count">{filteredQuestions.length} câu hỏi Đại hội</span>
+                    </div>
+                    <div className="daihoi-timeline-grid">
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI VI (12/1986)</div>
+                        <div className="daihoi-desc">Khởi xướng đường lối <strong>Đổi mới toàn diện</strong>; đổi mới cơ chế quản lý kinh tế, xóa bao cấp, phát triển kinh tế nhiều thành phần.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag highlight">ĐẠI HỘI IX (4/2001) ★</div>
+                        <div className="daihoi-desc">Lần đầu tiên <strong>chính thức xác định KTTT định hướng XHCN là mô hình kinh tế tổng quát</strong>; KH&CN và kinh tế tri thức có bước tiến nhảy vọt.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI X (4/2006)</div>
+                        <div className="daihoi-desc">Mục tiêu đẩy mạnh <strong>CNH, HĐH gắn với kinh tế tri thức</strong>; hoàn thiện thể chế KTTT định hướng XHCN.</div>
+                      </div>
+                      <div className="daihoi-timeline-card">
+                        <div className="daihoi-tag">ĐẠI HỘI XII (1/2016)</div>
+                        <div className="daihoi-desc">Bài học cốt lõi <strong>"Dân là gốc"</strong>; kinh tế tư nhân là một động lực quan trọng của nền kinh tế.</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="study-layout">
                 {/* Active Question Card (Mecha HUD with Spring Physics) */}
                 {currentQ && (() => {
@@ -1814,6 +1999,24 @@ export default function App() {
                             <span className="tag-topic">{currentQ.topicTitle.split('(')[0]}</span>
                             <span className="tag-topic" style={{ opacity: 0.8 }}>{currentQ.pageReference}</span>
                             
+                            {currentQ.subtopicBadge && (
+                              <span
+                                className="tag-subtopic-badge"
+                                title={currentQ.subtopicTitle}
+                              >
+                                <Sparkles size={11} /> {currentQ.subtopicBadge}
+                              </span>
+                            )}
+
+                            {(currentQ.isDaiHoi || currentQ.daiHoiTag) && (
+                              <span
+                                className="tag-daihoi-badge"
+                                title={currentQ.daiHoiNote || 'Câu hỏi chuyên đề Đại Hội Đảng'}
+                              >
+                                <Landmark size={12} /> {currentQ.daiHoiTag || 'Đại Hội Đảng'}
+                              </span>
+                            )}
+
                             {/* Wrong Question Tag */}
                             {wrongQuestions.has(currentQ.id) && (
                               <span className="tag-wrong-warning" title="Câu hỏi này nằm trong bộ câu hỏi làm sai">
@@ -1867,7 +2070,12 @@ export default function App() {
                         <div className="question-title-wrap">
                           <div className="question-num">
                             <Zap size={15} color="var(--primary)" />
-                            CÂU HỎI {currentQ.id} / {rawQuestions.length}
+                            <span>CÂU HỎI #{currentQ.id} / {rawQuestions.length}</span>
+                            {orderMode === 'logic' && currentQ.logicalOrder && (
+                              <span className="quizlet-logic-step-pill">
+                                <Sparkles size={12} /> Bước {currentQ.logicalOrder}
+                              </span>
+                            )}
                           </div>
                           <h2 className="question-text">{currentQ.question}</h2>
                         </div>
@@ -1964,6 +2172,14 @@ export default function App() {
                             {showExplanation && (
                               <div className="explanation-body">
                                 <p>{currentQ.explanation}</p>
+                                {currentQ.daiHoiNote && (
+                                  <div className="daihoi-note-box">
+                                    <Landmark size={16} color="#dc2626" style={{ flexShrink: 0, marginTop: 2 }} />
+                                    <div>
+                                      <strong>Ghi nhớ mốc Đại hội:</strong> {currentQ.daiHoiNote}
+                                    </div>
+                                  </div>
+                                )}
                                 <div className="citation-book">
                                   <ExternalLink size={14} />
                                   <span>{currentQ.textbook} ({currentQ.pageReference})</span>
@@ -2785,7 +3001,7 @@ export default function App() {
               <div className="shortcut-row">
                 <span>Chuyển câu hỏi trước / sau</span>
                 <div>
-                  <span className="kbd-badge">←</span> <span className="kbd-badge">→</span> hoặc <span className="kbd-badge">J</span> / <span className="kbd-badge">K</span>
+                  <span className="kbd-badge">←</span> <span className="kbd-badge">→</span> hoặc <span className="kbd-badge">,</span> <span className="kbd-badge">.</span> hoặc <span className="kbd-badge">J</span> / <span className="kbd-badge">K</span>
                 </div>
               </div>
               <div className="shortcut-row">
@@ -2821,12 +3037,16 @@ export default function App() {
               <div className="shortcut-row">
                 <span>Chuyển thẻ trước / sau</span>
                 <div>
-                  <span className="kbd-badge">←</span> <span className="kbd-badge">→</span> hoặc <span className="kbd-badge">J</span> / <span className="kbd-badge">K</span>
+                  <span className="kbd-badge">←</span> <span className="kbd-badge">→</span> hoặc <span className="kbd-badge">,</span> <span className="kbd-badge">.</span> hoặc <span className="kbd-badge">J</span> / <span className="kbd-badge">K</span>
                 </div>
               </div>
               <div className="shortcut-row">
                 <span>Trộn thẻ ngẫu nhiên</span>
                 <span className="kbd-badge">S</span>
+              </div>
+              <div className="shortcut-row">
+                <span>Đổi thứ tự học (Mạch Logic 🧠 / Gốc src 📄)</span>
+                <span className="kbd-badge">O</span>
               </div>
             </div>
 
