@@ -1,5 +1,7 @@
 import mln111Questions from './questions.json';
 import mln122Questions from './mln122_questions.json';
+import mdtQuestions from './mdt_questions.json';
+import { PRM393_SUBJECT } from './prm393.js';
 
 export const SUBJECTS = {
   mln111: {
@@ -52,7 +54,14 @@ export const SUBJECTS = {
       'Nhà tư tưởng Hình thái',
       'Lý luận gia Cốt cán',
       'Đại Triết gia Thượng thừa'
-    ]
+    ],
+    rankTitles: {
+      S: 'Đại Triết Gia Xuất Chúng',
+      A: 'Bậc Thầy Lý Luận',
+      B: 'Nhà Duy Vật Tiềm Năng',
+      C: 'Đạt Chuẩn Cần Cố Gắng',
+      D: 'Cần Ôn Luyện Lại'
+    }
   },
   mln122: {
     id: 'mln122',
@@ -112,9 +121,74 @@ export const SUBJECTS = {
       'Lý luận gia Độc quyền',
       'Nhà kinh tế Cốt cán',
       'Đại Kinh tế gia Thượng thừa'
-    ]
-  }
+    ],
+    rankTitles: {
+      S: 'Đại Kinh Tế Gia Xuất Chúng',
+      A: 'Bậc Thầy Lý Luận Kinh Tế',
+      B: 'Nhà Phân Tích Tiềm Năng',
+      C: 'Đạt Chuẩn Cần Cố Gắng',
+      D: 'Cần Ôn Luyện Lại'
+    }
+  },
+  mdt: {
+    id: 'mdt',
+    code: 'MDT',
+    name: 'Mạch điện tử (Analog IC Design)',
+    shortName: 'Mạch điện tử',
+    description: 'Ngân hàng 150 câu hỏi trắc nghiệm Mạch điện tử & Thiết kế vi mạch tương tự',
+    questionCount: 150,
+    textbook: 'Giáo trình Mạch Điện Tử & Thiết Kế Vi Mạch Tương Tự (Design of Analog CMOS Integrated Circuits - B. Razavi)',
+    protocol: '// PROTOCOL_MDT // ANALOG_CIRCUIT_INTERFACE',
+    badgeTitle: 'Bộ Huy Hiệu Mạch Điện Tử',
+    examTitle: 'THI THỬ MẠCH ĐIỆN TỬ (ANALOG IC DESIGN)',
+    examSubtitle: 'PHÒNG THI THỬ TRẮC NGHIỆM MẠCH ĐIỆN TỬ',
+    searchPlaceholder: 'Tìm kiếm câu hỏi, MOSFET, Op-Amp, Bode, Slew Rate...',
+    questions: mdtQuestions,
+    chapters: [
+      { id: 'all', title: 'Tất cả 150 câu', short: 'Tất cả' },
+      { id: 1, title: 'Chương 1: Phần tử & Định luật mạch cơ bản', short: 'Chương 1' },
+      { id: 2, title: 'Chương 2: Vật lý bán dẫn & Mô hình MOSFET', short: 'Chương 2' },
+      { id: 3, title: 'Chương 3: Mạch khuếch đại cơ bản & Ghép Cascode', short: 'Chương 3' },
+      { id: 4, title: 'Chương 4: Khuếch đại vi sai & Op-Amp hai tầng', short: 'Chương 4' },
+      { id: 5, title: 'Chương 5: Đáp ứng tần số, Phản hồi & Ổn định', short: 'Chương 5' },
+      { id: 6, title: 'Chương 6: Mạch phân cực, Điện áp chuẩn & SPICE', short: 'Chương 6' },
+    ],
+    topics: [
+      { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
+      { id: '1.1', chapter: 1, title: '1.1. Các phần tử nguồn, điện trở, tụ điện & KCL/KVL (Trang 1-25)' },
+      { id: '1.2', chapter: 1, title: '1.2. Mạch tín hiệu xoay chiều, định lý Thévenin/Norton (Trang 26-45)' },
+      { id: '2.1', chapter: 2, title: '2.1. Vật lý bán dẫn, tiếp giáp P-N & Diode (Trang 46-70)' },
+      { id: '2.2', chapter: 2, title: '2.2. Vùng hoạt động & Mô hình Shichman-Hodges MOSFET (Trang 71-90)' },
+      { id: '2.3', chapter: 2, title: '2.3. Mô hình tín hiệu nhỏ MOSFET: gm, gds, gmb, ro (Trang 91-110)' },
+      { id: '3.1', chapter: 3, title: '3.1. Tầng khuếch đại cực nguồn chung Common-Source (Trang 111-135)' },
+      { id: '3.2', chapter: 3, title: '3.2. Tầng cực máng chung Source Follower & Common-Gate (Trang 136-155)' },
+      { id: '3.3', chapter: 3, title: '3.3. Tầng khuếch đại Cascode & Trở kháng ra cao (Trang 156-175)' },
+      { id: '4.1', chapter: 4, title: '4.1. Cặp vi sai đối xứng Differential Pairs (Trang 176-205)' },
+      { id: '4.2', chapter: 4, title: '4.2. Khuếch đại thuật toán hai tầng Two-Stage Op-Amp (Trang 206-240)' },
+      { id: '5.1', chapter: 5, title: '5.1. Đáp ứng tần số & Bù cực Miller, Pole Splitting (Trang 241-275)' },
+      { id: '5.2', chapter: 5, title: '5.2. Mạch hồi tiếp, Tiêu chuẩn ổn định & Độ dự trữ pha (Trang 276-310)' },
+      { id: '6.1', chapter: 6, title: '6.1. Mạch gương dòng điện & Mạch phân cực (Trang 311-335)' },
+      { id: '6.2', chapter: 6, title: '6.2. Mạch chuẩn điện áp Bandgap & Mô phỏng SPICE (Trang 336-360)' },
+    ],
+    levelTitles: [
+      'Tập sự Điện tử',
+      'Thợ hàn Vi mạch',
+      'Kỹ sư Phân tích Mạch',
+      'Chuyên viên Tín hiệu nhỏ',
+      'Bậc thầy Op-Amp',
+      'Nhà thiết kế Miller',
+      'Chuyên gia Analog IC',
+      'Đại Kỹ sư Vi mạch Thượng thừa'
+    ],
+    rankTitles: {
+      S: 'Đại Kỹ Sư Vi Mạch Xuất Chúng',
+      A: 'Bậc Thầy Mạch Tương Tự',
+      B: 'Kỹ Sư Vi Mạch Tiềm Năng',
+      C: 'Đạt Chuẩn Cần Cố Gắng',
+      D: 'Cần Ôn Luyện Lại'
+    }
+  },
+  prm393: PRM393_SUBJECT,
 };
 
-export const DEFAULT_SUBJECT_ID = 'mln122';
-
+export const DEFAULT_SUBJECT_ID = 'mdt';
