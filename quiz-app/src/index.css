@@ -180,19 +180,30 @@ body::before {
 .header-inner {
   max-width: 1340px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "brand modes actions"
+    "subjects subjects hud";
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
 .brand-wrapper {
+  grid-area: brand;
   display: flex;
+  min-width: 0;
   align-items: center;
   gap: 0.75rem;
 }
 
+.brand-wrapper > div:last-child {
+  min-width: 0;
+}
+
 .brand-icon {
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
@@ -253,6 +264,7 @@ body::before {
 
 /* ---------------- GAMIFIED PLAYER HUD ---------------- */
 .player-hud {
+  grid-area: hud;
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -348,6 +360,9 @@ body::before {
 
 /* Subject Switcher in Header */
 .subject-switcher {
+  grid-area: subjects;
+  min-width: 0;
+  overflow-x: auto;
   display: flex;
   align-items: center;
   background: rgba(25, 35, 56, 0.6);
@@ -438,6 +453,7 @@ body::before {
 
 /* Navigation Modes */
 .nav-modes {
+  grid-area: modes;
   display: flex;
   align-items: center;
   background: rgba(25, 35, 56, 0.55);
@@ -488,6 +504,7 @@ body::before {
 
 /* Header Action Buttons */
 .header-actions {
+  grid-area: actions;
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -1958,6 +1975,14 @@ html, body {
 
 /* Tablet screens (<= 1024px) */
 @media (max-width: 1024px) {
+  .header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand actions"
+      "subjects subjects"
+      "hud modes";
+  }
+
   .study-layout {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1978,7 +2003,7 @@ html, body {
 
   .header-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
       "brand actions"
       "subjects subjects"
@@ -1992,13 +2017,22 @@ html, body {
     grid-area: subjects;
     width: 100%;
     display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.3rem;
+  }
+
+  .subject-switcher::-webkit-scrollbar {
+    display: none;
   }
 
   .subject-pill-btn {
-    flex: 1;
+    flex: 1 0 auto;
     justify-content: center;
-    padding: 0.35rem 0.5rem;
+    padding: 0.35rem 0.55rem;
     font-size: 0.78rem;
+    white-space: nowrap;
   }
 
   .brand-wrapper {
@@ -2019,6 +2053,7 @@ html, body {
   }
 
   .brand-title {
+    display: block;
     font-size: 0.92rem;
     white-space: nowrap;
     overflow: hidden;

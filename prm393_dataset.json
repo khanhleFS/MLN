@@ -1,0 +1,4898 @@
+[
+  {
+    "id": 1,
+    "question": "Which status code indicates resource not found?",
+    "options": [
+      {
+        "id": "A",
+        "text": "200"
+      },
+      {
+        "id": "B",
+        "text": "301"
+      },
+      {
+        "id": "C",
+        "text": "404"
+      },
+      {
+        "id": "D",
+        "text": "500"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 78,
+    "pageReference": "Câu gốc 1 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 1: C. 404",
+    "extraNotes": []
+  },
+  {
+    "id": 2,
+    "question": "What is pagination used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI animation"
+      },
+      {
+        "id": "B",
+        "text": "Handling large datasets efficiently"
+      },
+      {
+        "id": "C",
+        "text": "Theme management"
+      },
+      {
+        "id": "D",
+        "text": "Authentication"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 79,
+    "pageReference": "Câu gốc 2 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 2: B. Handling large datasets efficiently",
+    "extraNotes": []
+  },
+  {
+    "id": 3,
+    "question": "What is the main purpose of the Container widget?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Navigation"
+      },
+      {
+        "id": "B",
+        "text": "Layout, styling, and positioning"
+      },
+      {
+        "id": "C",
+        "text": "State management"
+      },
+      {
+        "id": "D",
+        "text": "Network requests"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 37,
+    "pageReference": "Câu gốc 3 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 3: B. Layout, styling, and positioning",
+    "extraNotes": []
+  },
+  {
+    "id": 4,
+    "question": "What is the main goal of performance optimization in Flutter apps?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Improve UI colors"
+      },
+      {
+        "id": "B",
+        "text": "Ensure smooth and responsive UI"
+      },
+      {
+        "id": "C",
+        "text": "Reduce code size"
+      },
+      {
+        "id": "D",
+        "text": "Add features"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 121,
+    "pageReference": "Câu gốc 4 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 4: B. Ensure smooth and responsive UI",
+    "extraNotes": []
+  },
+  {
+    "id": 5,
+    "question": "What is Hive mainly used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Remote database"
+      },
+      {
+        "id": "B",
+        "text": "Lightweight local NoSQL storage"
+      },
+      {
+        "id": "C",
+        "text": "State management"
+      },
+      {
+        "id": "D",
+        "text": "Routing"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 99,
+    "pageReference": "Câu gốc 5 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 5: B. Lightweight local NoSQL storage",
+    "extraNotes": []
+  },
+  {
+    "id": 6,
+    "question": "Which method resets all form fields?",
+    "options": [
+      {
+        "id": "A",
+        "text": "clear()"
+      },
+      {
+        "id": "B",
+        "text": "reset()"
+      },
+      {
+        "id": "C",
+        "text": "dispose()"
+      },
+      {
+        "id": "D",
+        "text": "remove()"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 54,
+    "pageReference": "Câu gốc 6 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 6: B. reset()",
+    "extraNotes": []
+  },
+  {
+    "id": 7,
+    "question": "What is the purpose of onSaved callback?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Validate input"
+      },
+      {
+        "id": "B",
+        "text": "Store form values"
+      },
+      {
+        "id": "C",
+        "text": "Reset form"
+      },
+      {
+        "id": "D",
+        "text": "Display errors"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 55,
+    "pageReference": "Câu gốc 7 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 7: B. Store form values",
+    "extraNotes": []
+  },
+  {
+    "id": 8,
+    "question": "Which method is used to update the UI when state changes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "build()"
+      },
+      {
+        "id": "B",
+        "text": "setState()"
+      },
+      {
+        "id": "C",
+        "text": "initState()"
+      },
+      {
+        "id": "D",
+        "text": "dispose()"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 61,
+    "pageReference": "Câu gốc 8 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 8: B. setState()",
+    "extraNotes": []
+  },
+  {
+    "id": 9,
+    "question": "What is the main risk of improper state management?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI inconsistency"
+      },
+      {
+        "id": "B",
+        "text": "Longer compile time"
+      },
+      {
+        "id": "C",
+        "text": "Package conflicts"
+      },
+      {
+        "id": "D",
+        "text": "Build errors"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 62,
+    "pageReference": "Câu gốc 9 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 9: A. UI inconsistency",
+    "extraNotes": []
+  },
+  {
+    "id": 10,
+    "question": "Which status code indicates server error?",
+    "options": [
+      {
+        "id": "A",
+        "text": "200"
+      },
+      {
+        "id": "B",
+        "text": "301"
+      },
+      {
+        "id": "C",
+        "text": "404"
+      },
+      {
+        "id": "D",
+        "text": "500"
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 80,
+    "pageReference": "Câu gốc 10 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 10: D. 500",
+    "extraNotes": []
+  },
+  {
+    "id": 11,
+    "question": "Which method saves an integer in SharedPreferences?",
+    "options": [
+      {
+        "id": "A",
+        "text": "saveInt()"
+      },
+      {
+        "id": "B",
+        "text": "putInt()"
+      },
+      {
+        "id": "C",
+        "text": "setInt()"
+      },
+      {
+        "id": "D",
+        "text": "writeInt()"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 100,
+    "pageReference": "Câu gốc 11 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 11: B. putInt()",
+    "extraNotes": []
+  },
+  {
+    "id": 12,
+    "question": "Which method retrieves data from SharedPreferences?",
+    "options": [
+      {
+        "id": "A",
+        "text": "get()"
+      },
+      {
+        "id": "B",
+        "text": "read()"
+      },
+      {
+        "id": "C",
+        "text": "fetch()"
+      },
+      {
+        "id": "D",
+        "text": "load()"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 101,
+    "pageReference": "Câu gốc 12 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 12: A. get()",
+    "extraNotes": []
+  },
+  {
+    "id": 13,
+    "question": "What is the main purpose of app architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI design"
+      },
+      {
+        "id": "B",
+        "text": "Organize code structure"
+      },
+      {
+        "id": "C",
+        "text": "Improve animations"
+      },
+      {
+        "id": "D",
+        "text": "Handle API"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.2",
+    "topicTitle": "5.2. Kiến trúc ứng dụng và Repository pattern",
+    "logicalOrder": 108,
+    "pageReference": "Câu gốc 13 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 13: B. Organize code structure",
+    "extraNotes": []
+  },
+  {
+    "id": 14,
+    "question": "What does status code 200 indicate?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Client error"
+      },
+      {
+        "id": "B",
+        "text": "Server error"
+      },
+      {
+        "id": "C",
+        "text": "Success"
+      },
+      {
+        "id": "D",
+        "text": "Redirect"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 81,
+    "pageReference": "Câu gốc 14 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 14: C. Success",
+    "extraNotes": []
+  },
+  {
+    "id": 15,
+    "question": "What does an integration test verify?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Single function"
+      },
+      {
+        "id": "B",
+        "text": "Widget rendering"
+      },
+      {
+        "id": "C",
+        "text": "End-to-end app behavior"
+      },
+      {
+        "id": "D",
+        "text": "Theme consistency"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 130,
+    "pageReference": "Câu gốc 15 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 15: C. End-to-end app behavior",
+    "extraNotes": []
+  },
+  {
+    "id": 16,
+    "question": "What happens if a non-nullable variable is not initialized in Dart?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The app runs normally"
+      },
+      {
+        "id": "B",
+        "text": "A runtime exception occurs"
+      },
+      {
+        "id": "C",
+        "text": "A compile-time error occurs"
+      },
+      {
+        "id": "D",
+        "text": "The value becomes null automatically"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 13,
+    "pageReference": "Câu gốc 16 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 16: C. A compile-time error occurs",
+    "extraNotes": []
+  },
+  {
+    "id": 17,
+    "question": "What is implicit animation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Manual animation control"
+      },
+      {
+        "id": "B",
+        "text": "Animation without controller"
+      },
+      {
+        "id": "C",
+        "text": "API animation"
+      },
+      {
+        "id": "D",
+        "text": "Navigation animation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 112,
+    "pageReference": "Câu gốc 17 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 17: B. Animation without controller",
+    "extraNotes": []
+  },
+  {
+    "id": 18,
+    "question": "What is the primary purpose of ThemeData in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Manage navigation"
+      },
+      {
+        "id": "B",
+        "text": "Define application-wide visual styles"
+      },
+      {
+        "id": "C",
+        "text": "Handle state changes"
+      },
+      {
+        "id": "D",
+        "text": "Control animations"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 38,
+    "pageReference": "Câu gốc 18 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 18: B. Define application-wide visual styles",
+    "extraNotes": []
+  },
+  {
+    "id": 19,
+    "question": "What does Navigator.pop() do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Open a new screen"
+      },
+      {
+        "id": "B",
+        "text": "Close current screen"
+      },
+      {
+        "id": "C",
+        "text": "Restart app"
+      },
+      {
+        "id": "D",
+        "text": "Clear stack"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.3",
+    "topicTitle": "2.3. Navigator, routes và truyền dữ liệu giữa màn hình",
+    "logicalOrder": 49,
+    "pageReference": "Câu gốc 19 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 19: B. Close current screen",
+    "extraNotes": []
+  },
+  {
+    "id": 20,
+    "question": "What is the purpose of building a release version of a Flutter app?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Debug code"
+      },
+      {
+        "id": "B",
+        "text": "Prepare app for distribution"
+      },
+      {
+        "id": "C",
+        "text": "Test UI"
+      },
+      {
+        "id": "D",
+        "text": "Change theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 139,
+    "pageReference": "Câu gốc 20 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 20: B. Prepare app for distribution",
+    "extraNotes": []
+  },
+  {
+    "id": 21,
+    "question": "What is test isolation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Running all tests together"
+      },
+      {
+        "id": "B",
+        "text": "Independence of test cases"
+      },
+      {
+        "id": "C",
+        "text": "UI separation"
+      },
+      {
+        "id": "D",
+        "text": "Mocking only"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 131,
+    "pageReference": "Câu gốc 21 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 21: B. Independence of test cases",
+    "extraNotes": []
+  },
+  {
+    "id": 22,
+    "question": "What does CurvedAnimation provide?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Layout control"
+      },
+      {
+        "id": "B",
+        "text": "Animation curve behavior"
+      },
+      {
+        "id": "C",
+        "text": "State updates"
+      },
+      {
+        "id": "D",
+        "text": "Navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 113,
+    "pageReference": "Câu gốc 22 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 22: B. Animation curve behavior",
+    "extraNotes": []
+  },
+  {
+    "id": 23,
+    "question": "What is a token in authentication systems?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI key"
+      },
+      {
+        "id": "B",
+        "text": "Temporary access credential"
+      },
+      {
+        "id": "C",
+        "text": "Database ID"
+      },
+      {
+        "id": "D",
+        "text": "Theme value"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 90,
+    "pageReference": "Câu gốc 23 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 23: B. Temporary access credential",
+    "extraNotes": []
+  },
+  {
+    "id": 24,
+    "question": "What does golden testing verify?",
+    "options": [
+      {
+        "id": "A",
+        "text": "API responses"
+      },
+      {
+        "id": "B",
+        "text": "UI appearance consistency"
+      },
+      {
+        "id": "C",
+        "text": "Database state"
+      },
+      {
+        "id": "D",
+        "text": "Authentication"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 132,
+    "pageReference": "Câu gốc 24 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 24: B. UI appearance consistency",
+    "extraNotes": []
+  },
+  {
+    "id": 25,
+    "question": "What causes unnecessary widget rebuilds?",
+    "options": [
+      {
+        "id": "A",
+        "text": "State changes"
+      },
+      {
+        "id": "B",
+        "text": "Overusing setState()"
+      },
+      {
+        "id": "C",
+        "text": "Using Provider"
+      },
+      {
+        "id": "D",
+        "text": "Using const widgets"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 122,
+    "pageReference": "Câu gốc 25 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 25: B. Overusing setState()",
+    "extraNotes": []
+  },
+  {
+    "id": 26,
+    "question": "What is the role of v-sync in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sync data"
+      },
+      {
+        "id": "B",
+        "text": "Optimize animation resources"
+      },
+      {
+        "id": "C",
+        "text": "Control layout"
+      },
+      {
+        "id": "D",
+        "text": "Handle navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 114,
+    "pageReference": "Câu gốc 26 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 26: B. Optimize animation resources",
+    "extraNotes": []
+  },
+  {
+    "id": 27,
+    "question": "What does crossAxisAlignment control?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vertical alignment in Column"
+      },
+      {
+        "id": "B",
+        "text": "Horizontal alignment in Column"
+      },
+      {
+        "id": "C",
+        "text": "Child order"
+      },
+      {
+        "id": "D",
+        "text": "Widget size"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 39,
+    "pageReference": "Câu gốc 27 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 27: B. Horizontal alignment in Column",
+    "extraNotes": []
+  },
+  {
+    "id": 28,
+    "question": "What is the primary role of widgets in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Managing databases"
+      },
+      {
+        "id": "B",
+        "text": "Describing the user interface"
+      },
+      {
+        "id": "C",
+        "text": "Handling network requests"
+      },
+      {
+        "id": "D",
+        "text": "Compiling Dart code"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 26,
+    "pageReference": "Câu gốc 28 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 28: B. Describing the user interface",
+    "extraNotes": []
+  },
+  {
+    "id": 29,
+    "question": "What is rebuild scope optimization in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reducing widget tree depth"
+      },
+      {
+        "id": "B",
+        "text": "Limiting rebuild to affected widgets"
+      },
+      {
+        "id": "C",
+        "text": "Caching API responses"
+      },
+      {
+        "id": "D",
+        "text": "Using global state"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 123,
+    "pageReference": "Câu gốc 29 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 29: B. Limiting rebuild to affected widgets",
+    "extraNotes": []
+  },
+  {
+    "id": 30,
+    "question": "What does BLoC stand for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Business Logic Component"
+      },
+      {
+        "id": "B",
+        "text": "Backend Logic Controller"
+      },
+      {
+        "id": "C",
+        "text": "Build Logic Component"
+      },
+      {
+        "id": "D",
+        "text": "Basic Logic Controller"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 69,
+    "pageReference": "Câu gốc 30 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 30: A. Business Logic Component",
+    "extraNotes": []
+  },
+  {
+    "id": 31,
+    "question": "What does a Tween define?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Animation speed"
+      },
+      {
+        "id": "B",
+        "text": "Value range for animation"
+      },
+      {
+        "id": "C",
+        "text": "UI layout"
+      },
+      {
+        "id": "D",
+        "text": "State logic"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 115,
+    "pageReference": "Câu gốc 31 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 31: B. Value range for animation",
+    "extraNotes": []
+  },
+  {
+    "id": 32,
+    "question": "What does REST stand for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Remote State Transfer"
+      },
+      {
+        "id": "B",
+        "text": "Representational State Transfer"
+      },
+      {
+        "id": "C",
+        "text": "Reactive Service Transport"
+      },
+      {
+        "id": "D",
+        "text": "Request State Transfer"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 82,
+    "pageReference": "Câu gốc 32 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 32: B. Representational State Transfer",
+    "extraNotes": []
+  },
+  {
+    "id": 33,
+    "question": "What is the purpose of SliverAppBar?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Static app bar"
+      },
+      {
+        "id": "B",
+        "text": "Scrollable flexible app bar"
+      },
+      {
+        "id": "C",
+        "text": "Bottom navigation"
+      },
+      {
+        "id": "D",
+        "text": "Drawer control"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 40,
+    "pageReference": "Câu gốc 33 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 33: B. Scrollable flexible app bar",
+    "extraNotes": []
+  },
+  {
+    "id": 34,
+    "question": "What advantage does a single codebase provide in Flutter development?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Higher memory usage"
+      },
+      {
+        "id": "B",
+        "text": "Simpler UI customization"
+      },
+      {
+        "id": "C",
+        "text": "Reduced development and maintenance effort"
+      },
+      {
+        "id": "D",
+        "text": "Automatic database synchronization"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 1,
+    "pageReference": "Câu gốc 34 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 34: C. Reduced development and maintenance effort",
+    "extraNotes": []
+  },
+  {
+    "id": 35,
+    "question": "What does the Padding widget do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Adds space inside a widget"
+      },
+      {
+        "id": "B",
+        "text": "Adds space between widgets"
+      },
+      {
+        "id": "C",
+        "text": "Aligns widgets"
+      },
+      {
+        "id": "D",
+        "text": "Controls widget size"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 41,
+    "pageReference": "Câu gốc 35 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 35: A. Adds space inside a widget",
+    "extraNotes": []
+  },
+  {
+    "id": 36,
+    "question": "What type of data is SharedPreferences best suited for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Large datasets"
+      },
+      {
+        "id": "B",
+        "text": "Simple primitive values"
+      },
+      {
+        "id": "C",
+        "text": "Images"
+      },
+      {
+        "id": "D",
+        "text": "Complex objects"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 102,
+    "pageReference": "Câu gốc 36 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 36: B. Simple primitive values",
+    "extraNotes": []
+  },
+  {
+    "id": 37,
+    "question": "What does a Dart class primarily represent?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A UI widget only"
+      },
+      {
+        "id": "B",
+        "text": "A blueprint for creating objects"
+      },
+      {
+        "id": "C",
+        "text": "A database table"
+      },
+      {
+        "id": "D",
+        "text": "A network request"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 14,
+    "pageReference": "Câu gốc 37 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 37: B. A blueprint for creating objects",
+    "extraNotes": []
+  },
+  {
+    "id": 38,
+    "question": "What is the main benefit of using Maps in Dart?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Storing values without keys"
+      },
+      {
+        "id": "B",
+        "text": "Storing key-value pairs"
+      },
+      {
+        "id": "C",
+        "text": "Rendering UI components"
+      },
+      {
+        "id": "D",
+        "text": "Managing asynchronous tasks"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 15,
+    "pageReference": "Câu gốc 38 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 38: B. Storing key-value pairs",
+    "extraNotes": []
+  },
+  {
+    "id": 39,
+    "question": "What is the main goal of testing in Flutter apps?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Improve UI design"
+      },
+      {
+        "id": "B",
+        "text": "Ensure app quality and correctness"
+      },
+      {
+        "id": "C",
+        "text": "Speed up builds"
+      },
+      {
+        "id": "D",
+        "text": "Manage state"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 133,
+    "pageReference": "Câu gốc 39 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 39: B. Ensure app quality and correctness",
+    "extraNotes": []
+  },
+  {
+    "id": 40,
+    "question": "What happens if form validation fails?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Form submits"
+      },
+      {
+        "id": "B",
+        "text": "Error messages are shown"
+      },
+      {
+        "id": "C",
+        "text": "App crashes"
+      },
+      {
+        "id": "D",
+        "text": "Data is saved"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 56,
+    "pageReference": "Câu gốc 40 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 40: B. Error messages are shown",
+    "extraNotes": []
+  },
+  {
+    "id": 41,
+    "question": "What is the primary responsibility of the setState() method?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Persist data"
+      },
+      {
+        "id": "B",
+        "text": "Trigger widget rebuild"
+      },
+      {
+        "id": "C",
+        "text": "Navigate screens"
+      },
+      {
+        "id": "D",
+        "text": "Handle async tasks"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 63,
+    "pageReference": "Câu gốc 41 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 41: B. Trigger widget rebuild",
+    "extraNotes": []
+  },
+  {
+    "id": 42,
+    "question": "What represents the output of a BLoC?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Events"
+      },
+      {
+        "id": "B",
+        "text": "Widgets"
+      },
+      {
+        "id": "C",
+        "text": "States"
+      },
+      {
+        "id": "D",
+        "text": "Controllers"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 70,
+    "pageReference": "Câu gốc 42 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 42: C. States",
+    "extraNotes": []
+  },
+  {
+    "id": 43,
+    "question": "What is refresh token used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI refresh"
+      },
+      {
+        "id": "B",
+        "text": "Extend session without re-login"
+      },
+      {
+        "id": "C",
+        "text": "Theme update"
+      },
+      {
+        "id": "D",
+        "text": "Navigation reset"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 91,
+    "pageReference": "Câu gốc 43 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 43: B. Extend session without re-login",
+    "extraNotes": []
+  },
+  {
+    "id": 44,
+    "question": "What is the role of events in BLoC?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Store UI"
+      },
+      {
+        "id": "B",
+        "text": "Trigger state changes"
+      },
+      {
+        "id": "C",
+        "text": "Render widgets"
+      },
+      {
+        "id": "D",
+        "text": "Handle layout"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 71,
+    "pageReference": "Câu gốc 44 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 44: B. Trigger state changes",
+    "extraNotes": []
+  },
+  {
+    "id": 45,
+    "question": "What is Cubit in BLoC?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI widget"
+      },
+      {
+        "id": "B",
+        "text": "Simplified BLoC without events"
+      },
+      {
+        "id": "C",
+        "text": "Database layer"
+      },
+      {
+        "id": "D",
+        "text": "Animation helper"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 72,
+    "pageReference": "Câu gốc 45 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 45: B. Simplified BLoC without events",
+    "extraNotes": []
+  },
+  {
+    "id": 46,
+    "question": "Which package supports BLoC architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "provider"
+      },
+      {
+        "id": "B",
+        "text": "flutter_bloc"
+      },
+      {
+        "id": "C",
+        "text": "sqflite"
+      },
+      {
+        "id": "D",
+        "text": "http"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 73,
+    "pageReference": "Câu gốc 46 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 46: B. flutter_bloc",
+    "extraNotes": []
+  },
+  {
+    "id": 47,
+    "question": "Which approach helps reduce unnecessary widget rebuilds?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Using global variables"
+      },
+      {
+        "id": "B",
+        "text": "Fine-grained stale updates"
+      },
+      {
+        "id": "C",
+        "text": "Hot restart"
+      },
+      {
+        "id": "D",
+        "text": "Large widgets"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 124,
+    "pageReference": "Câu gốc 47 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 47: B. Fine-grained stale updates",
+    "extraNotes": []
+  },
+  {
+    "id": 48,
+    "question": "Which practice improves deployment security?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Debug builds"
+      },
+      {
+        "id": "B",
+        "text": "Secure signing keys"
+      },
+      {
+        "id": "C",
+        "text": "Hardcoding secrets"
+      },
+      {
+        "id": "D",
+        "text": "Skipping validation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 140,
+    "pageReference": "Câu gốc 48 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 48: B. Secure signing keys",
+    "extraNotes": []
+  },
+  {
+    "id": 49,
+    "question": "Which Dart feature supports object-oriented programming?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Widgets"
+      },
+      {
+        "id": "B",
+        "text": "Classes and objects"
+      },
+      {
+        "id": "C",
+        "text": "Hot reload"
+      },
+      {
+        "id": "D",
+        "text": "Layout builders"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 16,
+    "pageReference": "Câu gốc 49 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 49: B. Classes and objects",
+    "extraNotes": []
+  },
+  {
+    "id": 50,
+    "question": "Which Dart keyword is used to define a constant value at compile time?",
+    "options": [
+      {
+        "id": "A",
+        "text": "final"
+      },
+      {
+        "id": "B",
+        "text": "static"
+      },
+      {
+        "id": "C",
+        "text": "const"
+      },
+      {
+        "id": "D",
+        "text": "var"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 17,
+    "pageReference": "Câu gốc 50 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 50: C. const",
+    "extraNotes": []
+  },
+  {
+    "id": 51,
+    "question": "What problem does state hoisting address?",
+    "options": [
+      {
+        "id": "A",
+        "text": "API delay"
+      },
+      {
+        "id": "B",
+        "text": "State duplication"
+      },
+      {
+        "id": "C",
+        "text": "Theme conflict"
+      },
+      {
+        "id": "D",
+        "text": "Navigation error"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 64,
+    "pageReference": "Câu gốc 51 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 51: B. State duplication",
+    "extraNotes": []
+  },
+  {
+    "id": 52,
+    "question": "Which curve creates a bounce effect?",
+    "options": [
+      {
+        "id": "A",
+        "text": "linear"
+      },
+      {
+        "id": "B",
+        "text": "easeIn"
+      },
+      {
+        "id": "C",
+        "text": "bounceOut"
+      },
+      {
+        "id": "D",
+        "text": "decelerate"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 116,
+    "pageReference": "Câu gốc 52 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 52: C. bounceOut",
+    "extraNotes": []
+  },
+  {
+    "id": 53,
+    "question": "Which keyword is used in Dart to pause execution until a Future completes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "async"
+      },
+      {
+        "id": "B",
+        "text": "await"
+      },
+      {
+        "id": "C",
+        "text": "future"
+      },
+      {
+        "id": "D",
+        "text": "delay"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 18,
+    "pageReference": "Câu gốc 53 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 53: B. await",
+    "extraNotes": []
+  },
+  {
+    "id": 54,
+    "question": "Which phase involves gathering requirements?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Implementation"
+      },
+      {
+        "id": "B",
+        "text": "Design"
+      },
+      {
+        "id": "C",
+        "text": "Analysis"
+      },
+      {
+        "id": "D",
+        "text": "Testing"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.2",
+    "topicTitle": "1.2. Flutter SDK, môi trường và quy trình phát triển",
+    "logicalOrder": 8,
+    "pageReference": "Câu gốc 54 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 54: C. Analysis",
+    "extraNotes": []
+  },
+  {
+    "id": 55,
+    "question": "Why should database operations be asynchronous?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Simplify syntax"
+      },
+      {
+        "id": "B",
+        "text": "Avoid blocking UI thread"
+      },
+      {
+        "id": "C",
+        "text": "Reduce code"
+      },
+      {
+        "id": "D",
+        "text": "Improve theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 103,
+    "pageReference": "Câu gốc 55 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 55: B. Avoid blocking UI thread",
+    "extraNotes": []
+  },
+  {
+    "id": 56,
+    "question": "Which feature of Dart helps prevent null reference errors at compile time?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Dynamic typing"
+      },
+      {
+        "id": "B",
+        "text": "Hot reload"
+      },
+      {
+        "id": "C",
+        "text": "Null safety"
+      },
+      {
+        "id": "D",
+        "text": "Asynchronous execution"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 19,
+    "pageReference": "Câu gốc 56 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 56: C. Null safety",
+    "extraNotes": []
+  },
+  {
+    "id": 57,
+    "question": "Which practice improves rendering performance?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Large widget trees"
+      },
+      {
+        "id": "B",
+        "text": "Splitting widgets"
+      },
+      {
+        "id": "C",
+        "text": "Global state"
+      },
+      {
+        "id": "D",
+        "text": "Frequent rebuilds"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 125,
+    "pageReference": "Câu gốc 57 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 57: B. Splitting widgets",
+    "extraNotes": []
+  },
+  {
+    "id": 58,
+    "question": "Which programming language is used to develop Flutter applications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kotlin"
+      },
+      {
+        "id": "B",
+        "text": "Swift"
+      },
+      {
+        "id": "C",
+        "text": "Dart"
+      },
+      {
+        "id": "D",
+        "text": "JavaScript"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 2,
+    "pageReference": "Câu gốc 58 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 58: C. Dart",
+    "extraNotes": []
+  },
+  {
+    "id": 59,
+    "question": "Which step is required before running a Flutter app for the first time?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Publishing the app"
+      },
+      {
+        "id": "B",
+        "text": "Setting up the Flutter SDK"
+      },
+      {
+        "id": "C",
+        "text": "Configuring a database"
+      },
+      {
+        "id": "D",
+        "text": "Writing backend APIs"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.2",
+    "topicTitle": "1.2. Flutter SDK, môi trường và quy trình phát triển",
+    "logicalOrder": 9,
+    "pageReference": "Câu gốc 59 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 59: B. Setting up the Flutter SDK",
+    "extraNotes": []
+  },
+  {
+    "id": 60,
+    "question": "Which practice improves API security?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hardcoding keys"
+      },
+      {
+        "id": "B",
+        "text": "Using HTTPS"
+      },
+      {
+        "id": "C",
+        "text": "Ignoring errors"
+      },
+      {
+        "id": "D",
+        "text": "Using globals"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 83,
+    "pageReference": "Câu gốc 60 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 60: B. Using HTTPS",
+    "extraNotes": []
+  },
+  {
+    "id": 61,
+    "question": "Which component is required to run and test Flutter applications on a local machine?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A cloud hosting service"
+      },
+      {
+        "id": "B",
+        "text": "A physical server"
+      },
+      {
+        "id": "C",
+        "text": "An emulator or physical device"
+      },
+      {
+        "id": "D",
+        "text": "A database management system"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.2",
+    "topicTitle": "1.2. Flutter SDK, môi trường và quy trình phát triển",
+    "logicalOrder": 10,
+    "pageReference": "Câu gốc 61 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 61: C. An emulator or physical device",
+    "extraNotes": []
+  },
+  {
+    "id": 62,
+    "question": "Which widget helps avoid rebuilding unchanged UI parts?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Container"
+      },
+      {
+        "id": "B",
+        "text": "RepaintBoundary"
+      },
+      {
+        "id": "C",
+        "text": "Column"
+      },
+      {
+        "id": "D",
+        "text": "FutureBuilder"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 126,
+    "pageReference": "Câu gốc 62 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 62: B. RepaintBoundary",
+    "extraNotes": []
+  },
+  {
+    "id": 63,
+    "question": "Which widget enables custom scroll effects in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "ListView"
+      },
+      {
+        "id": "B",
+        "text": "SingleChildScrollView"
+      },
+      {
+        "id": "C",
+        "text": "CustomScrollView"
+      },
+      {
+        "id": "D",
+        "text": "Column"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 42,
+    "pageReference": "Câu gốc 63 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 63: C. CustomScrollView",
+    "extraNotes": []
+  },
+  {
+    "id": 64,
+    "question": "Which input type improves user experience for emails?",
+    "options": [
+      {
+        "id": "A",
+        "text": "TextInputType.number"
+      },
+      {
+        "id": "B",
+        "text": "TextInputType.emailAddress"
+      },
+      {
+        "id": "C",
+        "text": "TextInputType.text"
+      },
+      {
+        "id": "D",
+        "text": "TextInputType.url"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 57,
+    "pageReference": "Câu gốc 64 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 64: B. TextInputType.emailAddress",
+    "extraNotes": []
+  },
+  {
+    "id": 65,
+    "question": "Which widget rebuilds automatically during animation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AnimatedBuilder"
+      },
+      {
+        "id": "B",
+        "text": "FutureBuilder"
+      },
+      {
+        "id": "C",
+        "text": "StreamBuilder"
+      },
+      {
+        "id": "D",
+        "text": "LayoutBuilder"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 117,
+    "pageReference": "Câu gốc 65 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 65: A. AnimatedBuilder",
+    "extraNotes": []
+  },
+  {
+    "id": 66,
+    "question": "Which widget reacts to async data from local storage?",
+    "options": [
+      {
+        "id": "A",
+        "text": "FutureBuilder"
+      },
+      {
+        "id": "B",
+        "text": "StreamBuilder"
+      },
+      {
+        "id": "C",
+        "text": "ListView"
+      },
+      {
+        "id": "D",
+        "text": "Provider"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 104,
+    "pageReference": "Câu gốc 66 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 66: A. FutureBuilder",
+    "extraNotes": []
+  },
+  {
+    "id": 67,
+    "question": "Which widget animates between two widgets?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AnimatedSwitcher"
+      },
+      {
+        "id": "B",
+        "text": "AnimatedOpacity"
+      },
+      {
+        "id": "C",
+        "text": "AnimatedAlign"
+      },
+      {
+        "id": "D",
+        "text": "AnimatedSize"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 118,
+    "pageReference": "Câu gốc 67 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 67: A. AnimatedSwitcher",
+    "extraNotes": []
+  },
+  {
+    "id": 68,
+    "question": "Which pattern is commonly used for scalable state management?",
+    "options": [
+      {
+        "id": "A",
+        "text": "MVC"
+      },
+      {
+        "id": "B",
+        "text": "BLoC"
+      },
+      {
+        "id": "C",
+        "text": "Singleton"
+      },
+      {
+        "id": "D",
+        "text": "Factory"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 74,
+    "pageReference": "Câu gốc 68 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 68: B. BLoC",
+    "extraNotes": []
+  },
+  {
+    "id": 69,
+    "question": "What triggers a rebuild of a widget?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Navigation only"
+      },
+      {
+        "id": "B",
+        "text": "Calling setState()"
+      },
+      {
+        "id": "C",
+        "text": "Restarting the IDE"
+      },
+      {
+        "id": "D",
+        "text": "Changing the SDK"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 27,
+    "pageReference": "Câu gốc 69 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 69: B. Calling setState()",
+    "extraNotes": []
+  },
+  {
+    "id": 70,
+    "question": "Which sliver is commonly used to display a scrolling list?",
+    "options": [
+      {
+        "id": "A",
+        "text": "SliverGrid"
+      },
+      {
+        "id": "B",
+        "text": "SliverList"
+      },
+      {
+        "id": "C",
+        "text": "SliverAppBar"
+      },
+      {
+        "id": "D",
+        "text": "SliverFillRemaining"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 43,
+    "pageReference": "Câu gốc 70 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 70: B. SliverList",
+    "extraNotes": []
+  },
+  {
+    "id": 71,
+    "question": "Which widget is an example of implicit animation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "AnimatedContainer"
+      },
+      {
+        "id": "B",
+        "text": "AnimationController"
+      },
+      {
+        "id": "C",
+        "text": "Tween"
+      },
+      {
+        "id": "D",
+        "text": "Ticker"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 119,
+    "pageReference": "Câu gốc 71 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 71: A. AnimatedContainer",
+    "extraNotes": []
+  },
+  {
+    "id": 72,
+    "question": "What design principle improves form usability?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Long forms"
+      },
+      {
+        "id": "B",
+        "text": "Minimal validation"
+      },
+      {
+        "id": "C",
+        "text": "Clear labels and feedback"
+      },
+      {
+        "id": "D",
+        "text": "Hidden errors"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 58,
+    "pageReference": "Câu gốc 72 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 72: C. Clear labels and feedback",
+    "extraNotes": []
+  },
+  {
+    "id": 73,
+    "question": "What happens after successful login?",
+    "options": [
+      {
+        "id": "A",
+        "text": "App closes"
+      },
+      {
+        "id": "B",
+        "text": "User session starts"
+      },
+      {
+        "id": "C",
+        "text": "Theme changes"
+      },
+      {
+        "id": "D",
+        "text": "Navigation resets"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 92,
+    "pageReference": "Câu gốc 73 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 73: B. User session starts",
+    "extraNotes": []
+  },
+  {
+    "id": 74,
+    "question": "Which command builds a release APK?",
+    "options": [
+      {
+        "id": "A",
+        "text": "flutter run"
+      },
+      {
+        "id": "B",
+        "text": "flutter build apk"
+      },
+      {
+        "id": "C",
+        "text": "flutter doctor"
+      },
+      {
+        "id": "D",
+        "text": "flutter clean"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 141,
+    "pageReference": "Câu gốc 74 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 74: B. flutter build apk",
+    "extraNotes": []
+  },
+  {
+    "id": 75,
+    "question": "Which Flutter tool helps debug network requests?",
+    "options": [
+      {
+        "id": "A",
+        "text": "DevTools"
+      },
+      {
+        "id": "B",
+        "text": "Inspector"
+      },
+      {
+        "id": "C",
+        "text": "Emulator"
+      },
+      {
+        "id": "D",
+        "text": "Hot reload"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 84,
+    "pageReference": "Câu gốc 75 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 75: A. DevTools",
+    "extraNotes": []
+  },
+  {
+    "id": 76,
+    "question": "Which widget can hide user input text when configured for password entry?",
+    "options": [
+      {
+        "id": "A",
+        "text": "TextField"
+      },
+      {
+        "id": "B",
+        "text": "ObscureText"
+      },
+      {
+        "id": "C",
+        "text": "SecureInput"
+      },
+      {
+        "id": "D",
+        "text": "PasswordField"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 59,
+    "pageReference": "Câu gốc 76 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 76: A. TextField",
+    "extraNotes": []
+  },
+  {
+    "id": 77,
+    "question": "Which Flutter widget reacts to authentication state changes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "FutureBuilder"
+      },
+      {
+        "id": "B",
+        "text": "StreamBuilder"
+      },
+      {
+        "id": "C",
+        "text": "ListView"
+      },
+      {
+        "id": "D",
+        "text": "Form"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 93,
+    "pageReference": "Câu gốc 77 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 77: B. StreamBuilder",
+    "extraNotes": []
+  },
+  {
+    "id": 78,
+    "question": "Which widget pattern protects authenticated routes?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Navigator"
+      },
+      {
+        "id": "B",
+        "text": "Guard"
+      },
+      {
+        "id": "C",
+        "text": "Route protection"
+      },
+      {
+        "id": "D",
+        "text": "Middleware"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 94,
+    "pageReference": "Câu gốc 78 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 78: B. Guard",
+    "extraNotes": []
+  },
+  {
+    "id": 79,
+    "question": "Why is clean architecture beneficial?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Fewer files"
+      },
+      {
+        "id": "B",
+        "text": "Easier maintenance and testing"
+      },
+      {
+        "id": "C",
+        "text": "Better UI"
+      },
+      {
+        "id": "D",
+        "text": "Faster builds"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.2",
+    "topicTitle": "5.2. Kiến trúc ứng dụng và Repository pattern",
+    "logicalOrder": 109,
+    "pageReference": "Câu gốc 79 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 79: B. Easier maintenance and testing",
+    "extraNotes": []
+  },
+  {
+    "id": 80,
+    "question": "Which Dart feature allows defining reusable type-safe components?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mixins"
+      },
+      {
+        "id": "B",
+        "text": "Generics"
+      },
+      {
+        "id": "C",
+        "text": "Futures"
+      },
+      {
+        "id": "D",
+        "text": "Streams"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 20,
+    "pageReference": "Câu gốc 80 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 80: B. Generics",
+    "extraNotes": []
+  },
+  {
+    "id": 81,
+    "question": "Which widget allows overlapping of its child widgets?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Column"
+      },
+      {
+        "id": "B",
+        "text": "Row"
+      },
+      {
+        "id": "C",
+        "text": "Stack"
+      },
+      {
+        "id": "D",
+        "text": "Expanded"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 44,
+    "pageReference": "Câu gốc 81 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 81: C. Stack",
+    "extraNotes": []
+  },
+  {
+    "id": 82,
+    "question": "Which Flutter service simplifies authentication implementation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "sqflite"
+      },
+      {
+        "id": "B",
+        "text": "Firebase Authentication"
+      },
+      {
+        "id": "C",
+        "text": "Provider"
+      },
+      {
+        "id": "D",
+        "text": "http"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 95,
+    "pageReference": "Câu gốc 82 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 82: B. Firebase Authentication",
+    "extraNotes": []
+  },
+  {
+    "id": 83,
+    "question": "Which test runs fastest?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Integration test"
+      },
+      {
+        "id": "B",
+        "text": "Widget test"
+      },
+      {
+        "id": "C",
+        "text": "Unit test"
+      },
+      {
+        "id": "D",
+        "text": "Manual test"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 134,
+    "pageReference": "Câu gốc 83 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 83: C. Unit test",
+    "extraNotes": []
+  },
+  {
+    "id": 84,
+    "question": "Why is version control critical?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI changes"
+      },
+      {
+        "id": "B",
+        "text": "Track and manage code changes"
+      },
+      {
+        "id": "C",
+        "text": "Improve animations"
+      },
+      {
+        "id": "D",
+        "text": "Store data"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 142,
+    "pageReference": "Câu gốc 84 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 84: B. Track and manage code changes",
+    "extraNotes": []
+  },
+  {
+    "id": 85,
+    "question": "Why is BLoC suitable for large teams?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Less code"
+      },
+      {
+        "id": "B",
+        "text": "Standardized architecture"
+      },
+      {
+        "id": "C",
+        "text": "Faster builds"
+      },
+      {
+        "id": "D",
+        "text": "UI reuse"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 75,
+    "pageReference": "Câu gốc 85 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 85: B. Standardized architecture",
+    "extraNotes": []
+  },
+  {
+    "id": 86,
+    "question": "Which package is commonly used for Flutter testing?",
+    "options": [
+      {
+        "id": "A",
+        "text": "flutter_test"
+      },
+      {
+        "id": "B",
+        "text": "provider"
+      },
+      {
+        "id": "C",
+        "text": "http"
+      },
+      {
+        "id": "D",
+        "text": "sqflite"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 135,
+    "pageReference": "Câu gốc 86 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 86: A. flutter_test",
+    "extraNotes": []
+  },
+  {
+    "id": 87,
+    "question": "Why should animations be disposed properly?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Improve UI"
+      },
+      {
+        "id": "B",
+        "text": "Prevent memory leaks"
+      },
+      {
+        "id": "C",
+        "text": "Speed up builds"
+      },
+      {
+        "id": "D",
+        "text": "Fix layout"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.1",
+    "topicTitle": "6.1. Implicit animation, Tween, curves và controllers",
+    "logicalOrder": 120,
+    "pageReference": "Câu gốc 87 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 87: B. Prevent memory leaks",
+    "extraNotes": []
+  },
+  {
+    "id": 88,
+    "question": "Which tool helps analyze UI performance in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Inspector"
+      },
+      {
+        "id": "B",
+        "text": "DevTools"
+      },
+      {
+        "id": "C",
+        "text": "Emulator"
+      },
+      {
+        "id": "D",
+        "text": "Hot reload"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 127,
+    "pageReference": "Câu gốc 88 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 88: B. DevTools",
+    "extraNotes": []
+  },
+  {
+    "id": 89,
+    "question": "Which widget allows both scrolling and app bars to interact?",
+    "options": [
+      {
+        "id": "A",
+        "text": "ListView"
+      },
+      {
+        "id": "B",
+        "text": "CustomScrollView"
+      },
+      {
+        "id": "C",
+        "text": "GridView"
+      },
+      {
+        "id": "D",
+        "text": "Stack"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 45,
+    "pageReference": "Câu gốc 89 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 89: B. CustomScrollView",
+    "extraNotes": []
+  },
+  {
+    "id": 90,
+    "question": "Which widget is primarily used as the structural foundation of a Material Design screen in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Container"
+      },
+      {
+        "id": "B",
+        "text": "Scaffold"
+      },
+      {
+        "id": "C",
+        "text": "Column"
+      },
+      {
+        "id": "D",
+        "text": "ListView"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 28,
+    "pageReference": "Câu gốc 90 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 90: B. Scaffold",
+    "extraNotes": []
+  },
+  {
+    "id": 91,
+    "question": "Why is separating UI and state logic recommended?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduce code size"
+      },
+      {
+        "id": "B",
+        "text": "Improve maintainability"
+      },
+      {
+        "id": "C",
+        "text": "Faster execution"
+      },
+      {
+        "id": "D",
+        "text": "Better animations"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 65,
+    "pageReference": "Câu gốc 91 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 91: B. Improve maintainability",
+    "extraNotes": []
+  },
+  {
+    "id": 92,
+    "question": "Which widget is used to handle asynchronous API responses in UI?",
+    "options": [
+      {
+        "id": "A",
+        "text": "FutureBuilder"
+      },
+      {
+        "id": "B",
+        "text": "ListView"
+      },
+      {
+        "id": "C",
+        "text": "Provider"
+      },
+      {
+        "id": "D",
+        "text": "Form"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 85,
+    "pageReference": "Câu gốc 92 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 92: A. FutureBuilder",
+    "extraNotes": []
+  },
+  {
+    "id": 93,
+    "question": "Which HTTP header is commonly used for authorization?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Content-Type"
+      },
+      {
+        "id": "B",
+        "text": "Accept"
+      },
+      {
+        "id": "C",
+        "text": "Authorization"
+      },
+      {
+        "id": "D",
+        "text": "Cache-Control"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 86,
+    "pageReference": "Câu gốc 93 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 93: C. Authorization",
+    "extraNotes": []
+  },
+  {
+    "id": 94,
+    "question": "Which Flutter test focuses on UI components?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Unit test"
+      },
+      {
+        "id": "B",
+        "text": "Widget test"
+      },
+      {
+        "id": "C",
+        "text": "Integration test"
+      },
+      {
+        "id": "D",
+        "text": "Load test"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 136,
+    "pageReference": "Câu gốc 94 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 94: B. Widget test",
+    "extraNotes": []
+  },
+  {
+    "id": 95,
+    "question": "Which widget is best used to add fixed empty space?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Padding"
+      },
+      {
+        "id": "B",
+        "text": "Expanded"
+      },
+      {
+        "id": "C",
+        "text": "SizedBox"
+      },
+      {
+        "id": "D",
+        "text": "Container"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 46,
+    "pageReference": "Câu gốc 95 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 95: C. SizedBox",
+    "extraNotes": []
+  },
+  {
+    "id": 96,
+    "question": "Which HTTP method is typically used to retrieve data?",
+    "options": [
+      {
+        "id": "A",
+        "text": "POST"
+      },
+      {
+        "id": "B",
+        "text": "PUT"
+      },
+      {
+        "id": "C",
+        "text": "GET"
+      },
+      {
+        "id": "D",
+        "text": "DELETE"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 87,
+    "pageReference": "Câu gốc 96 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 96: C. GET",
+    "extraNotes": []
+  },
+  {
+    "id": 97,
+    "question": "Which platforms can Flutter applications target using a single codebase?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Android only"
+      },
+      {
+        "id": "B",
+        "text": "iOS only"
+      },
+      {
+        "id": "C",
+        "text": "Android, iOS, web, and desktop"
+      },
+      {
+        "id": "D",
+        "text": "Web servers only"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 3,
+    "pageReference": "Câu gốc 97 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 97: C. Android, iOS, web, and desktop",
+    "extraNotes": []
+  },
+  {
+    "id": 98,
+    "question": "Which pattern separates storage logic from UI?",
+    "options": [
+      {
+        "id": "A",
+        "text": "MVC"
+      },
+      {
+        "id": "B",
+        "text": "Repository pattern"
+      },
+      {
+        "id": "C",
+        "text": "Singleton"
+      },
+      {
+        "id": "D",
+        "text": "Factory"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.2",
+    "topicTitle": "5.2. Kiến trúc ứng dụng và Repository pattern",
+    "logicalOrder": 110,
+    "pageReference": "Câu gốc 98 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 98: B. Repository pattern",
+    "extraNotes": []
+  },
+  {
+    "id": 99,
+    "question": "Why is understanding the widget lifecycle important?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Improve API performance"
+      },
+      {
+        "id": "B",
+        "text": "Manage UI updates correctly"
+      },
+      {
+        "id": "C",
+        "text": "Deploy apps faster"
+      },
+      {
+        "id": "D",
+        "text": "Reduce file size"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 29,
+    "pageReference": "Câu gốc 99 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 99: B. Manage UI updates correctly",
+    "extraNotes": []
+  },
+  {
+    "id": 100,
+    "question": "Which Flutter package is commonly used for simple key-value storage?",
+    "options": [
+      {
+        "id": "A",
+        "text": "sqflite"
+      },
+      {
+        "id": "B",
+        "text": "shared_preferences"
+      },
+      {
+        "id": "C",
+        "text": "provider"
+      },
+      {
+        "id": "D",
+        "text": "http"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 105,
+    "pageReference": "Câu gốc 100 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 100: B. shared_preferences",
+    "extraNotes": []
+  },
+  {
+    "id": 101,
+    "question": "Which concept does BLoC heavily rely on?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Future"
+      },
+      {
+        "id": "B",
+        "text": "Stream"
+      },
+      {
+        "id": "C",
+        "text": "Animation"
+      },
+      {
+        "id": "D",
+        "text": "Theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 76,
+    "pageReference": "Câu gốc 101 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 101: B. Stream",
+    "extraNotes": []
+  },
+  {
+    "id": 102,
+    "question": "Why are tests important for refactoring?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduce UI work"
+      },
+      {
+        "id": "B",
+        "text": "Ensure changes don't break functionality"
+      },
+      {
+        "id": "C",
+        "text": "Improve animations"
+      },
+      {
+        "id": "D",
+        "text": "Change layout"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 137,
+    "pageReference": "Câu gốc 102 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 102: B. Ensure changes don't break functionality",
+    "extraNotes": []
+  },
+  {
+    "id": 103,
+    "question": "Which Flutter plugin provides SQLite support?",
+    "options": [
+      {
+        "id": "A",
+        "text": "hive"
+      },
+      {
+        "id": "B",
+        "text": "moor"
+      },
+      {
+        "id": "C",
+        "text": "sqflite"
+      },
+      {
+        "id": "D",
+        "text": "shared_preferences"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 106,
+    "pageReference": "Câu gốc 103 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 103: C. sqflite",
+    "extraNotes": []
+  },
+  {
+    "id": 104,
+    "question": "Which Dart feature helps organize code into reusable libraries?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Widgets"
+      },
+      {
+        "id": "B",
+        "text": "Packages and imports"
+      },
+      {
+        "id": "C",
+        "text": "Hot reload"
+      },
+      {
+        "id": "D",
+        "text": "Layout constraints"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 21,
+    "pageReference": "Câu gốc 104 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 104: B. Packages and imports",
+    "extraNotes": []
+  },
+  {
+    "id": 105,
+    "question": "Why is logout functionality important?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Free memory"
+      },
+      {
+        "id": "B",
+        "text": "End user session securely"
+      },
+      {
+        "id": "C",
+        "text": "Improve UI"
+      },
+      {
+        "id": "D",
+        "text": "Change theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 96,
+    "pageReference": "Câu gốc 105 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 105: B. End user session securely",
+    "extraNotes": []
+  },
+  {
+    "id": 106,
+    "question": "Why is passing context important in navigation?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Access theme"
+      },
+      {
+        "id": "B",
+        "text": "Access Navigator"
+      },
+      {
+        "id": "C",
+        "text": "Access state"
+      },
+      {
+        "id": "D",
+        "text": "Access layout"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.3",
+    "topicTitle": "2.3. Navigator, routes và truyền dữ liệu giữa màn hình",
+    "logicalOrder": 50,
+    "pageReference": "Câu gốc 106 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 106: B. Access Navigator",
+    "extraNotes": []
+  },
+  {
+    "id": 107,
+    "question": "Which Dart data structure is best suited for storing an ordered collection of items?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Set"
+      },
+      {
+        "id": "B",
+        "text": "Map"
+      },
+      {
+        "id": "C",
+        "text": "List"
+      },
+      {
+        "id": "D",
+        "text": "Queue"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 22,
+    "pageReference": "Câu gốc 107 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 107: C. List",
+    "extraNotes": []
+  },
+  {
+    "id": 108,
+    "question": "Which widget is suitable for displaying items in a grid layout?",
+    "options": [
+      {
+        "id": "A",
+        "text": "ListView"
+      },
+      {
+        "id": "B",
+        "text": "Column"
+      },
+      {
+        "id": "C",
+        "text": "GridView"
+      },
+      {
+        "id": "D",
+        "text": "Stack"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 47,
+    "pageReference": "Câu gốc 108 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 108: C. GridView",
+    "extraNotes": []
+  },
+  {
+    "id": 109,
+    "question": "Why is immutability important in BLoC states?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI speed"
+      },
+      {
+        "id": "B",
+        "text": "Predictable state changes"
+      },
+      {
+        "id": "C",
+        "text": "Memory usage"
+      },
+      {
+        "id": "D",
+        "text": "Theme control"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.3",
+    "topicTitle": "3.3. BLoC, Cubit, events, states và streams",
+    "logicalOrder": 77,
+    "pageReference": "Câu gốc 109 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 109: B. Predictable state changes",
+    "extraNotes": []
+  },
+  {
+    "id": 110,
+    "question": "Which HTTP method is used to send new data to a server?",
+    "options": [
+      {
+        "id": "A",
+        "text": "GET"
+      },
+      {
+        "id": "B",
+        "text": "DELETE"
+      },
+      {
+        "id": "C",
+        "text": "POST"
+      },
+      {
+        "id": "D",
+        "text": "HEAD"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 88,
+    "pageReference": "Câu gốc 110 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 110: C. POST",
+    "extraNotes": []
+  },
+  {
+    "id": 111,
+    "question": "Which tool is commonly used for version control?",
+    "options": [
+      {
+        "id": "A",
+        "text": "SVN"
+      },
+      {
+        "id": "B",
+        "text": "Git"
+      },
+      {
+        "id": "C",
+        "text": "FTP"
+      },
+      {
+        "id": "D",
+        "text": "ZIP"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 143,
+    "pageReference": "Câu gốc 111 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 111: B. Git",
+    "extraNotes": []
+  },
+  {
+    "id": 112,
+    "question": "Why is secure authentication critical in mobile apps?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI quality"
+      },
+      {
+        "id": "B",
+        "text": "Protect user data"
+      },
+      {
+        "id": "C",
+        "text": "Reduce code"
+      },
+      {
+        "id": "D",
+        "text": "Improve speed"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 97,
+    "pageReference": "Câu gốc 112 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 112: B. Protect user data",
+    "extraNotes": []
+  },
+  {
+    "id": 113,
+    "question": "What is Flutter primarily used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Designing databases for mobile apps"
+      },
+      {
+        "id": "B",
+        "text": "Creating native applications from a single codebase"
+      },
+      {
+        "id": "C",
+        "text": "Developing server-side applications only"
+      },
+      {
+        "id": "D",
+        "text": "Building operating systems for mobile devices"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 4,
+    "pageReference": "Câu gốc 113 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 113: B. Creating native applications from a single codebase",
+    "extraNotes": []
+  },
+  {
+    "id": 114,
+    "question": "What role does the Flutter framework play in application development?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It manages database servers"
+      },
+      {
+        "id": "B",
+        "text": "It provides UI components and rendering logic"
+      },
+      {
+        "id": "C",
+        "text": "It replaces the operating system"
+      },
+      {
+        "id": "D",
+        "text": "It runs backend business logic"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 5,
+    "pageReference": "Câu gốc 114 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 114: B. It provides UI components and rendering logic",
+    "extraNotes": []
+  },
+  {
+    "id": 115,
+    "question": "Why should navigation logic be well-structured?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduce UI size"
+      },
+      {
+        "id": "B",
+        "text": "Improve maintainability"
+      },
+      {
+        "id": "C",
+        "text": "Increase speed"
+      },
+      {
+        "id": "D",
+        "text": "Avoid widgets"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.3",
+    "topicTitle": "2.3. Navigator, routes và truyền dữ liệu giữa màn hình",
+    "logicalOrder": 51,
+    "pageReference": "Câu gốc 115 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 115: B. Improve maintainability",
+    "extraNotes": []
+  },
+  {
+    "id": 116,
+    "question": "Why should state be kept as local as possible?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Better animations"
+      },
+      {
+        "id": "B",
+        "text": "Reduce unnecessary rebuilds"
+      },
+      {
+        "id": "C",
+        "text": "Simplify UI"
+      },
+      {
+        "id": "D",
+        "text": "Improve navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 66,
+    "pageReference": "Câu gốc 116 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 116: B. Reduce unnecessary rebuilds",
+    "extraNotes": []
+  },
+  {
+    "id": 117,
+    "question": "Which action best demonstrates Flutter's reactive UI model?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Manually updating UI elements"
+      },
+      {
+        "id": "B",
+        "text": "Rebuilding UI in response to state changes"
+      },
+      {
+        "id": "C",
+        "text": "Editing layout XML"
+      },
+      {
+        "id": "D",
+        "text": "Calling native APIs"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 30,
+    "pageReference": "Câu gốc 117 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 117: B. Rebuilding UI in response to state changes",
+    "extraNotes": []
+  },
+  {
+    "id": 118,
+    "question": "What is Dart primarily designed for in the Flutter ecosystem?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Database management"
+      },
+      {
+        "id": "B",
+        "text": "User interface development"
+      },
+      {
+        "id": "C",
+        "text": "General-purpose programming with UI focus"
+      },
+      {
+        "id": "D",
+        "text": "Network security"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 23,
+    "pageReference": "Câu gốc 118 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 118: C. General-purpose programming with UI focus",
+    "extraNotes": []
+  },
+  {
+    "id": 119,
+    "question": "When is it most appropriate to customize themes in a Flutter app?",
+    "options": [
+      {
+        "id": "A",
+        "text": "After API integration"
+      },
+      {
+        "id": "B",
+        "text": "During UI/UX design phase"
+      },
+      {
+        "id": "C",
+        "text": "Only at deployment"
+      },
+      {
+        "id": "D",
+        "text": "Only for testing"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.2",
+    "topicTitle": "2.2. Bố cục, themes, cuộn và slivers",
+    "logicalOrder": 48,
+    "pageReference": "Câu gốc 119 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 119: B. During UI/UX design phase",
+    "extraNotes": []
+  },
+  {
+    "id": 120,
+    "question": "Why are forms important in mobile applications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "UI decoration"
+      },
+      {
+        "id": "B",
+        "text": "User data collection"
+      },
+      {
+        "id": "C",
+        "text": "State management"
+      },
+      {
+        "id": "D",
+        "text": "Navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.1",
+    "topicTitle": "3.1. Forms, nhập liệu và validation",
+    "logicalOrder": 60,
+    "pageReference": "Câu gốc 120 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 120: B. User data collection",
+    "extraNotes": []
+  },
+  {
+    "id": 121,
+    "question": "What is the purpose of the Flutter SDK?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To store application data permanently"
+      },
+      {
+        "id": "B",
+        "text": "To provide tools and libraries for Flutter development"
+      },
+      {
+        "id": "C",
+        "text": "To deploy applications directly to app stores"
+      },
+      {
+        "id": "D",
+        "text": "To replace the operating system of a device"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.2",
+    "topicTitle": "1.2. Flutter SDK, môi trường và quy trình phát triển",
+    "logicalOrder": 11,
+    "pageReference": "Câu gốc 121 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 121: B. To provide tools and libraries for Flutter development",
+    "extraNotes": []
+  },
+  {
+    "id": 122,
+    "question": "Why should API responses be mapped to models?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduce JSON size"
+      },
+      {
+        "id": "B",
+        "text": "Ensure type safety"
+      },
+      {
+        "id": "C",
+        "text": "Speed up UI"
+      },
+      {
+        "id": "D",
+        "text": "Improve theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.1",
+    "topicTitle": "4.1. HTTP, REST, API và mô hình dữ liệu",
+    "logicalOrder": 89,
+    "pageReference": "Câu gốc 122 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 122: B. Ensure type safety",
+    "extraNotes": []
+  },
+  {
+    "id": 123,
+    "question": "Why are widgets lightweight in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They manage system resources"
+      },
+      {
+        "id": "B",
+        "text": "They are immutable descriptions"
+      },
+      {
+        "id": "C",
+        "text": "They store UI state"
+      },
+      {
+        "id": "D",
+        "text": "They handle rendering directly"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 31,
+    "pageReference": "Câu gốc 123 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 123: B. They are immutable descriptions",
+    "extraNotes": []
+  },
+  {
+    "id": 124,
+    "question": "When does Flutter rebuild the widget tree?",
+    "options": [
+      {
+        "id": "A",
+        "text": "On every frame"
+      },
+      {
+        "id": "B",
+        "text": "When state changes"
+      },
+      {
+        "id": "C",
+        "text": "Only when app restarts"
+      },
+      {
+        "id": "D",
+        "text": "Only during hot restart"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 32,
+    "pageReference": "Câu gốc 124 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 124: B. When state changes",
+    "extraNotes": []
+  },
+  {
+    "id": 125,
+    "question": "What does the build() method return in a widget?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A screen"
+      },
+      {
+        "id": "B",
+        "text": "A widget tree describing the UI"
+      },
+      {
+        "id": "C",
+        "text": "Application state"
+      },
+      {
+        "id": "D",
+        "text": "Rendered pixels"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 33,
+    "pageReference": "Câu gốc 125 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 125: B. A widget tree describing the UI",
+    "extraNotes": []
+  },
+  {
+    "id": 126,
+    "question": "Why should authentication state be centralized?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduce UI code"
+      },
+      {
+        "id": "B",
+        "text": "Ensure consistent access control"
+      },
+      {
+        "id": "C",
+        "text": "Improve animations"
+      },
+      {
+        "id": "D",
+        "text": "Simplify layout"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 4,
+    "chapterTitle": "Nhóm 4: REST API và xác thực",
+    "topicId": "4.2",
+    "topicTitle": "4.2. Đăng nhập, tokens và kiểm soát truy cập",
+    "logicalOrder": 98,
+    "pageReference": "Câu gốc 126 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 126: B. Ensure consistent access control",
+    "extraNotes": []
+  },
+  {
+    "id": 127,
+    "question": "Why should setState() be called sparingly?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It increases app size"
+      },
+      {
+        "id": "B",
+        "text": "It may trigger unnecessary rebuilds"
+      },
+      {
+        "id": "C",
+        "text": "It blocks UI thread"
+      },
+      {
+        "id": "D",
+        "text": "It causes memory leaks"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 67,
+    "pageReference": "Câu gốc 127 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 127: B. It may trigger unnecessary rebuilds",
+    "extraNotes": []
+  },
+  {
+    "id": 128,
+    "question": "Why should architecture be decided early?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Avoid UI work"
+      },
+      {
+        "id": "B",
+        "text": "Reduce refactoring cost"
+      },
+      {
+        "id": "C",
+        "text": "Improve animations"
+      },
+      {
+        "id": "D",
+        "text": "Change theme"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.2",
+    "topicTitle": "5.2. Kiến trúc ứng dụng và Repository pattern",
+    "logicalOrder": 111,
+    "pageReference": "Câu gốc 128 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 128: B. Reduce refactoring cost",
+    "extraNotes": []
+  },
+  {
+    "id": 129,
+    "question": "What is the main benefit of Flutter's widget-based architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Widgets are only used for layout design"
+      },
+      {
+        "id": "B",
+        "text": "Widgets allow code reuse across platforms"
+      },
+      {
+        "id": "C",
+        "text": "Widgets automatically manage databases"
+      },
+      {
+        "id": "D",
+        "text": "Widgets replace backend services"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 6,
+    "pageReference": "Câu gốc 129 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 129: B. Widgets allow code reuse across platforms",
+    "extraNotes": []
+  },
+  {
+    "id": 130,
+    "question": "What is the role of BuildContext in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Store application data"
+      },
+      {
+        "id": "B",
+        "text": "Locate widgets in the widget tree"
+      },
+      {
+        "id": "C",
+        "text": "Manage navigation history"
+      },
+      {
+        "id": "D",
+        "text": "Render UI pixels"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 34,
+    "pageReference": "Câu gốc 130 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 130: B. Locate widgets in the widget tree",
+    "extraNotes": []
+  },
+  {
+    "id": 131,
+    "question": "How is the Flutter UI constructed internally?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Using XML layout files"
+      },
+      {
+        "id": "B",
+        "text": "Using HTML and CSS"
+      },
+      {
+        "id": "C",
+        "text": "Using a hierarchical widget tree"
+      },
+      {
+        "id": "D",
+        "text": "Using native UI components only"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 35,
+    "pageReference": "Câu gốc 131 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 131: C. Using a hierarchical widget tree",
+    "extraNotes": []
+  },
+  {
+    "id": 132,
+    "question": "Which activity is typically performed after creating a new Flutter project?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Deploying to app stores"
+      },
+      {
+        "id": "B",
+        "text": "Running the default app on a device"
+      },
+      {
+        "id": "C",
+        "text": "Configuring authentication"
+      },
+      {
+        "id": "D",
+        "text": "Optimizing database queries"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.2",
+    "topicTitle": "1.2. Flutter SDK, môi trường và quy trình phát triển",
+    "logicalOrder": 12,
+    "pageReference": "Câu gốc 132 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 132: B. Running the default app on a device",
+    "extraNotes": []
+  },
+  {
+    "id": 133,
+    "question": "Why is the widget tree considered immutable?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Widgets cannot be removed"
+      },
+      {
+        "id": "B",
+        "text": "Widgets are recreated instead of modified"
+      },
+      {
+        "id": "C",
+        "text": "Widgets are stored permanently"
+      },
+      {
+        "id": "D",
+        "text": "Widgets cannot contain data"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.1",
+    "topicTitle": "2.1. Widget tree, vòng đời và giao diện phản ứng",
+    "logicalOrder": 36,
+    "pageReference": "Câu gốc 133 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 133: B. Widgets are recreated instead of modified",
+    "extraNotes": []
+  },
+  {
+    "id": 134,
+    "question": "According to the testing pyramid, which type of test should be used the least?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Unit Tests"
+      },
+      {
+        "id": "B",
+        "text": "Widget Tests"
+      },
+      {
+        "id": "C",
+        "text": "Integration Tests"
+      },
+      {
+        "id": "D",
+        "text": "Debug Tests"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.1",
+    "topicTitle": "7.1. Unit, widget, integration và golden tests",
+    "logicalOrder": 138,
+    "pageReference": "Câu gốc 134 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 134: C. Integration Tests",
+    "extraNotes": []
+  },
+  {
+    "id": 135,
+    "question": "What does the final keyword indicate in Dart?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The variable can be reassigned later"
+      },
+      {
+        "id": "B",
+        "text": "The variable value is fixed after assignment"
+      },
+      {
+        "id": "C",
+        "text": "The variable is global"
+      },
+      {
+        "id": "D",
+        "text": "The variable is private"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 24,
+    "pageReference": "Câu gốc 135 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 135: B. The variable value is fixed after assignment",
+    "extraNotes": []
+  },
+  {
+    "id": 136,
+    "question": "When should you prefer Provider over setState()?",
+    "options": [
+      {
+        "id": "A",
+        "text": "For simple UI updates"
+      },
+      {
+        "id": "B",
+        "text": "For global or shared state"
+      },
+      {
+        "id": "C",
+        "text": "For animations"
+      },
+      {
+        "id": "D",
+        "text": "For navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 3,
+    "chapterTitle": "Nhóm 3: Biểu mẫu và quản lý trạng thái",
+    "topicId": "3.2",
+    "topicTitle": "3.2. setState, Provider và phạm vi trạng thái",
+    "logicalOrder": 68,
+    "pageReference": "Câu gốc 136 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 136: B. For global or shared state",
+    "extraNotes": []
+  },
+  {
+    "id": 137,
+    "question": "Why is Chapter 13 considered optional (Plus)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It replaces core concepts"
+      },
+      {
+        "id": "B",
+        "text": "Apps can work without deep optimization"
+      },
+      {
+        "id": "C",
+        "text": "It manages navigation"
+      },
+      {
+        "id": "D",
+        "text": "It handles authentication"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 128,
+    "pageReference": "Câu gốc 137 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 137: B. Apps can work without deep optimization",
+    "extraNotes": []
+  },
+  {
+    "id": 138,
+    "question": "What is the main limitation of SharedPreferences?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cannot persist data"
+      },
+      {
+        "id": "B",
+        "text": "Only works on web"
+      },
+      {
+        "id": "C",
+        "text": "Not suitable for large or complex data"
+      },
+      {
+        "id": "D",
+        "text": "Requires SQL queries"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "chapter": 5,
+    "chapterTitle": "Nhóm 5: Lưu trữ dữ liệu và kiến trúc ứng dụng",
+    "topicId": "5.1",
+    "topicTitle": "5.1. SharedPreferences, Hive, SQLite và lưu trữ cục bộ",
+    "logicalOrder": 107,
+    "pageReference": "Câu gốc 138 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 138: C. Not suitable for large or complex data",
+    "extraNotes": []
+  },
+  {
+    "id": 139,
+    "question": "How can data be passed to a new screen?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Using global variables"
+      },
+      {
+        "id": "B",
+        "text": "Via constructor arguments"
+      },
+      {
+        "id": "C",
+        "text": "Using ThemeData"
+      },
+      {
+        "id": "D",
+        "text": "Using Scaffold"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.3",
+    "topicTitle": "2.3. Navigator, routes và truyền dữ liệu giữa màn hình",
+    "logicalOrder": 52,
+    "pageReference": "Câu gốc 139 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 139: B. Via constructor arguments",
+    "extraNotes": []
+  },
+  {
+    "id": 140,
+    "question": "What is the main purpose of hot reload in Flutter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Improve runtime performance"
+      },
+      {
+        "id": "B",
+        "text": "Instantly reflect code changes in UI"
+      },
+      {
+        "id": "C",
+        "text": "Publish apps faster"
+      },
+      {
+        "id": "D",
+        "text": "Reduce memory usage"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.1",
+    "topicTitle": "1.1. Tổng quan Flutter và phát triển đa nền tảng",
+    "logicalOrder": 7,
+    "pageReference": "Câu gốc 140 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 140: B. Instantly reflect code changes in UI",
+    "extraNotes": []
+  },
+  {
+    "id": 141,
+    "question": "Why are const widgets recommended?",
+    "options": [
+      {
+        "id": "A",
+        "text": "They improve readability"
+      },
+      {
+        "id": "B",
+        "text": "They reduce rebuild cost"
+      },
+      {
+        "id": "C",
+        "text": "They add state"
+      },
+      {
+        "id": "D",
+        "text": "They handle navigation"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 6,
+    "chapterTitle": "Nhóm 6: Animation và tối ưu hiệu năng",
+    "topicId": "6.2",
+    "topicTitle": "6.2. Rebuilds, rendering và công cụ đo hiệu năng",
+    "logicalOrder": 129,
+    "pageReference": "Câu gốc 141 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 141: B. They reduce rebuild cost",
+    "extraNotes": []
+  },
+  {
+    "id": 142,
+    "question": "Why is Chapter 14 considered optional (Plus)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Deployment is UI logic"
+      },
+      {
+        "id": "B",
+        "text": "Apps can be tested without publishing"
+      },
+      {
+        "id": "C",
+        "text": "It replaces authentication"
+      },
+      {
+        "id": "D",
+        "text": "It handles APIs"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 7,
+    "chapterTitle": "Nhóm 7: Kiểm thử và triển khai",
+    "topicId": "7.2",
+    "topicTitle": "7.2. Release builds, bảo mật triển khai và Git",
+    "logicalOrder": 144,
+    "pageReference": "Câu gốc 142 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 142: B. Apps can be tested without publishing",
+    "extraNotes": []
+  },
+  {
+    "id": 143,
+    "question": "Why is Dart considered suitable for Flutter development?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is only used for backend systems"
+      },
+      {
+        "id": "B",
+        "text": "It supports both UI and application logic efficiently"
+      },
+      {
+        "id": "C",
+        "text": "It replaces native languages"
+      },
+      {
+        "id": "D",
+        "text": "It does not support asynchronous programming"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 1,
+    "chapterTitle": "Nhóm 1: Tổng quan Flutter, công cụ và Dart",
+    "topicId": "1.3",
+    "topicTitle": "1.3. Ngôn ngữ Dart, OOP, collections và bất đồng bộ",
+    "logicalOrder": 25,
+    "pageReference": "Câu gốc 143 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 143: B. It supports both UI and application logic efficiently",
+    "extraNotes": []
+  },
+  {
+    "id": 144,
+    "question": "What is the main concept behind navigation in Flutter using the Navigator widget?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Screens are arranged in a grid layout"
+      },
+      {
+        "id": "B",
+        "text": "Screens are managed using a stack (push and pop)"
+      },
+      {
+        "id": "C",
+        "text": "Screens are loaded randomly"
+      },
+      {
+        "id": "D",
+        "text": "Screens are replaced automatically without control"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "chapter": 2,
+    "chapterTitle": "Nhóm 2: Widgets, giao diện và điều hướng",
+    "topicId": "2.3",
+    "topicTitle": "2.3. Navigator, routes và truyền dữ liệu giữa màn hình",
+    "logicalOrder": 53,
+    "pageReference": "Câu gốc 144 · FA26",
+    "textbook": "Tài liệu ôn tập PRM393 – Mobile Programming (Source FA26)",
+    "explanation": "Đáp án theo tài liệu ôn tập PRM393 (Source FA26), câu 144: B. Screens are managed using a stack (push and pop)",
+    "extraNotes": []
+  }
+]

@@ -74,7 +74,7 @@ const BADGES = [
   { id: 'fix_5_wrongs', title: 'Khắc Kỷ Cầu Tiến', desc: 'Đã ôn luyện và sửa đúng ít nhất 5 câu hỏi từng làm sai', icon: 'shield' },
   { id: 'quizlet_study', title: 'Tốc Ký Flashcard', desc: 'Đã ôn tập và lật xem các thẻ ghi nhớ Quizlet', icon: 'zap' },
   { id: 'exam_passed', title: 'Vượt Ải Khảo Thí', desc: 'Hoàn thành bài thi thử 50 câu đạt từ 7.0 điểm', icon: 'shield' },
-  { id: 'exam_rank_s', title: 'Đại Triết Gia Rank S', desc: 'Đạt Rank S xuất sắc (từ 9.0 điểm trở lên) trong bài thi', icon: 'trophy' },
+  { id: 'exam_rank_s', title: 'Thủ Khoa Rank S', desc: 'Đạt Rank S xuất sắc (từ 9.0 điểm trở lên) trong bài thi', icon: 'trophy' },
 ];
 
 function getInitialStreak() {
@@ -378,7 +378,7 @@ export default function App() {
           spread: 60,
           origin: { y: 0.3 }
         });
-        triggerToast(`🎉 THĂNG CẤP: LEVEL ${newLevel}!`, `Danh hiệu: ${getLevelTitle(newLevel)}`);
+        triggerToast(`🎉 THĂNG CẤP: LEVEL ${newLevel}!`, `Danh hiệu: ${getLevelTitle(newLevel, currentSubject.levelTitles)}`);
       }
       if (next >= 500) {
         unlockBadge('exp_500');
@@ -1169,6 +1169,13 @@ export default function App() {
   // Exam Rank Evaluation
   const examRankInfo = useMemo(() => {
     const s = Number(examStats.score);
+    if (currentSubject.rankTitles) {
+      if (s >= 9.0) return { rank: 'S', title: currentSubject.rankTitles.S, class: 'rank-s' };
+      if (s >= 8.0) return { rank: 'A', title: currentSubject.rankTitles.A, class: 'rank-a' };
+      if (s >= 6.5) return { rank: 'B', title: currentSubject.rankTitles.B, class: 'rank-b' };
+      if (s >= 5.0) return { rank: 'C', title: currentSubject.rankTitles.C || 'Đạt Chuẩn Cần Cố Gắng', class: 'rank-c' };
+      return { rank: 'D', title: currentSubject.rankTitles.D || 'Cần Ôn Luyện Lại', class: 'rank-d' };
+    }
     const isMln122 = currentSubject.id === 'mln122';
     const isMss301 = currentSubject.id === 'mss301';
     if (s >= 9.0) {
@@ -1194,7 +1201,7 @@ export default function App() {
     }
     if (s >= 5.0) return { rank: 'C', title: 'Đạt Chuẩn Cần Cố Gắng', class: 'rank-c' };
     return { rank: 'D', title: 'Cần Ôn Luyện Lại', class: 'rank-d' };
-  }, [examStats.score, currentSubject.id]);
+  }, [examStats.score, currentSubject]);
 
   // Format seconds to mm:ss
   const formatTime = (seconds) => {
@@ -1217,11 +1224,7 @@ export default function App() {
                 {currentSubject.name.toUpperCase()}
                 <span className="brand-badge">{currentSubject.code}</span>
               </div>
-              <div className="brand-subtitle">
-                {currentSubject.id === 'mss301'
-                  ? `${currentSubject.questions.length} Câu Trắc Nghiệm Ôn Tập FE & RE (SU26)`
-                  : `${currentSubject.questions.length} Câu Trắc Nghiệm Chuẩn & Giáo Trình 2021`}
-              </div>
+              <div className="brand-subtitle">{currentSubject.questions.length} Câu Trắc Nghiệm Chuẩn & {currentSubject.sourceLabel || (currentSubject.id === 'mdt' ? 'Tài Liệu Razavi' : 'Giáo Trình 2021')}</div>
             </div>
           </div>
 
@@ -2838,7 +2841,7 @@ export default function App() {
                             >
                               <div className="exp-title-row">
                                 <HelpCircle size={20} />
-                                <span>Giải Thích Chi Tiết Từ Giáo Trình</span>
+                                <span>{currentSubject.explanationTitle || 'Giải Thích Chi Tiết Từ Giáo Trình'}</span>
                                 <span className="exp-citation-tag">{currentQ.pageReference}</span>
                               </div>
                               <span style={{ fontSize: '0.825rem', color: 'var(--primary)', fontWeight: 700 }}>
