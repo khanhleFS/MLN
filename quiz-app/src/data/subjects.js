@@ -1,5 +1,6 @@
 import mln111Questions from './questions.json';
 import mln122Questions from './mln122_questions.json';
+import mss301Questions from './mss301_questions.json';
 
 export const SUBJECTS = {
   mln111: {
@@ -25,7 +26,12 @@ export const SUBJECTS = {
     topics: [
       { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
       { id: '1.1', chapter: 1, title: '1.1. Triết học & Vấn đề cơ bản của triết học (Trang 11-47)' },
+      { id: '1.1.1', chapter: 1, title: '  ├─ 1.1.1. Nguồn gốc, Khái niệm Triết học & Thế giới quan (21 câu)' },
+      { id: '1.1.2', chapter: 1, title: '  ├─ 1.1.2. Vấn đề cơ bản: Duy vật, Duy tâm, Khả tri (28 câu)' },
+      { id: '1.1.3', chapter: 1, title: '  └─ 1.1.3. Phép biện chứng & Phương pháp siêu hình (36 câu)' },
       { id: '1.2', chapter: 1, title: '1.2. Triết học Mác - Lênin và vai trò (Trang 47-116)' },
+      { id: '1.2.1', chapter: 1, title: '  ├─ 1.2.1. Sự ra đời, Tiền đề & Tác phẩm kinh điển (16 câu)' },
+      { id: '1.2.2', chapter: 1, title: '  └─ 1.2.2. Bản chất, Đối tượng & Vai trò TH Mác - Lênin (17 câu)' },
       { id: '2.1', chapter: 2, title: '2.1. Vật chất và ý thức (Trang 117-182)' },
       { id: '2.1.1', chapter: 2, title: '  ├─ 2.1.1. Vật chất & Phương thức tồn tại (63 câu)' },
       { id: '2.1.2', chapter: 2, title: '  ├─ 2.1.2. Nguồn gốc & Bản chất Ý thức (8 câu)' },
@@ -80,8 +86,13 @@ export const SUBJECTS = {
     topics: [
       { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
       { id: '1.1', chapter: 1, title: '1.1. Khái quát hình thành & phát triển KTCT (Trang 9-18)' },
+      { id: '1.1.1', chapter: 1, title: '  ├─ 1.1.1. Thuật ngữ KTCT, Trọng thương & Trọng nông (5 câu)' },
+      { id: '1.1.2', chapter: 1, title: '  └─ 1.1.2. KTCT cổ điển Anh & Sự ra đời KTCT Mác (13 câu)' },
       { id: '1.2', chapter: 1, title: '1.2. Đối tượng, mục đích & phương pháp nghiên cứu (Trang 19-29)' },
+      { id: '1.2.1', chapter: 1, title: '  ├─ 1.2.1. Đối tượng nghiên cứu (QHSX, LLSX & Tái SX) (11 câu)' },
+      { id: '1.2.2', chapter: 1, title: '  └─ 1.2.2. Mục đích, Quy luật kinh tế & Phương pháp (10 câu)' },
       { id: '1.3', chapter: 1, title: '1.3. Chức năng của kinh tế chính trị (Trang 29-37)' },
+      { id: '1.3.1', chapter: 1, title: '  └─ 1.3.1. Bốn chức năng cơ bản của KTCT Mác - Lênin (4 câu)' },
       { id: '2.1', chapter: 2, title: '2.1. Hàng hóa và hai thuộc tính của hàng hóa (Trang 38-65)' },
       { id: '2.1.1', chapter: 2, title: '  ├─ 2.1.1. Nền SX hàng hóa & Điều kiện ra đời (21 câu)' },
       { id: '2.1.2', chapter: 2, title: '  ├─ 2.1.2. Hàng hóa & Hai thuộc tính (GTSD & Giá trị) (29 câu)' },
@@ -94,10 +105,25 @@ export const SUBJECTS = {
       { id: '2.3', chapter: 2, title: '2.3. Vai trò các chủ thể chính tham gia thị trường (Trang 86-98)' },
       { id: '2.3.1', chapter: 2, title: '  └─ 2.3.1. Người SX, tiêu dùng, trung gian & Nhà nước (4 câu)' },
       { id: '3.1', chapter: 3, title: '3.1. Nguồn gốc, bản chất & sản xuất giá trị thặng dư (Trang 99-132)' },
+      { id: '3.1.1', chapter: 3, title: '  ├─ 3.1.1. Chuyển hóa tiền & Hàng hóa sức lao động (28 câu)' },
+      { id: '3.1.2', chapter: 3, title: '  ├─ 3.1.2. Quá trình sản xuất m, Tư bản c & v (17 câu)' },
+      { id: '3.1.3', chapter: 3, title: '  └─ 3.1.3. Tỷ suất m\', Hai PP sản xuất m & Tiền công (28 câu)' },
       { id: '3.2', chapter: 3, title: '3.2. Tích lũy, tuần hoàn & chu chuyển tư bản (Trang 132-148)' },
+      { id: '3.2.1', chapter: 3, title: '  ├─ 3.2.1. Tích lũy tư bản & Cấu tạo hữu cơ c/v (14 câu)' },
+      { id: '3.2.2', chapter: 3, title: '  ├─ 3.2.2. Tuần hoàn & Chu chuyển tư bản (Cố định/Lưu động) (19 câu)' },
+      { id: '3.2.3', chapter: 3, title: '  └─ 3.2.3. Tái sản xuất xã hội & Khủng hoảng kinh tế (10 câu)' },
       { id: '3.3', chapter: 3, title: '3.3. Các hình thức biểu hiện của m: p, z, địa tô (Trang 148-166)' },
+      { id: '3.3.1', chapter: 3, title: '  ├─ 3.3.1. Chi phí k, Lợi nhuận p & Lợi nhuận bình quân (20 câu)' },
+      { id: '3.3.2', chapter: 3, title: '  └─ 3.3.2. Lợi tức z, Cổ phần & Địa tô TBCN (18 câu)' },
       { id: '4.1', chapter: 4, title: '4.1. Cạnh tranh và các hình thức độc quyền (Trang 167-188)' },
+      { id: '4.1.1', chapter: 4, title: '  ├─ 4.1.1. Nguyên nhân & Tác động của độc quyền (17 câu)' },
+      { id: '4.1.2', chapter: 4, title: '  ├─ 4.1.2. Lợi nhuận & Giá cả độc quyền, Cạnh tranh (7 câu)' },
+      { id: '4.1.3', chapter: 4, title: '  ├─ 4.1.3. Các hình thức tổ chức độc quyền & Mẫu mới (13 câu)' },
+      { id: '4.1.4', chapter: 4, title: '  ├─ 4.1.4. Tư bản tài chính & Đầu sỏ tài chính (7 câu)' },
+      { id: '4.1.5', chapter: 4, title: '  └─ 4.1.5. Xuất khẩu tư bản & Phân chia thế giới (11 câu)' },
       { id: '4.2', chapter: 4, title: '4.2. Độc quyền nhà nước & vai trò của CNTB (Trang 188-209)' },
+      { id: '4.2.1', chapter: 4, title: '  ├─ 4.2.1. Độc quyền nhà nước: Bản chất, nguyên nhân & Biểu hiện (13 câu)' },
+      { id: '4.2.2', chapter: 4, title: '  └─ 4.2.2. Vai trò lịch sử & Giới hạn của CNTB (6 câu)' },
       { id: '5.1', chapter: 5, title: '5.1. KTTT định hướng XHCN & thể chế kinh tế (Trang 210-238)' },
       { id: '5.2', chapter: 5, title: '5.2. Các quan hệ lợi ích kinh tế ở Việt Nam (Trang 238-256)' },
       { id: '6.1', chapter: 6, title: '6.1. Cách mạng công nghiệp & CNH-HĐH ở Việt Nam (Trang 257-280)' },
@@ -112,6 +138,54 @@ export const SUBJECTS = {
       'Lý luận gia Độc quyền',
       'Nhà kinh tế Cốt cán',
       'Đại Kinh tế gia Thượng thừa'
+    ]
+  },
+  mss301: {
+    id: 'mss301',
+    code: 'MSS301',
+    name: 'Microservices với Spring Cloud',
+    shortName: 'Microservices',
+    description: 'Ngân hàng 124 câu hỏi trắc nghiệm ôn tập từ 3 bộ đề FE & RE môn Microservices với Spring Cloud (Kỳ SU26)',
+    questionCount: 124,
+    textbook: 'Tài liệu & Ngân hàng đề FE/RE môn MSS301 — Microservices với Spring Cloud (Kỳ SU26)',
+    protocol: '// PROTOCOL_MSS301 // CLOUD_NATIVE_INTERFACE',
+    badgeTitle: 'Bộ Huy Hiệu Cloud Native',
+    examTitle: 'THI THỬ MICROSERVICES VỚI SPRING CLOUD (MSS301)',
+    examSubtitle: 'PHÒNG THI THỬ TRẮC NGHIỆM MSS301',
+    searchPlaceholder: 'Tìm kiếm câu hỏi Spring Cloud, Gateway, Saga, OAuth2, Docker, GKE...',
+    questions: mss301Questions,
+    chapters: [
+      { id: 'all', title: 'Tất cả 124 câu', short: 'Tất cả' },
+      { id: 1, title: 'Chương 1: Kiến trúc Microservices & Spring Cloud Core', short: 'Chương 1' },
+      { id: 2, title: 'Chương 2: Service Discovery, API Gateway & Config Server', short: 'Chương 2' },
+      { id: 3, title: 'Chương 3: Giao tiếp, Giao dịch Phân tán & Khả năng Chịu lỗi', short: 'Chương 3' },
+      { id: 4, title: 'Chương 4: Bảo mật Microservices (OAuth 2.0, JWT & IAM)', short: 'Chương 4' },
+      { id: 5, title: 'Chương 5: Docker, Kubernetes (GKE) & Google Cloud Platform', short: 'Chương 5' },
+    ],
+    topics: [
+      { id: 'all', chapter: 'all', title: 'Tất cả đề mục' },
+      { id: '1.1', chapter: 1, title: '1.1. Monolith vs Microservices, DDD & Migration (Strangler Fig, Sidecar) (9 câu)' },
+      { id: '1.2', chapter: 1, title: '1.2. Hệ sinh thái Spring Boot & Spring Cloud (5 câu)' },
+      { id: '2.1', chapter: 2, title: '2.1. Service Discovery & Netflix Eureka (4 câu)' },
+      { id: '2.2', chapter: 2, title: '2.2. Spring Cloud Gateway (Routes, Predicates, Filters) (11 câu)' },
+      { id: '2.3', chapter: 2, title: '2.3. Quản lý Cấu hình Tập trung (Spring Cloud Config) (9 câu)' },
+      { id: '3.1', chapter: 3, title: '3.1. Giao tiếp Đồng bộ (REST) & Bất đồng bộ (Kafka, RabbitMQ) (6 câu)' },
+      { id: '3.2', chapter: 3, title: '3.2. Database per Service, ACID, CAP, 2PC & Saga Pattern (19 câu)' },
+      { id: '3.3', chapter: 3, title: '3.3. Circuit Breaker Pattern (Resilience4j) (5 câu)' },
+      { id: '4.1', chapter: 4, title: '4.1. OAuth 2.0, Access/Refresh Token & JWT (10 câu)' },
+      { id: '4.2', chapter: 4, title: '4.2. Nguyên tắc Bảo mật, Phân quyền & Quản lý Secret (10 câu)' },
+      { id: '5.1', chapter: 5, title: '5.1. Containerization với Docker (Image, Dockerfile, Registry) (16 câu)' },
+      { id: '5.2', chapter: 5, title: '5.2. Google Cloud Platform (Cloud Run, GKE, Cloud SQL, GCR) (20 câu)' },
+    ],
+    levelTitles: [
+      'Tập sự Monolith',
+      'Người dựng Container',
+      'Kỹ sư Spring Boot',
+      'Điều phối Service',
+      'Thợ săn Giao dịch Saga',
+      'Vệ binh OAuth2 & JWT',
+      'Chuyên gia Kubernetes',
+      'Kiến trúc sư Cloud Native'
     ]
   }
 };

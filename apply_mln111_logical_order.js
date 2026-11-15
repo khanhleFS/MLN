@@ -1,9 +1,127 @@
 const fs = require('fs');
 
 const data111 = JSON.parse(fs.readFileSync('quiz-app/src/data/mln111_questions.json', 'utf8'));
+const ch1 = data111.filter(q => q.chapter === 1);
 const ch2 = data111.filter(q => q.chapter === 2);
 
+console.log('Total MLN111 Ch1:', ch1.length);
 console.log('Total MLN111 Ch2:', ch2.length);
+
+const MLN111_CH1_SUBTOPICS = {
+  '1.1.1': {
+    id: '1.1.1',
+    chapter: 1,
+    topicId: '1.1',
+    title: '1. Nguồn gốc, Khái niệm Triết học & Thế giới quan',
+    badge: '1. Triết học & Thế giới quan',
+    desc: 'Thời gian ra đời, nguồn gốc nhận thức và nguồn gốc xã hội, khái niệm triết học và thế giới quan'
+  },
+  '1.1.2': {
+    id: '1.1.2',
+    chapter: 1,
+    topicId: '1.1',
+    title: '2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri',
+    badge: '2. Vấn đề cơ bản TH',
+    desc: 'Hai mặt vấn đề cơ bản của triết học, chủ nghĩa duy vật, chủ nghĩa duy tâm, nhị nguyên luận, khả tri và bất khả tri'
+  },
+  '1.1.3': {
+    id: '1.1.3',
+    chapter: 1,
+    topicId: '1.1',
+    title: '3. Phép biện chứng và Phương pháp siêu hình trong lịch sử',
+    badge: '3. Biện chứng & Siêu hình',
+    desc: 'Đối lập giữa phương pháp biện chứng và phương pháp siêu hình, các hình thức của phép biện chứng và triết học cổ đại/trung cổ/cận đại'
+  },
+  '1.2.1': {
+    id: '1.2.1',
+    chapter: 1,
+    topicId: '1.2',
+    title: '4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin',
+    badge: '4. Sự ra đời TH Mác - Lênin',
+    desc: 'Ba tiền đề ra đời (kinh tế-xã hội, lý luận, khoa học tự nhiên), kế thừa Hêghen - Phoiơbắc và tác phẩm kinh điển'
+  },
+  '1.2.2': {
+    id: '1.2.2',
+    chapter: 1,
+    topicId: '1.2',
+    title: '5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin',
+    badge: '5. Vai trò TH Mác - Lênin',
+    desc: 'Đối tượng, bản chất cách mạng - khoa học và vai trò nền tảng tư tưởng, kim chỉ nam trong thời đại mới'
+  }
+};
+
+function classifyMLN111Ch1Question(q) {
+  const qLower = (q.question + ' ' + (q.options ? q.options.map(o => o.text).join(' ') : '')).toLowerCase();
+  if (
+    q.topicId === '1.2' ||
+    qLower.includes('triết học mác') ||
+    qLower.includes('chủ nghĩa mác') ||
+    qLower.includes('c.mác') ||
+    qLower.includes('ăngghen') ||
+    qLower.includes('lênin') ||
+    qLower.includes('tuyên ngôn của đảng') ||
+    qLower.includes('xanh-ximông') ||
+    qLower.includes('không tưởng')
+  ) {
+    if (
+      qLower.includes('tiền đề') ||
+      qLower.includes('nguồn gốc lý luận') ||
+      qLower.includes('kế thừa trực tiếp') ||
+      qLower.includes('phát minh') ||
+      qLower.includes('ra đời') ||
+      qLower.includes('xanh-ximông') ||
+      qLower.includes('không tưởng') ||
+      qLower.includes('cổ điển đức') ||
+      qLower.includes('người nước nào') ||
+      qLower.includes('tác phẩm')
+    ) {
+      return '1.2.1';
+    }
+    return '1.2.2';
+  }
+  if (qLower.includes('siêu hình') || qLower.includes('biện chứng') || qLower.includes('phương pháp luận')) {
+    return '1.1.3';
+  }
+  if (
+    qLower.includes('vấn đề cơ bản') ||
+    qLower.includes('duy vật') ||
+    qLower.includes('duy tâm') ||
+    qLower.includes('nhị nguyên') ||
+    qLower.includes('khả tri') ||
+    qLower.includes('bất khả tri') ||
+    qLower.includes('thuyết có thể biết') ||
+    qLower.includes('thuyết không thể biết') ||
+    qLower.includes('bản thể luận')
+  ) {
+    return '1.1.2';
+  }
+  return '1.1.1';
+}
+
+const classifiedCh1 = {};
+ch1.forEach(q => {
+  const sub = classifyMLN111Ch1Question(q);
+  if (!classifiedCh1[sub]) classifiedCh1[sub] = [];
+  classifiedCh1[sub].push(q);
+});
+
+let ch1Order = 1;
+const mln111Ch1Meta = {};
+const sortedCh1Subkeys = ['1.1.1', '1.1.2', '1.1.3', '1.2.1', '1.2.2'];
+sortedCh1Subkeys.forEach(subKey => {
+  const list = classifiedCh1[subKey] || [];
+  const meta = MLN111_CH1_SUBTOPICS[subKey];
+  console.log(`MLN111 [${subKey}] ${meta.title}: ${list.length} questions`);
+  list.forEach(q => {
+    mln111Ch1Meta[q.id] = {
+      topicId: meta.topicId,
+      subtopicId: subKey,
+      subtopicTitle: meta.title,
+      subtopicBadge: meta.badge,
+      logicalOrder: ch1Order++
+    };
+  });
+});
 
 const MLN111_SUBTOPICS = {
   '2.1.1': {
@@ -151,7 +269,15 @@ function applyToDataset(filePath) {
   let updatedCount = 0;
   
   data.forEach(q => {
-    if (q.chapter === 2 && mln111Meta[q.id]) {
+    if (q.chapter === 1 && mln111Ch1Meta[q.id]) {
+      const meta = mln111Ch1Meta[q.id];
+      q.topicId = meta.topicId;
+      q.subtopicId = meta.subtopicId;
+      q.subtopicTitle = meta.subtopicTitle;
+      q.subtopicBadge = meta.subtopicBadge;
+      q.logicalOrder = meta.logicalOrder;
+      updatedCount++;
+    } else if (q.chapter === 2 && mln111Meta[q.id]) {
       const meta = mln111Meta[q.id];
       q.subtopicId = meta.subtopicId;
       q.subtopicTitle = meta.subtopicTitle;

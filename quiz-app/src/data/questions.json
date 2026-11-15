@@ -139,7 +139,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Chủ nghĩa duy vật lịch sử). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 4
+    "logicalOrder": 86,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 5,
@@ -346,7 +349,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (1 vấn đề, 2 mặt). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 10
+    "logicalOrder": 1,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 11,
@@ -413,7 +419,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Nhận thức). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 12
+    "logicalOrder": 2,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 13,
@@ -545,7 +554,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Như một chỉnh thể thống nhất). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 16
+    "logicalOrder": 3,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 17,
@@ -675,13 +687,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Duy vật biện chứng). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 20
+    "logicalOrder": 102,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 21,
@@ -715,7 +730,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Ba tiền đề). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 21
+    "logicalOrder": 87,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 22,
@@ -1316,7 +1334,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Xem xét các sự vật trong trạng thái cô lập, tách rời nhau, và không vận động, không phát triển). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 38
+    "logicalOrder": 50,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 39,
@@ -2376,7 +2397,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Giá trị của triết học duy tâm là A. Đề cao lĩnh vực tinh thần của con người B. Đánh giá đúng lĩnh vực tinh thần của con người C. Đề cao tư duy của con người)"
     ],
-    "logicalOrder": 68
+    "logicalOrder": 22,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 69,
@@ -2444,7 +2468,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Chủ nghĩa xã hội không tưởng Pháp). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 70
+    "logicalOrder": 88,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 71,
@@ -2662,7 +2689,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Thuyết khả tri luận). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 76
+    "logicalOrder": 23,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 77,
@@ -2732,7 +2762,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Chủ nghĩa duy tâm chủ quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 78
+    "logicalOrder": 51,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 79,
@@ -2871,7 +2904,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Ph.Ăngghen). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 82
+    "logicalOrder": 103,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 83,
@@ -3046,7 +3082,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Duy tâm khách quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 87
+    "logicalOrder": 52,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 88,
@@ -3080,7 +3119,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Xã hội). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 88
+    "logicalOrder": 4,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 89,
@@ -3190,7 +3232,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Thế giới quan duy vật của Phơ bách và phép biện chứng của Hêghen). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 91
+    "logicalOrder": 89,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 92,
@@ -3295,7 +3340,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy vật chất phác). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 94
+    "logicalOrder": 53,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 95,
@@ -3331,7 +3379,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Theo quan điểm duy vật biện chứng, nguyên nhân và kết quả có thể… A. chuyễn hóa lẫn nhau. B. tồn tại độc lập với nhau. C. xuất hiện đồng thời. D. không có mỗi liên hệ qua lại.)"
     ],
-    "logicalOrder": 95
+    "logicalOrder": 54,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 96,
@@ -3399,7 +3450,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Triết học kinh viện). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 97
+    "logicalOrder": 5,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 98,
@@ -3467,7 +3521,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Thuyết không thể biết). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 99
+    "logicalOrder": 24,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 100,
@@ -3619,7 +3676,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Hệ thống quan niệm, quan điểm chung nhất của con người về thế giới). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 103
+    "logicalOrder": 6,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 104,
@@ -3788,7 +3848,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Phép biện chứng). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 108
+    "logicalOrder": 55,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 109,
@@ -4033,7 +4096,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Triết học cổ điển Đức, kinh tế chính trị cổ điển Anh và chủ nghĩa xã hội không tưởng Pháp). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 115
+    "logicalOrder": 90,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 116,
@@ -4314,7 +4380,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Địa vị). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 123
+    "logicalOrder": 56,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 124,
@@ -4599,7 +4668,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Còn pha trộn giữa các yếu tố duy vật và duy tâm). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 131
+    "logicalOrder": 57,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 132,
@@ -4811,7 +4883,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Tinh thần nhân đạo). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 137
+    "logicalOrder": 91,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 138,
@@ -4882,7 +4957,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Triết học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 139
+    "logicalOrder": 58,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 140,
@@ -5011,13 +5089,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học Mác cho rằng triết học là khoa học của mọi khoa học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 143
+    "logicalOrder": 104,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 144,
@@ -5406,7 +5487,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Duy vật). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 154
+    "logicalOrder": 25,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 155,
@@ -5943,7 +6027,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy vật siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 170
+    "logicalOrder": 59,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 171,
@@ -6298,7 +6385,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Toàn bộ quan điểm và niềm tin định hướng hoạt động con người trong cuộc sống). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 180
+    "logicalOrder": 7,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 181,
@@ -6506,7 +6596,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Bản chất của thế giới là vật chất hay ý thức.). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 186
+    "logicalOrder": 26,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 187,
@@ -6887,7 +6980,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Duy tâm chủ quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 197
+    "logicalOrder": 60,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 198,
@@ -6995,7 +7091,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Tất yếu/ Ngẫu nhiên; Ngẫu nhiên/ Tất yếu.). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 200
+    "logicalOrder": 105,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 201,
@@ -7177,7 +7276,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học duy vật.). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 205
+    "logicalOrder": 27,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 206,
@@ -7770,13 +7872,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học cổ đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 223
+    "logicalOrder": 106,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 224,
@@ -7944,7 +8049,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Các nhà triết học siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 228
+    "logicalOrder": 61,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 229,
@@ -8002,13 +8110,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học Mác là sự kết hợp phép biện chứng của Hêghen và chủ nghĩa duy tâm của Phoi - ơ - bắc). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 230
+    "logicalOrder": 107,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 231,
@@ -8661,13 +8772,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Triết học không phải là toàn bộ thế giới quan mà chỉ là hạt nhân lý luận chung nhất của thế giới quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 250
+    "logicalOrder": 108,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 251,
@@ -8896,7 +9010,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy tâm chủ quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 257
+    "logicalOrder": 62,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 258,
@@ -8961,13 +9078,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Tính đặc thù của hệ thống tri thức khoa học và phương pháp nghiên cứu). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 259
+    "logicalOrder": 109,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 260,
@@ -9065,7 +9185,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Xa rời thực tế). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 262
+    "logicalOrder": 28,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 263,
@@ -9128,7 +9251,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy tâm khách quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 264
+    "logicalOrder": 63,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 265,
@@ -9158,7 +9284,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Bản thể luận và nhận thức luận). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 265
+    "logicalOrder": 29,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 266,
@@ -9188,7 +9317,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Phương pháp). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 266
+    "logicalOrder": 64,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 267,
@@ -9220,7 +9352,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Tác phẩm nào sau đây được đánh giá là văn kiện đầu tiên có tính cương lĩnh của chủ nghĩa Mác, thể hiện sự chín muối về mặt thế giới quan mới của C. Mác và Ăngghen?)"
     ],
-    "logicalOrder": 267
+    "logicalOrder": 92,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 268,
@@ -9250,7 +9385,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Thế giới quan duy vật và phương pháp luận biện chứng). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 268
+    "logicalOrder": 65,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 269,
@@ -9280,7 +9418,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 269
+    "logicalOrder": 66,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 270,
@@ -9585,7 +9726,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 278
+    "logicalOrder": 93,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 279,
@@ -9615,7 +9759,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Triết học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 279
+    "logicalOrder": 110,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 280,
@@ -9645,7 +9792,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Không hoàn toàn phản khoa học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 280
+    "logicalOrder": 30,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 281,
@@ -9741,7 +9891,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Quan điểm siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 283
+    "logicalOrder": 67,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 284,
@@ -9808,7 +9961,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Giữa thế kỷ XIX). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 285
+    "logicalOrder": 94,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 286,
@@ -10161,7 +10317,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Có những lượng biểu thị yếu tố quy định kết cấu bên trong sự vật). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 295
+    "logicalOrder": 111,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 296,
@@ -10400,7 +10559,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Triết học cổ điển Đức). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 302
+    "logicalOrder": 95,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 303,
@@ -10760,7 +10922,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Khi quyền lực của Giáo hội bao trùm mọi lĩnh vực đời sống xã hội). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 312
+    "logicalOrder": 8,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 313,
@@ -10895,7 +11060,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Triết học nhị nguyên). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 316
+    "logicalOrder": 31,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 317,
@@ -11173,7 +11341,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Đồng nhất vật chất với vật thể). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 324
+    "logicalOrder": 32,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 325,
@@ -11346,7 +11517,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Chủ nghĩa Duy vật và chủ nghĩa kinh nghiệm phê phán). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 329
+    "logicalOrder": 96,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 330,
@@ -11482,7 +11656,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Duy vật và duy tâm). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 333
+    "logicalOrder": 68,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 334,
@@ -11724,7 +11901,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Chủ nghĩa duy vật chất phác thời cổ đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 340
+    "logicalOrder": 33,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 341,
@@ -12054,7 +12234,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Hệ thống quan điểm duy vật biện chứng về tự nhiên, xã hội và tư duy). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 349
+    "logicalOrder": 112,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 350,
@@ -12483,7 +12666,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (2). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 361
+    "logicalOrder": 34,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 362,
@@ -12619,7 +12805,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Nhận thức được thế giới). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 365
+    "logicalOrder": 35,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 366,
@@ -12687,7 +12876,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Quan điểm siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 367
+    "logicalOrder": 69,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 368,
@@ -13072,7 +13264,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy vật siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 378
+    "logicalOrder": 70,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 379,
@@ -13283,7 +13478,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Cá hai ông đều cho rằng, vật chất là nguyên tử). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 384
+    "logicalOrder": 9,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 385,
@@ -13745,7 +13943,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Thế giới quan tôn giáo). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 397
+    "logicalOrder": 10,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 398,
@@ -13813,7 +14014,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (\"Biện chứng của tự nhiên\"). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 399
+    "logicalOrder": 97,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 400,
@@ -13847,7 +14051,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Quan trọng, là nên tảng tư tưởng, kim chỉ nam cho hành động). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 400
+    "logicalOrder": 113,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 401,
@@ -14053,7 +14260,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Duy tâm chủ quan và duy tâm khách quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 406
+    "logicalOrder": 71,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 407,
@@ -14234,7 +14444,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Một mặt, một đặc tính nào đó). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 411
+    "logicalOrder": 36,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 412,
@@ -14518,7 +14731,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Một hình thức của phép biện chứng). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 419
+    "logicalOrder": 72,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 420,
@@ -14589,7 +14805,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Mối quan hệ giữa tư duy và tồn tại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 421
+    "logicalOrder": 37,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 422,
@@ -14623,7 +14842,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Điều kiện). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 422
+    "logicalOrder": 73,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 423,
@@ -14659,7 +14881,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Theo quan điểm của chủ nghĩa duy vật biện chứng thì những mối liên hệ tồn tại ở mọi sự vật, hiện tượng của thế giới là mối liên hệ như thế nào?)"
     ],
-    "logicalOrder": 423
+    "logicalOrder": 38,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 424,
@@ -14872,7 +15097,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Nhà triết học Hi Lạp Cổ đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 429
+    "logicalOrder": 11,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 430,
@@ -14906,7 +15134,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Immanuel Kant). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 430
+    "logicalOrder": 12,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 431,
@@ -14977,7 +15208,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Triết học là hạt nhân của thế giới quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 432
+    "logicalOrder": 74,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 433,
@@ -15011,7 +15245,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Copernicus). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 433
+    "logicalOrder": 13,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 434,
@@ -15045,7 +15282,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Ý). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 434
+    "logicalOrder": 14,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 435,
@@ -15079,7 +15319,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Thời kỳ cận đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 435
+    "logicalOrder": 75,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 436,
@@ -15115,7 +15358,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Trường phái triết học nào sau đây cho rằng vật chất bao gồm các yếu tố: kim, mộc, thủy, hòa, thố?)"
     ],
-    "logicalOrder": 436
+    "logicalOrder": 15,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 437,
@@ -15183,7 +15429,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Quan điểm duy tâm và siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 438
+    "logicalOrder": 76,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 439,
@@ -15533,13 +15782,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Nhị nguyên luận). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 448
+    "logicalOrder": 114,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 449,
@@ -15610,7 +15862,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Đối lập nhau). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 450
+    "logicalOrder": 115,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 451,
@@ -15683,7 +15938,10 @@
     "extraNotes": [
       "(Kiểu hỏi khác: Mặt thứ nhất trong vấn đề cơ bản của triết học giải quyết mỗi quan hệ giữa các yếu tố nào sau đây?)"
     ],
-    "logicalOrder": 452
+    "logicalOrder": 39,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 453,
@@ -15751,7 +16009,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Lực lượng siêu nhiên (thượng đế, ý niệm tuyệt đối)). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 454
+    "logicalOrder": 40,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 455,
@@ -16277,7 +16538,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Quyết định). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 469
+    "logicalOrder": 41,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 470,
@@ -16385,7 +16649,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (C.Mác). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 472
+    "logicalOrder": 116,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 473,
@@ -16419,7 +16686,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Vô thường, vô ngã, vô tạo giả). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 473
+    "logicalOrder": 77,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 474,
@@ -16621,7 +16891,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Vấn đề cơ bản của triết học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 479
+    "logicalOrder": 78,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 480,
@@ -16692,7 +16965,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Chủ nghĩa duy tâm khách quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 481
+    "logicalOrder": 79,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 482,
@@ -16797,7 +17073,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Chủ nghĩa duy vật biện chứng thừa nhận chân lý khách quan.). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 484
+    "logicalOrder": 80,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 485,
@@ -17226,7 +17505,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Thế kỷ VIII - VI TCN). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 496
+    "logicalOrder": 16,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 497,
@@ -17254,13 +17536,16 @@
     ],
     "chapter": 1,
     "chapterTitle": "Chương 1: Khái luận về triết học và triết học Mác - Lênin",
-    "topicId": "1.1",
+    "topicId": "1.2",
     "topicTitle": "1.1. Triết học và vấn đề cơ bản của triết học",
     "pageReference": "Trang 11 – 47",
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Khoa học của các khoa học). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 497
+    "logicalOrder": 98,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 498,
@@ -17294,7 +17579,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Nhà triết học Hi Lạp Cổ đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 498
+    "logicalOrder": 17,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 499,
@@ -17365,7 +17653,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Ở Tây Âu thời trung cố). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 500
+    "logicalOrder": 18,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 501,
@@ -17504,7 +17795,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Chủ nghĩa duy tâm chủ quan.). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 504
+    "logicalOrder": 81,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 505,
@@ -17643,7 +17937,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Ph.Ăngghen). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 508
+    "logicalOrder": 117,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 509,
@@ -17778,7 +18075,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Duy tâm khách quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 512
+    "logicalOrder": 42,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 513,
@@ -17920,7 +18220,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Cho rằng tinh thần khách quan chi phối hoạt động của con người). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 516
+    "logicalOrder": 43,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 517,
@@ -18277,7 +18580,10 @@
     "extraNotes": [
       "(Giải thích: Thừa nhận tính vật chất của thế giới.)"
     ],
-    "logicalOrder": 526
+    "logicalOrder": 44,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 527,
@@ -18735,7 +19041,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Thuyết Ngũ hành). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 539
+    "logicalOrder": 19,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 540,
@@ -18806,7 +19115,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: C (Duy tâm chủ quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 541
+    "logicalOrder": 82,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 542,
@@ -19047,7 +19359,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Mở). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 548
+    "logicalOrder": 118,
+    "subtopicId": "1.2.2",
+    "subtopicTitle": "5. Đối tượng, Bản chất & Vai trò của Triết học Mác - Lênin",
+    "subtopicBadge": "5. Vai trò TH Mác - Lênin"
   },
   {
     "id": 549,
@@ -19224,7 +19539,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Một nguyên nhân chi có thể đưa đến một kết quả). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 553
+    "logicalOrder": 45,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 554,
@@ -19327,7 +19645,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B, C, D (Vì thế giới quan triết học như thế nào sẽ quy định các thế giới quan và các quan niệm khác như thế; Vì triết học bao giờ cũng là thành phần quan trọng, đóng vai trò là nhân tố cốt lõi trong các thế giới quan khác; Vì triết học luôn luôn ảnh hưỡng và chi phối một cách tự giác đối với các loại thế giới quan). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 556
+    "logicalOrder": 20,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 557,
@@ -19396,7 +19717,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A, B (Mặt thứ nhất: giữa vật chất và ý thức cái nào có trước, cái nào có sau, cái nào quyết định cái nào?; Mặt thứ hai: con người có khả năng nhận thức được thế giới hay không?). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 558
+    "logicalOrder": 46,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 559,
@@ -19535,7 +19859,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Socrates). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 562
+    "logicalOrder": 21,
+    "subtopicId": "1.1.1",
+    "subtopicTitle": "1. Nguồn gốc, Khái niệm Triết học & Thế giới quan",
+    "subtopicBadge": "1. Triết học & Thế giới quan"
   },
   {
     "id": 563,
@@ -19569,7 +19896,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Đức). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 563
+    "logicalOrder": 99,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 564,
@@ -19605,7 +19935,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A, B, C (Định luật bảo toàn và chuyển hóa năng lượng; Thuyết tế bào; Thuyết tiến hóa của Charles Darwin). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 564
+    "logicalOrder": 100,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 565,
@@ -19639,7 +19972,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Tri thức khoa học, niềm tin khoa học và lý tưởng cách mạng). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 565
+    "logicalOrder": 83,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 566,
@@ -19673,7 +20009,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Duy vật chất phác thời cổ đại). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 566
+    "logicalOrder": 47,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 567,
@@ -19744,7 +20083,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: D (Đề phòng cho chúng ta khỏi phạm sai lầm và sự cứng nhắc). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 568
+    "logicalOrder": 84,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 569,
@@ -19812,7 +20154,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: B (Quan điểm siêu hình). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 570
+    "logicalOrder": 85,
+    "subtopicId": "1.1.3",
+    "subtopicTitle": "3. Phép biện chứng và Phương pháp siêu hình trong lịch sử",
+    "subtopicBadge": "3. Biện chứng & Siêu hình"
   },
   {
     "id": 571,
@@ -20058,7 +20403,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Descarters). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 577
+    "logicalOrder": 48,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 578,
@@ -20126,7 +20474,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Thực tiễn cách mạng của giai cấp vô sản). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.2. Triết học Mác - Lênin và vai trò trong đời sống xã hội (Trang 47 – 116), Triết học Mác ra đời là bước ngoặt cách mạng trên cơ sở kế thừa có phê phán các tiền đề lý luận (triết học cổ điển Đức, kinh tế chính trị cổ điển Anh, CNXH không tưởng Pháp) và các thành tựu khoa học tự nhiên thế kỷ XIX.",
     "extraNotes": [],
-    "logicalOrder": 579
+    "logicalOrder": 101,
+    "subtopicId": "1.2.1",
+    "subtopicTitle": "4. Sự ra đời, Tiền đề & Tác phẩm kinh điển của Triết học Mác - Lênin",
+    "subtopicBadge": "4. Sự ra đời TH Mác - Lênin"
   },
   {
     "id": 580,
@@ -20448,7 +20799,10 @@
     "textbook": "Giáo trình Triết học Mác – Lênin (2021), NXB Chính trị quốc gia Sự thật",
     "explanation": "Đáp án đúng là: A (Vật cho ta). Căn cứ lý luận: Theo Giáo trình Triết học Mác – Lênin (2021), 1.1. Triết học và vấn đề cơ bản của triết học (Trang 11 – 47), Triết học giải quyết vấn đề cơ bản gồm 2 mặt: Mặt thứ nhất (bản thể luận - vật chất hay ý thức có trước) phân định chủ nghĩa duy vật và chủ nghĩa duy tâm; Mặt thứ hai (nhận thức luận) xác định khả năng nhận thức thế giới của con người.",
     "extraNotes": [],
-    "logicalOrder": 588
+    "logicalOrder": 49,
+    "subtopicId": "1.1.2",
+    "subtopicTitle": "2. Vấn đề cơ bản của Triết học: Duy vật, Duy tâm, Khả tri & Bất khả tri",
+    "subtopicBadge": "2. Vấn đề cơ bản TH"
   },
   {
     "id": 589,

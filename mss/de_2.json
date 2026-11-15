@@ -1,0 +1,1402 @@
+[
+  {
+    "id": 1,
+    "page": 1,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the role of a 'refresh token' in a secure e-commerce application?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is a short-lived token used for every API request."
+      },
+      {
+        "id": "B",
+        "text": "It is a long-lived token used to securely obtain a new, short-lived access token without requiring the user to log in again."
+      },
+      {
+        "id": "C",
+        "text": "It is used to refresh the product catalog page."
+      },
+      {
+        "id": "D",
+        "text": "It is an alternative to a user's password."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 202950.png"
+  },
+  {
+    "id": 2,
+    "page": 2,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "In a Saga pattern for managing distributed transactions, how is consistency achieved across multiple services?",
+    "options": [
+      {
+        "id": "A",
+        "text": "By using a single global database lock."
+      },
+      {
+        "id": "B",
+        "text": "Through a sequence of local transactions, where each local transaction updates the database and triggers the next step or compensating transaction."
+      },
+      {
+        "id": "C",
+        "text": "By reverting all database changes automatically using SQL ROLLBACK."
+      },
+      {
+        "id": "D",
+        "text": "By enforcing 2PC across all services."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 202957.png"
+  },
+  {
+    "id": 3,
+    "page": 3,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which annotation in Spring Boot activates Discovery Client for service registration and discovery?",
+    "options": [
+      {
+        "id": "A",
+        "text": "@EnableEurekaServer"
+      },
+      {
+        "id": "B",
+        "text": "@EnableDiscoveryClient"
+      },
+      {
+        "id": "C",
+        "text": "@SpringBootApplication"
+      },
+      {
+        "id": "D",
+        "text": "@RestController"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203001.png"
+  },
+  {
+    "id": 4,
+    "page": 4,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "By default, the Config Server exposes its API over HTTP. What would be the standard URL for a client named user-service with a dev profile to fetch its configuration?",
+    "options": [
+      {
+        "id": "A",
+        "text": "http://localhost:8888/user-service/dev"
+      },
+      {
+        "id": "B",
+        "text": "http://localhost:8888/dev/user-service"
+      },
+      {
+        "id": "C",
+        "text": "http://localhost:8888/config/user-service-dev"
+      },
+      {
+        "id": "D",
+        "text": "http://localhost:8888/user-service-dev.json"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203007.png"
+  },
+  {
+    "id": 5,
+    "page": 5,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "There are two main types of service discovery: client-side and server-side. What is a characteristic of client-side discovery?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The client queries the service registry to get a list of service locations and then chooses one."
+      },
+      {
+        "id": "B",
+        "text": "A router or load balancer queries the service registry and routes the client's request."
+      },
+      {
+        "id": "C",
+        "text": "The client has hardcoded IP addresses for all services."
+      },
+      {
+        "id": "D",
+        "text": "The service registry pushes updates directly to the client."
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203010.png"
+  },
+  {
+    "id": 6,
+    "page": 6,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "A primary goal of using microservices is to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Simplify the development of small, simple applications."
+      },
+      {
+        "id": "B",
+        "text": "Increase the complexity of the deployment process."
+      },
+      {
+        "id": "C",
+        "text": "Improve the scalability and agility of large, complex applications."
+      },
+      {
+        "id": "D",
+        "text": "Enforce the use of a single technology stack across the organization."
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203014.png"
+  },
+  {
+    "id": 7,
+    "page": 7,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The Two-Phase Commit (2PC) pattern provides strong consistency but is often avoided in microservices because:",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is too simple to implement."
+      },
+      {
+        "id": "B",
+        "text": "It is a 'chatty' protocol that requires locking resources, which reduces availability and performance."
+      },
+      {
+        "id": "C",
+        "text": "It does not guarantee data consistency."
+      },
+      {
+        "id": "D",
+        "text": "It only works with NoSQL databases."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203017.png"
+  },
+  {
+    "id": 8,
+    "page": 8,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which GCP service is a fully managed, serverless platform for running containerized applications?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Google Compute Engine (GCE)"
+      },
+      {
+        "id": "B",
+        "text": "Google Cloud Storage (GCS)"
+      },
+      {
+        "id": "C",
+        "text": "Google Cloud Run"
+      },
+      {
+        "id": "D",
+        "text": "Google BigQuery"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203021.png"
+  },
+  {
+    "id": 9,
+    "page": 9,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What problem does containerization, as implemented by Docker, primarily solve?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The 'it works on my machine' problem by packaging an application with all its dependencies."
+      },
+      {
+        "id": "B",
+        "text": "Slow internet connections for developers."
+      },
+      {
+        "id": "C",
+        "text": "The need for writing code in multiple programming languages."
+      },
+      {
+        "id": "D",
+        "text": "The high cost of physical hardware."
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203025.png"
+  },
+  {
+    "id": 10,
+    "page": 10,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The Database per Service pattern dictates that:",
+    "options": [
+      {
+        "id": "A",
+        "text": "All microservices must share a single, centralized database."
+      },
+      {
+        "id": "B",
+        "text": "Each microservice is responsible for its own private data store."
+      },
+      {
+        "id": "C",
+        "text": "Services are not allowed to use a database and must be stateless."
+      },
+      {
+        "id": "D",
+        "text": "A single database server hosts separate schemas for each microservice."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203030.png"
+  },
+  {
+    "id": 11,
+    "page": 11,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which feature of Docker ensures that an application runs the same way regardless of the underlying environment?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Portability"
+      },
+      {
+        "id": "B",
+        "text": "High Availability"
+      },
+      {
+        "id": "C",
+        "text": "Automatic Scaling"
+      },
+      {
+        "id": "D",
+        "text": "Data Encryption"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203035.png"
+  },
+  {
+    "id": 12,
+    "page": 12,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "When would you choose GKE over Cloud Run?",
+    "options": [
+      {
+        "id": "A",
+        "text": "When you have a simple web app and want to minimize operational overhead"
+      },
+      {
+        "id": "B",
+        "text": "When you need to orchestrate a complex system of multiple microservices with specific networking rules, stateful workloads, and fine-grained control."
+      },
+      {
+        "id": "C",
+        "text": "When you want your application to scale to zero automatically"
+      },
+      {
+        "id": "D",
+        "text": "When you do not want to use containers."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203039.png"
+  },
+  {
+    "id": 13,
+    "page": 13,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "When creating an 'OAuth 2.0 Client ID' in the Google Cloud Console, a developer must choose an 'Application type'. Which type should be selected for a traditional server-side application that will handle the OAuth flow on its backend?",
+    "options": [
+      {
+        "id": "A",
+        "text": "TV and Limited Input devices"
+      },
+      {
+        "id": "B",
+        "text": "iOS"
+      },
+      {
+        "id": "C",
+        "text": "Web application"
+      },
+      {
+        "id": "D",
+        "text": "Android"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203043.png"
+  },
+  {
+    "id": 14,
+    "page": 14,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the role of an Access Token in OAuth 2.0?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It proves the identity of the user to the client application"
+      },
+      {
+        "id": "B",
+        "text": "It is a credential used by the client to access protected resources on behalf of the resource owner."
+      },
+      {
+        "id": "C",
+        "text": "It is used to request a refresh token."
+      },
+      {
+        "id": "D",
+        "text": "It is the user's plain text password."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203047.png"
+  },
+  {
+    "id": 15,
+    "page": 15,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "To implement the 'Read' (R in CRUD) operation for a user's order history, the Order service receives a GET /orders?userId=123 request. What is the most important security check the service must perform before returning the data?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Verify that the format of the userId is a valid number."
+      },
+      {
+        "id": "B",
+        "text": "Ensure the authenticated user making the request is user 123 or an administrator with permission to view all orders."
+      },
+      {
+        "id": "C",
+        "text": "Check if the database has an index on the userId column for faster reads."
+      },
+      {
+        "id": "D",
+        "text": "Make sure the HTTP response code is 200 OK."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203050.png"
+  },
+  {
+    "id": 16,
+    "page": 16,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is a Predicate in the context of Spring Cloud Gateway?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A component that modifies the downstream request or response."
+      },
+      {
+        "id": "B",
+        "text": "A rule that must be matched for a route to be applied, often based on the path, host, or headers."
+      },
+      {
+        "id": "C",
+        "text": "A component that discovers other services."
+      },
+      {
+        "id": "D",
+        "text": "A component that provides a fallback response."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203056.png"
+  },
+  {
+    "id": 17,
+    "page": 17,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Your Spring Boot application requires a database password, which you don't want to bake into the container image. What is the recommended way to provide this secret to a Cloud Run service?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Pass it as a command-line argument in the deployment command."
+      },
+      {
+        "id": "B",
+        "text": "Store it in a public text file in Cloud Storage."
+      },
+      {
+        "id": "C",
+        "text": "Use Google Secret Manager and mount the secret as an environment variable or a volume in the Cloud Run service."
+      },
+      {
+        "id": "D",
+        "text": "Hardcode it directly in the application.properties file."
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203101.png"
+  },
+  {
+    "id": 18,
+    "page": 18,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the primary reason that managing transactions is more complex in a microservices architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Microservices are always written in different programming languages."
+      },
+      {
+        "id": "B",
+        "text": "A single business transaction often spans multiple services, each with its own private database."
+      },
+      {
+        "id": "C",
+        "text": "Network communication between services is always 100% reliable."
+      },
+      {
+        "id": "D",
+        "text": "Monolithic applications have better tools for transaction management."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203240.png"
+  },
+  {
+    "id": 19,
+    "page": 19,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which of the following best describes Spring Cloud?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A framework for building monolithic Spring applications."
+      },
+      {
+        "id": "B",
+        "text": "A project that provides tools for developers to quickly build common patterns in distributed systems."
+      },
+      {
+        "id": "C",
+        "text": "A cloud platform for hosting Java applications."
+      },
+      {
+        "id": "D",
+        "text": "A replacement for the core Spring Framework."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203244.png"
+  },
+  {
+    "id": 20,
+    "page": 20,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The 'Environment' abstraction in Spring Cloud Config represents:",
+    "options": [
+      {
+        "id": "A",
+        "text": "The physical server hardware."
+      },
+      {
+        "id": "B",
+        "text": "A collection of property sources for a specific application and profile."
+      },
+      {
+        "id": "C",
+        "text": "The network location of the Config Server."
+      },
+      {
+        "id": "D",
+        "text": "The operating system of the client."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203249.png"
+  },
+  {
+    "id": 21,
+    "page": 21,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the purpose of the 'Client Secret' in the OAuth 2.0 flow?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is a public identifier shared with users."
+      },
+      {
+        "id": "B",
+        "text": "It is a secret known only to the application and the authorization server, used to authenticate the application itself."
+      },
+      {
+        "id": "C",
+        "text": "It is an access token used to call APIs on behalf of the user."
+      },
+      {
+        "id": "D",
+        "text": "It is used to encrypt the user's password."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203253.png"
+  },
+  {
+    "id": 22,
+    "page": 22,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "In Docker, what is an image?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A running instance of an application."
+      },
+      {
+        "id": "B",
+        "text": "A lightweight, standalone, executable package of software that includes everything needed to run an application."
+      },
+      {
+        "id": "C",
+        "text": "A virtual machine disk drive file (.vhdx)."
+      },
+      {
+        "id": "D",
+        "text": "A source code repository."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203258.png"
+  },
+  {
+    "id": 23,
+    "page": 23,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Consider the following Java configuration for a route in Spring Cloud Gateway: @Bean public RouteLocator customRouteLocator(RouteLocatorBuilder builder) { return builder.routes().route(\"user_service_route\", r -> r.path(\"/users/**\").uri(\"http://localhost:8081\")).build(); } What does this configuration do?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It routes all traffic to http://localhost:8081."
+      },
+      {
+        "id": "B",
+        "text": "It routes any request whose path starts with /users/ to a service at http://localhost:8081."
+      },
+      {
+        "id": "C",
+        "text": "It adds a header to all requests for /users/."
+      },
+      {
+        "id": "D",
+        "text": "It defines a fallback for the user service."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203302.png"
+  },
+  {
+    "id": 24,
+    "page": 24,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the purpose of the API Gateway pattern in microservices?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To replace all microservices with a monolith"
+      },
+      {
+        "id": "B",
+        "text": "To provide a single entry point for clients, encapsulating internal service architecture and handling cross-cutting concerns (auth, rate limiting, routing)."
+      },
+      {
+        "id": "C",
+        "text": "To manage database migrations."
+      },
+      {
+        "id": "D",
+        "text": "To store user session data."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203307.png"
+  },
+  {
+    "id": 25,
+    "page": 25,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "In Docker, what is the purpose of a Dockerfile?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A text document containing all the commands a user could call on the command line to assemble a Docker image."
+      },
+      {
+        "id": "B",
+        "text": "A configuration file for Kubernetes clusters."
+      },
+      {
+        "id": "C",
+        "text": "A log file produced by a running container."
+      },
+      {
+        "id": "D",
+        "text": "A binary executable for running Docker."
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203310.png"
+  },
+  {
+    "id": 26,
+    "page": 26,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "In Spring Cloud Gateway, what is a Filter used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To check if a route matches a request."
+      },
+      {
+        "id": "B",
+        "text": "To modify incoming requests or outgoing responses (e.g., adding headers, authentication)."
+      },
+      {
+        "id": "C",
+        "text": "To register new services with Eureka."
+      },
+      {
+        "id": "D",
+        "text": "To compile Java code at runtime."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203314.png"
+  },
+  {
+    "id": 27,
+    "page": 27,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the primary role of a Service Registry (e.g., Netflix Eureka) in a microservices architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To store user credentials securely."
+      },
+      {
+        "id": "B",
+        "text": "To maintain a dynamic list of available service instances and their network locations."
+      },
+      {
+        "id": "C",
+        "text": "To route HTTP requests to appropriate microservices."
+      },
+      {
+        "id": "D",
+        "text": "To balance database load."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203318.png"
+  },
+  {
+    "id": 28,
+    "page": 28,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is an advantage of using Spring Cloud Config?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It allows updating application configurations dynamically without restarting the application."
+      },
+      {
+        "id": "B",
+        "text": "It eliminates the need for Git version control."
+      },
+      {
+        "id": "C",
+        "text": "It automatically writes unit tests for configuration."
+      },
+      {
+        "id": "D",
+        "text": "It replaces Spring Boot application properties entirely."
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203322.png"
+  },
+  {
+    "id": 29,
+    "page": 29,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which security token format is commonly used in microservices authentication, containing JSON-encoded claims signed digitally?",
+    "options": [
+      {
+        "id": "A",
+        "text": "SAML"
+      },
+      {
+        "id": "B",
+        "text": "JWT (JSON Web Token)"
+      },
+      {
+        "id": "C",
+        "text": "OAuth 1.0"
+      },
+      {
+        "id": "D",
+        "text": "Cookie"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203326.png"
+  },
+  {
+    "id": 30,
+    "page": 30,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which Spring Cloud project provides a centralized, externalized configuration management for distributed systems?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Spring Cloud Gateway"
+      },
+      {
+        "id": "B",
+        "text": "Spring Cloud Config"
+      },
+      {
+        "id": "C",
+        "text": "Spring Cloud Sleuth"
+      },
+      {
+        "id": "D",
+        "text": "Spring Cloud Stream"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203330.png"
+  },
+  {
+    "id": 31,
+    "page": 31,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The Strangler Fig pattern is primarily used for what purpose?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To manage distributed transactions."
+      },
+      {
+        "id": "B",
+        "text": "To incrementally migrate a legacy monolithic application to a microservices architecture."
+      },
+      {
+        "id": "C",
+        "text": "To monitor the health of running services."
+      },
+      {
+        "id": "D",
+        "text": "To secure communication between services."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203335.png"
+  },
+  {
+    "id": 32,
+    "page": 32,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which of the following are considered the four key (ACID) properties of a transaction?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Atomicity, Concurrency, Integrity, Durability"
+      },
+      {
+        "id": "B",
+        "text": "Availability, Consistency, Isolation, Durability"
+      },
+      {
+        "id": "C",
+        "text": "Atomicity, Consistency, Isolation, Durability"
+      },
+      {
+        "id": "D",
+        "text": "Atomicity, Concurrency, Infallibility, Delegation"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203341.png"
+  },
+  {
+    "id": 33,
+    "page": 33,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the primary difference between a Monolithic architecture and a Microservices architecture?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Monoliths are always built using Java, while Microservices use Python."
+      },
+      {
+        "id": "B",
+        "text": "A Monolith is built as a single, unified unit, whereas Microservices are a collection of small, independent services."
+      },
+      {
+        "id": "C",
+        "text": "Microservices are easier to test than Monoliths."
+      },
+      {
+        "id": "D",
+        "text": "Monoliths cannot scale under high traffic."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203345.png"
+  },
+  {
+    "id": 34,
+    "page": 34,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The CAP theorem states that a distributed system can only provide two out of three guarantees: Consistency, Availability, and Partition Tolerance. Which guarantee is typically prioritized in microservices, leading to challenges with transactions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Consistency"
+      },
+      {
+        "id": "B",
+        "text": "Availability"
+      },
+      {
+        "id": "C",
+        "text": "Partition Tolerance"
+      },
+      {
+        "id": "D",
+        "text": "Durability"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203415.png"
+  },
+  {
+    "id": 35,
+    "page": 35,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is a Docker Registry, such as Docker Hub?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A service that runs containers in production"
+      },
+      {
+        "id": "B",
+        "text": "A local storage area for Docker images on a developer's machine."
+      },
+      {
+        "id": "C",
+        "text": "A server-side application for storing and distributing Docker images."
+      },
+      {
+        "id": "D",
+        "text": "A tool for monitoring the performance of containers."
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203420.png"
+  },
+  {
+    "id": 36,
+    "page": 36,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which Google Cloud Platform (GCP) service is ideal for deploying a simple Spring Boot microservice that needs to scale to zero when not in use, making it very cost-effective?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Google Compute Engine (GCE)"
+      },
+      {
+        "id": "B",
+        "text": "Google Kubernetes Engine (GKE)"
+      },
+      {
+        "id": "C",
+        "text": "Google Cloud Functions"
+      },
+      {
+        "id": "D",
+        "text": "Google Cloud Run"
+      }
+    ],
+    "correctAnswers": [
+      "D"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203423.png"
+  },
+  {
+    "id": 37,
+    "page": 37,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What does the 'Half-Open' state of a Circuit Breaker allow?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It blocks all requests to the downstream service."
+      },
+      {
+        "id": "B",
+        "text": "It allows a limited number of test requests to pass through to check if the downstream service has recovered."
+      },
+      {
+        "id": "C",
+        "text": "It routes requests to a backup database."
+      },
+      {
+        "id": "D",
+        "text": "It logs errors without taking any action."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203427.png"
+  },
+  {
+    "id": 38,
+    "page": 38,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the purpose of a Circuit Breaker pattern (e.g., Resilience4j) in microservices?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To encrypt database credentials."
+      },
+      {
+        "id": "B",
+        "text": "To prevent cascading failures when a downstream service is slow or unresponsive."
+      },
+      {
+        "id": "C",
+        "text": "To format JSON responses."
+      },
+      {
+        "id": "D",
+        "text": "To generate JWT tokens."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203431.png"
+  },
+  {
+    "id": 39,
+    "page": 39,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which HTTP method is typically used to create a new resource in a RESTful service?",
+    "options": [
+      {
+        "id": "A",
+        "text": "GET"
+      },
+      {
+        "id": "B",
+        "text": "POST"
+      },
+      {
+        "id": "C",
+        "text": "PUT"
+      },
+      {
+        "id": "D",
+        "text": "DELETE"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203436.png"
+  },
+  {
+    "id": 40,
+    "page": 40,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "The security goal of 'Confidentiality' ensures that:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Data is accurate and has not been tampered with."
+      },
+      {
+        "id": "B",
+        "text": "The system is available and operational when needed."
+      },
+      {
+        "id": "C",
+        "text": "Information is not disclosed to unauthorized individuals, entities, or processes."
+      },
+      {
+        "id": "D",
+        "text": "A user or service cannot deny having performed an action"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203441.png"
+  },
+  {
+    "id": 41,
+    "page": 41,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Your Spring Boot application requires a database password, which you don't want to bake into the container image. What is the recommended way to provide this secret to a Cloud Run service?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Pass it as a command-line argument in the deployment command."
+      },
+      {
+        "id": "B",
+        "text": "Store it in a public text file in Cloud Storage."
+      },
+      {
+        "id": "C",
+        "text": "Use Google Secret Manager and mount the secret as an environment variable or a volume in the Cloud Run service."
+      },
+      {
+        "id": "D",
+        "text": "Hardcode it directly in the application.properties file."
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203444.png"
+  },
+  {
+    "id": 42,
+    "page": 42,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the main benefit of asynchronous communication using a message broker (e.g., RabbitMQ, Kafka)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Low latency for real-time request-response cycles."
+      },
+      {
+        "id": "B",
+        "text": "Decoupling services, improving resilience, and handling spikes in load."
+      },
+      {
+        "id": "C",
+        "text": "Guaranteeing immediate transactional consistency."
+      },
+      {
+        "id": "D",
+        "text": "Eliminating the need for databases."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203448.png"
+  },
+  {
+    "id": 43,
+    "page": 43,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What triggers the transition from the 'Closed' to the 'Open' state in a Circuit Breaker?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A predefined period of inactivity."
+      },
+      {
+        "id": "B",
+        "text": "The number of consecutive or recent failures exceeding a configured threshold."
+      },
+      {
+        "id": "C",
+        "text": "A successful response from the downstream service."
+      },
+      {
+        "id": "D",
+        "text": "A manual command from an administrator."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203453.png"
+  },
+  {
+    "id": 44,
+    "page": 44,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which Java framework is most popular for building microservices due to its convention-over-configuration approach and embedded servers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Spring Boot"
+      },
+      {
+        "id": "B",
+        "text": "Apache Struts"
+      },
+      {
+        "id": "C",
+        "text": "Hibernate"
+      },
+      {
+        "id": "D",
+        "text": "JavaFX"
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203456.png"
+  },
+  {
+    "id": 45,
+    "page": 45,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is a key characteristic of synchronous communication, such as a REST API call?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The client sends a request and immediately continues with other work, without waiting for a response."
+      },
+      {
+        "id": "B",
+        "text": "The client is blocked and waits for a response from the server before continuing."
+      },
+      {
+        "id": "C",
+        "text": "It is primarily used for broadcasting events to multiple services."
+      },
+      {
+        "id": "D",
+        "text": "It improves the resilience of the system by decoupling services."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203459.png"
+  },
+  {
+    "id": 46,
+    "page": 46,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is a key advantage of using Docker containers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Containers require a full virtual machine OS for each application."
+      },
+      {
+        "id": "B",
+        "text": "Containers share the host OS kernel, making them lightweight and fast to start."
+      },
+      {
+        "id": "C",
+        "text": "Containers can only run on Linux servers."
+      },
+      {
+        "id": "D",
+        "text": "Containers eliminate the need for networking configuration"
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203504.png"
+  },
+  {
+    "id": 47,
+    "page": 47,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is a Kubernetes Deployment object used for?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To expose a running application to the network."
+      },
+      {
+        "id": "B",
+        "text": "To provide persistent storage for an application handling updates."
+      },
+      {
+        "id": "C",
+        "text": "To declaratively manage a set of identical Pods, ensuring a specified number of them are running and handling updates."
+      },
+      {
+        "id": "D",
+        "text": "To store application secrets and configuration."
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203514.png"
+  },
+  {
+    "id": 48,
+    "page": 48,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "In an OAuth 2.0 'Login with Google' flow for your e-commerce site, what is the role of the 'scope' parameter?",
+    "options": [
+      {
+        "id": "A",
+        "text": "To define the CSS styles for the login button."
+      },
+      {
+        "id": "B",
+        "text": "To request specific permissions from the user to access their Google email and profile information."
+      },
+      {
+        "id": "C",
+        "text": "To limit how many times a user can log in per day."
+      },
+      {
+        "id": "D",
+        "text": "To tell Google which microservice the user should be redirected to."
+      }
+    ],
+    "correctAnswers": [
+      "B"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203518.png"
+  },
+  {
+    "id": 49,
+    "page": 49,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "Which component acts as the single entry point for all incoming requests from clients?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Service Registry"
+      },
+      {
+        "id": "B",
+        "text": "Message Broker"
+      },
+      {
+        "id": "C",
+        "text": "API Gateway"
+      },
+      {
+        "id": "D",
+        "text": "Container"
+      }
+    ],
+    "correctAnswers": [
+      "C"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203521.png"
+  },
+  {
+    "id": 50,
+    "page": 50,
+    "examCode": "MSS301_SU26_FE_312264",
+    "question": "What is the main role of Google Kubernetes Engine (GKE)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A managed service for deploying, managing, and scaling containerized applications using Kubernetes."
+      },
+      {
+        "id": "B",
+        "text": "A domain name registration service."
+      },
+      {
+        "id": "C",
+        "text": "A static site hosting platform."
+      },
+      {
+        "id": "D",
+        "text": "An email sending service."
+      }
+    ],
+    "correctAnswers": [
+      "A"
+    ],
+    "imageFile": "Screenshot 2026-11-15 203524.png"
+  }
+]
