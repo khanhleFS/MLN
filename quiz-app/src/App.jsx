@@ -1229,24 +1229,20 @@ export default function App() {
           </div>
 
           {/* Subject Switcher */}
-          <div className="subject-switcher" role="tablist" aria-label="Chọn môn học">
-            {Object.values(SUBJECTS).map((sub) => {
-              const isActive = subjectId === sub.id;
-              return (
-                <button
-                  key={sub.id}
-                  className={`subject-pill-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => handleSubjectChange(sub.id)}
-                  title={`Chuyển sang môn ${sub.name}`}
-                  role="tab"
-                  aria-selected={isActive}
-                >
-                  <span className="subject-pill-code">{sub.code}</span>
-                  <span className="subject-pill-name">{sub.shortName}</span>
-                  <span className="subject-pill-badge">{sub.questions.length}</span>
-                </button>
-              );
-            })}
+          <div className="subject-switcher">
+            <select
+              className="subject-select"
+              aria-label="Chọn khóa học"
+              title="Chọn môn học / khóa học"
+              value={subjectId}
+              onChange={(e) => handleSubjectChange(e.target.value)}
+            >
+              {Object.values(SUBJECTS).map((sub) => (
+                <option key={sub.id} value={sub.id}>
+                  [{sub.code}] {sub.shortName} — {sub.questions.length} câu
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Gamified Player HUD */}
@@ -1379,23 +1375,26 @@ export default function App() {
             {/* Filter Bar */}
             <div className="filter-bar">
               <div className="filter-row-top">
-                {/* Chapter Pills */}
+                {/* Chapter Dropdown + Filter Pills */}
                 <div className="chapter-pills">
-                  {CHAPTERS.map((ch) => {
-                    const count = ch.id === 'all'
-                      ? rawQuestions.length
-                      : rawQuestions.filter(q => q.chapter === ch.id).length;
-                    return (
-                      <button
-                        key={ch.id}
-                        className={`pill-btn ${selectedChapter === ch.id ? 'active' : ''}`}
-                        onClick={() => handleChapterChange(ch.id)}
-                      >
-                        {ch.short}
-                        <span className="pill-count">{count}</span>
-                      </button>
-                    );
-                  })}
+                  <select
+                    className="chapter-select"
+                    aria-label="Chọn chương"
+                    title="Chọn chương học"
+                    value={selectedChapter}
+                    onChange={(e) => handleChapterChange(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+                  >
+                    {CHAPTERS.map((ch) => {
+                      const count = ch.id === 'all'
+                        ? rawQuestions.length
+                        : rawQuestions.filter(q => q.chapter === ch.id).length;
+                      return (
+                        <option key={ch.id} value={ch.id}>
+                          {ch.id === 'all' ? `Tất cả các chương (${count} câu)` : `${ch.title} (${count} câu)`}
+                        </option>
+                      );
+                    })}
+                  </select>
 
                   {/* Bookmark Filter Pill */}
                   <button
